@@ -8,6 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root {
+    --text: #111;
+    --muted: #666;
+    --border: #eaeaea;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,20 +23,26 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    color: #111111;
+    background: #fff;
+    color: var(--text);
     line-height: 1.7;
 }
 
 .container {
-    width: 88%;
+    width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
+/* HEADER */
+
 header {
-    padding: 30px 0;
-    border-bottom: 1px solid #eaeaea;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
 }
 
 nav {
@@ -41,109 +54,150 @@ nav {
 .logo {
     font-weight: 700;
     font-size: 18px;
-    letter-spacing: 1px;
 }
 
-nav ul {
+.nav-links {
     display: flex;
-    list-style: none;
+    gap: 30px;
 }
 
-nav ul li {
-    margin-left: 35px;
-}
-
-nav ul li a {
+.nav-links a {
     text-decoration: none;
-    color: #111;
-    font-weight: 500;
+    color: var(--text);
     font-size: 14px;
+    font-weight: 500;
 }
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* HERO */
 
 .hero {
-    padding: 140px 0 120px 0;
+    padding: 100px 0;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 18px;
-    color: #555;
-    max-width: 720px;
+    max-width: 700px;
     margin: auto;
+    color: var(--muted);
+    font-size: 18px;
 }
 
+/* SECTIONS */
+
 .section {
-    padding: 120px 0;
-    border-top: 1px solid #eaeaea;
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
 }
 
 .section h2 {
-    font-size: 34px;
-    font-weight: 600;
+    font-size: 30px;
     margin-bottom: 40px;
 }
 
-.section p {
-    max-width: 850px;
-    color: #555;
-}
-
-.grid-2 {
+.grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
 .card {
-    border: 1px solid #eaeaea;
-    padding: 40px;
+    border: 1px solid var(--border);
+    padding: 30px;
 }
 
 .card h3 {
-    font-size: 20px;
     margin-bottom: 15px;
+    font-size: 18px;
 }
 
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 40px;
-}
-
-.table th,
-.table td {
-    padding: 18px 10px;
-    text-align: left;
-    border-bottom: 1px solid #eaeaea;
+.card p {
+    color: var(--muted);
     font-size: 14px;
 }
 
-.table th {
+/* TABLE */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+th {
     font-weight: 600;
 }
 
+/* FOOTER */
+
 footer {
-    padding: 80px 0;
-    border-top: 1px solid #eaeaea;
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
     text-align: center;
     font-size: 14px;
-    color: #777;
+    color: var(--muted);
 }
 
-@media(max-width: 900px) {
-    .grid-2 {
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .grid {
         grid-template-columns: 1fr;
     }
-    .hero h1 {
-        font-size: 38px;
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 200px;
+        border-left: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        display: none;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
+
 </style>
 </head>
 
@@ -153,12 +207,15 @@ footer {
     <div class="container">
         <nav>
             <div class="logo">FAMR RWA</div>
-            <ul>
-                <li><a href="#token">Token</a></li>
-                <li><a href="#nft">NFT Architecture</a></li>
-                <li><a href="#rarity">Rarity Structure</a></li>
-                <li><a href="#">Whitepaper</a></li>
-            </ul>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#token">Token</a>
+                <a href="#nft">NFT Architecture</a>
+                <a href="#rarity">Rarity Structure</a>
+                <a href="#">Whitepaper</a>
+            </div>
+
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </nav>
     </div>
 </header>
@@ -167,8 +224,8 @@ footer {
     <div class="container">
         <h1>Structured Real World Asset Protocol</h1>
         <p>
-            FAMR integrates poultry-backed real world assets with a tiered NFT emission model,
-            controlled supply mechanics, and deflationary reinforcement via programmed burn cycles.
+            FAMR integrates poultry-backed real world assets with a tiered NFT emission
+            framework and a deflationary Add-Burn liquidity model.
         </p>
     </div>
 </section>
@@ -177,24 +234,24 @@ footer {
     <div class="container">
         <h2>Token Details</h2>
 
-        <div class="grid-2">
+        <div class="grid">
             <div class="card">
                 <h3>Core Structure</h3>
                 <p>
-                    Token Name: FAMR<br>
+                    Token: FAMR<br>
                     Standard: BEP-20<br>
-                    Utility: Staking, NFT Burn Conversion, Liquidity Cycling<br>
-                    Mechanism: Deflationary Add-Burn Reinforcement
+                    Utility: Staking, NFT Conversion, Liquidity Reinforcement<br>
+                    Emission Model: Tier-Based APY Allocation
                 </p>
             </div>
 
             <div class="card">
                 <h3>Economic Controls</h3>
                 <p>
-                    Structured APY Range: 70% – 120%<br>
-                    Maximum NFT Burn Exposure: 3.572T FAMR<br>
-                    Liquidity Strengthening via Buyback & Burn<br>
-                    Controlled Emission Based on NFT Tier
+                    APY Range: 70% – 120%<br>
+                    NFT Supply: 10,000<br>
+                    Maximum Burn Exposure: 3.572T FAMR<br>
+                    Structured Buyback & Burn Cycles
                 </p>
             </div>
         </div>
@@ -204,94 +261,158 @@ footer {
 <section class="section" id="nft">
     <div class="container">
         <h2>FAMR NFT Architecture</h2>
-        <p>
-            The FAMR Poultry Collection is deployed under the ERC-1155 standard,
-            allowing semi-fungible tier classification. Each NFT class represents
-            a staking power bracket with predefined APY and burn conversion weight.
-        </p>
 
-        <div class="grid-2" style="margin-top:60px;">
+        <div class="grid">
             <div class="card">
                 <h3>Collection Overview</h3>
                 <p>
-                    Total Supply: 10,000 NFTs<br>
-                    Mint Price Range: 0.065 – 0.105 BNB<br>
-                    Total Mint Potential: 820 BNB<br>
-                    Tier-Based Yield Assignment
+                    ERC-1155 Standard<br>
+                    Semi-Fungible Tier Classification<br>
+                    Mint Range: 0.065 – 0.105 BNB<br>
+                    Total Raise Potential: 820 BNB
                 </p>
             </div>
 
             <div class="card">
-                <h3>Add-Burn Liquidity Model</h3>
+                <h3>Add-Burn Mechanism</h3>
                 <p>
-                    Post-initial mint cycles utilize collected BNB to purchase FAMR from
-                    the liquidity pool and permanently burn tokens, reinforcing price
-                    floor and reducing circulating supply.
+                    Future mint cycles use collected BNB to purchase FAMR from liquidity
+                    pools and permanently burn tokens to strengthen the price floor.
                 </p>
             </div>
         </div>
     </div>
 </section>
+<section class="section" id="collection">
+    <div class="container">
+        <h2>FAMR NFT Collection</h2>
+        <p class="section-sub">
+            ERC-1155 Poultry Collection — Tiered Rarity Emission Structure
+        </p>
 
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+
+            <div class="carousel-track" id="carouselTrack">
+
+                <div class="nft-card">
+                    <img src="nft1.jpg" alt="AAAFAMR Genesis">
+                    <div class="nft-info">
+                        <h3>AAAFAMR</h3>
+                        <p>Genesis Sovereign Hen</p>
+                        <span>APY: 120%</span>
+                    </div>
+                </div>
+
+                <div class="nft-card">
+                    <img src="nft1.jpg" alt="BBBFAMR">
+                    <div class="nft-info">
+                        <h3>BBBFAMR</h3>
+                        <p>Imperial Broiler</p>
+                        <span>APY: 100%</span>
+                    </div>
+                </div>
+
+                <div class="nft-card">
+                    <img src="nft1.jpg" alt="CCCFAMR">
+                    <div class="nft-info">
+                        <h3>CCCFAMR</h3>
+                        <p>Prime Layer</p>
+                        <span>APY: 85%</span>
+                    </div>
+                </div>
+
+                <div class="nft-card">
+                    <img src="nft1.jpg" alt="DDDFAMR">
+                    <div class="nft-info">
+                        <h3>DDDFAMR</h3>
+                        <p>Harvest Grower</p>
+                        <span>APY: 75%</span>
+                    </div>
+                </div>
+
+                <div class="nft-card">
+                    <img src="nft1.jpg" alt="EEEFAMR">
+                    <div class="nft-info">
+                        <h3>EEEFAMR</h3>
+                        <p>Field Chick</p>
+                        <span>APY: 70%</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="contract-box">
+            <span>Contract Address:</span>
+            <code>0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</code>
+        </div>
+
+    </div>
+</section>
 <section class="section" id="rarity">
     <div class="container">
         <h2>Rarity Structure</h2>
 
-        <table class="table">
-            <tr>
-                <th>Class</th>
-                <th>Name</th>
-                <th>APY</th>
-                <th>Supply</th>
-                <th>Mint Price (BNB)</th>
-                <th>Burn Reward</th>
-            </tr>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Class</th>
+                    <th>Name</th>
+                    <th>APY</th>
+                    <th>Supply</th>
+                    <th>Price (BNB)</th>
+                    <th>Burn Reward</th>
+                </tr>
 
-            <tr>
-                <td>AAAFAMR</td>
-                <td>Genesis Sovereign Hen</td>
-                <td>120%</td>
-                <td>1,200</td>
-                <td>0.105</td>
-                <td>1,000,000,000</td>
-            </tr>
+                <tr>
+                    <td>AAAFAMR</td>
+                    <td>Genesis Sovereign Hen</td>
+                    <td>120%</td>
+                    <td>1,200</td>
+                    <td>0.105</td>
+                    <td>1,000,000,000</td>
+                </tr>
 
-            <tr>
-                <td>BBBFAMR</td>
-                <td>Imperial Broiler</td>
-                <td>100%</td>
-                <td>1,800</td>
-                <td>0.095</td>
-                <td>650,000,000</td>
-            </tr>
+                <tr>
+                    <td>BBBFAMR</td>
+                    <td>Imperial Broiler</td>
+                    <td>100%</td>
+                    <td>1,800</td>
+                    <td>0.095</td>
+                    <td>650,000,000</td>
+                </tr>
 
-            <tr>
-                <td>CCCFAMR</td>
-                <td>Prime Layer</td>
-                <td>85%</td>
-                <td>2,200</td>
-                <td>0.085</td>
-                <td>350,000,000</td>
-            </tr>
+                <tr>
+                    <td>CCCFAMR</td>
+                    <td>Prime Layer</td>
+                    <td>85%</td>
+                    <td>2,200</td>
+                    <td>0.085</td>
+                    <td>350,000,000</td>
+                </tr>
 
-            <tr>
-                <td>DDDFAMR</td>
-                <td>Harvest Grower</td>
-                <td>75%</td>
-                <td>2,400</td>
-                <td>0.075</td>
-                <td>150,000,000</td>
-            </tr>
+                <tr>
+                    <td>DDDFAMR</td>
+                    <td>Harvest Grower</td>
+                    <td>75%</td>
+                    <td>2,400</td>
+                    <td>0.075</td>
+                    <td>150,000,000</td>
+                </tr>
 
-            <tr>
-                <td>EEEFAMR</td>
-                <td>Field Chick</td>
-                <td>70%</td>
-                <td>2,400</td>
-                <td>0.065</td>
-                <td>30,000,000</td>
-            </tr>
-        </table>
+                <tr>
+                    <td>EEEFAMR</td>
+                    <td>Field Chick</td>
+                    <td>70%</td>
+                    <td>2,400</td>
+                    <td>0.065</td>
+                    <td>30,000,000</td>
+                </tr>
+            </table>
+        </div>
 
     </div>
 </section>
@@ -301,6 +422,12 @@ footer {
         © 2026 FAMR RWA. All Rights Reserved.
     </div>
 </footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
