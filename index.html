@@ -4,201 +4,180 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
+
 <style>
-/* ROOT COLORS */
-:root {
-    --text: #fff;
-    --muted: #ccc;
-    --border: rgba(212,175,55,0.3);
-    --gold: #d4af37;
-    --bg: #000;
+:root{
+--bg:#000;
+--text:#ffffff;
+--muted:#bbbbbb;
+--gold:#d4af37;
+--border:rgba(212,175,55,0.35);
 }
 
-/* RESET */
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* BODY */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+scroll-behavior:smooth;
 }
 
 /* NAV */
-nav {
-    position: fixed;
-    top:0;
-    width:100%;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    z-index: 999;
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#000;
+border-bottom:1px solid var(--border);
+z-index:1000;
 }
-nav .container {
-    max-width: 1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 5%;
+nav .wrap{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
 }
-nav .logo {
-    font-weight: bold;
-    font-size: 20px;
-    color: var(--gold);
+.logo{
+font-weight:bold;
+font-size:20px;
+color:var(--gold);
 }
-nav .nav-links {
-    display: flex;
-    gap: 25px;
+.nav-links{
+display:flex;
+gap:25px;
 }
-nav .nav-links a {
-    text-decoration: none;
-    color: var(--text);
+.nav-links a{
+text-decoration:none;
+color:var(--text);
 }
-nav .menu-toggle {
-    display: none;
-    font-size:26px;
-    cursor:pointer;
-    color: var(--text);
+.menu{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* SECTIONS */
+section{
+padding:80px 5%;
+text-align:center;
+max-width:1200px;
+margin:auto;
 }
 
 /* HERO */
-section.hero {
-    padding: 80px 5% 60px;
-    text-align: center;
+.hero h1{
+font-size:42px;
+color:var(--gold);
+margin-bottom:20px;
 }
-section.hero h1 {
-    font-size:42px;
-    color: var(--gold);
-    margin-bottom:20px;
-}
-section.hero p {
-    max-width:800px;
-    margin:auto;
-    font-size:18px;
-    color: var(--muted);
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:18px;
+color:var(--muted);
 }
 
-/* TOKEN DETAILS */
-section#token {
-    padding:60px 5%;
-    text-align:center;
+/* TOKEN CARD */
+.token-card{
+max-width:750px;
+margin:40px auto;
+border:1px solid var(--border);
+border-radius:18px;
+padding:30px;
 }
-.token-card {
-    max-width:700px;
-    margin:40px auto;
-    border:1px solid var(--border);
-    padding:30px;
-    border-radius:16px;
+.token-card p{margin:10px 0;}
+.token-card button{
+margin-top:15px;
+padding:10px 20px;
+background:#000;
+color:var(--gold);
+border:1px solid var(--border);
+border-radius:8px;
+cursor:pointer;
+width:100%;
+max-width:260px;
 }
-.token-card p {
-    margin:10px 0;
-}
-.token-card button {
-    margin-top:10px;
-    padding:10px 20px;
-    background: var(--bg);
-    color: var(--gold);
-    border:1px solid var(--border);
-    border-radius:8px;
-    cursor:pointer;
-    width:100%;
-    max-width:250px;
+.token-card button:hover{
+box-shadow:0 0 18px rgba(212,175,55,0.35);
 }
 
-/* NFT RARITY CAROUSEL */
-section#rarity {
-    padding:60px 5%;
-    text-align:center;
+/* CAROUSEL */
+.carousel-wrap{
+overflow:hidden;
+margin-top:40px;
 }
-#carousel-wrapper {
-    overflow:hidden;
-    max-width:1100px;
-    margin:40px auto;
+.carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-behavior:smooth;
 }
-#carousel {
-    display:flex;
-    transition:0.5s;
+.nft-card{
+min-width:280px;
+flex-shrink:0;
+border:1px solid var(--border);
+border-radius:22px;
+padding:25px;
+background:#111;
 }
-.nft-card {
-    min-width:300px;
-    margin:10px;
-    border:1px solid var(--border);
-    padding:25px;
-    border-radius:22px;
-    text-align:center;
-    flex-shrink:0;
-    background: #111;
+.nft-card h3{
+color:var(--gold);
+margin-bottom:10px;
 }
-.nft-card h3 {
-    color: var(--gold);
-    margin-bottom:10px;
+.nft-card:hover{
+box-shadow:0 0 25px rgba(212,175,55,0.25);
 }
 
-/* CAROUSEL BUTTONS */
-.carousel-btn {
-    cursor:pointer;
-    font-size:24px;
-    padding:10px 15px;
-    background:none;
-    border:1px solid var(--border);
-    color: var(--gold);
-    border-radius:8px;
-    margin:10px 5px;
+/* BUTTONS */
+.action-buttons{
+margin-top:30px;
 }
-.carousel-buttons {
-    margin-top:20px;
+.action-buttons a{
+display:inline-block;
+margin:10px;
+padding:12px 30px;
+border:1px solid var(--border);
+border-radius:8px;
+color:var(--gold);
+text-decoration:none;
 }
-
-/* PROTOCOL SECTION */
-section#protocol {
-    padding:60px 5%;
-    text-align:center;
+.action-buttons a:hover{
+box-shadow:0 0 20px rgba(212,175,55,0.4);
 }
 
-/* SOCIALS */
-section#socials {
-    padding:60px 5%;
-    text-align:center;
-    border-top:1px solid var(--border);
-}
-section#socials p {
-    margin:5px 0;
+/* SOCIAL */
+#socials{
+border-top:1px solid var(--border);
 }
 
-/* BUTTON HOVER */
-button:hover, .carousel-btn:hover, .nft-card:hover a {
-    box-shadow:0 0 15px rgba(212,175,55,0.4);
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:900px){
-    nav .nav-links {
-        display:none;
-        flex-direction:column;
-        gap:15px;
-        background: var(--bg);
-        position:absolute;
-        top:65px;
-        right:0;
-        width:100%;
-        padding:15px 5%;
-    }
-    nav .menu-toggle { display:block; }
-    #carousel { flex-wrap: nowrap; overflow-x:auto; scroll-snap-type:x mandatory; }
-    .nft-card { scroll-snap-align:start; min-width:250px; }
+.nav-links{
+display:none;
+flex-direction:column;
+gap:15px;
+background:#000;
+position:absolute;
+top:65px;
+right:0;
+width:100%;
+padding:20px 5%;
+border-bottom:1px solid var(--border);
+}
+.menu{display:block;}
 }
 </style>
 </head>
+
 <body>
 
 <!-- NAV -->
 <nav>
-<div class="container">
+<div class="wrap">
 <div class="logo">FAMR RWA</div>
 <div class="nav-links" id="navLinks">
 <a href="#hero">About</a>
@@ -207,7 +186,7 @@ button:hover, .carousel-btn:hover, .nft-card:hover a {
 <a href="#protocol">Protocol</a>
 <a href="#socials">Socials</a>
 </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
 </div>
 </nav>
 
@@ -216,86 +195,116 @@ button:hover, .carousel-btn:hover, .nft-card:hover a {
 <!-- HERO -->
 <section class="hero" id="hero">
 <h1>Famr RWA</h1>
-<p>Structured RWA Protocol integrating motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.</p>
+<p>
+A Structured Real-World Asset protocol powered by tiered NFT emission, staking mechanics, and a deflationary liquidity model built on BNB Smart Chain.
+</p>
 </section>
 
 <!-- TOKEN DETAILS -->
 <section id="token">
-<h2 style="color: var(--gold);">Token Details</h2>
+<h2 style="color:var(--gold);">Token Details</h2>
+
 <div class="token-card">
 <p><strong>Token Name:</strong> Famr RWA</p>
 <p><strong>Ticker:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
-<p><strong>Contract Address:</strong><br><span id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span></p>
+
+<p><strong>Contract Address:</strong></p>
+<p style="word-break:break-all;" id="caText">
+0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7
+</p>
+
 <button onclick="copyCA()">Copy Contract Address</button>
+
 <p><strong>Total Supply:</strong> 1,000,000,000,000,000 FAMR</p>
-<p><strong>Tokenomics & Hard Scarcity:</strong></p>
-<p>100T FAMR → Liquidity | 50T FAMR → Staking | 10T FAMR → NFT Conversion | 40T FAMR → Marketing & Ecosystem</p>
-<p>Remaining 800T FAMR (80%) burned after initial 200 NFT mints.</p>
+
+<p><strong>Tokenomics & Hard Scarcity</strong></p>
+<p>100T → Liquidity</p>
+<p>50T → Staking Rewards</p>
+<p>10T → NFT Conversion</p>
+<p>40T → Marketing & Ecosystem</p>
+<p>Remaining 800T (80%) permanently burned after 200 NFT mints.</p>
 </div>
 </section>
 
 <!-- NFT RARITY -->
 <section id="rarity">
-<h2 style="color: var(--gold);">NFT Rarity</h2>
-<p>Staking NFT generates rarity %APY per hour.<br>StakePool Supply: 40T $FAMR | PoolDrain: 5 years | Max NFTs: 10,000</p>
+<h2 style="color:var(--gold);">NFT Rarity</h2>
+<p>
+Staking NFT generates rarity % APY per hour.<br>
+StakePool Supply: 40T FAMR | PoolDrain: 5 Years | Max NFTs: 10,000
+</p>
 
-<div id="carousel-wrapper">
-<div id="carousel">
+<div class="carousel-wrap">
+<div class="carousel">
+
 <div class="nft-card">
 <h3>AAAFAMR</h3>
-<p>Genesis Sovereign Hen</p>
-<p>APY: 120%</p>
+<p>120% APY</p>
 <p>Annual: 1,200,000,000</p>
+<p>Daily: 3,287,671</p>
 <p>Hourly: 136,986</p>
-<p>Supply: 2,000</p>
+<p>Supply: 2,000 NFTs</p>
 </div>
+
 <div class="nft-card">
 <h3>BBBFAMR</h3>
-<p>Imperial Broiler</p>
-<p>APY: 100%</p>
+<p>85% APY</p>
 <p>Annual: 850,000,000</p>
+<p>Daily: 2,328,767</p>
 <p>Hourly: 97,031</p>
-<p>Supply: 2,000</p>
+<p>Supply: 2,000 NFTs</p>
 </div>
+
 <div class="nft-card">
 <h3>CCCFAMR</h3>
-<p>Prime Layer</p>
-<p>APY: 85%</p>
-<p>Supply: 2,000</p>
+<p>75% APY</p>
+<p>Supply: 2,000 NFTs</p>
 </div>
+
 <div class="nft-card">
 <h3>DDDFAMR</h3>
-<p>Harvest Grower</p>
-<p>APY: 75%</p>
-<p>Supply: 2,000</p>
+<p>70% APY</p>
+<p>Supply: 2,000 NFTs</p>
 </div>
+
 <div class="nft-card">
 <h3>EEEFAMR</h3>
-<p>Field Chick</p>
-<p>APY: 70%</p>
-<p>Supply: 2,000</p>
+<p>100% APY</p>
+<p>Supply: 2,000 NFTs</p>
 </div>
+
 </div>
 </div>
 
-<div class="carousel-buttons">
-<a href="https://forge.mpty.site" target="_blank" class="carousel-btn">Mint On dApp</a>
-<a href="#" target="_blank" class="carousel-btn">OpenSEA Marketplace</a>
+<div class="action-buttons">
+<a href="https://forge.mpty.site" target="_blank">Mint On dApp</a>
+<a href="#" target="_blank">OpenSEA Marketplace</a>
 </div>
 </section>
 
 <!-- PROTOCOL -->
 <section id="protocol">
-<h2 style="color: var(--gold);">Structured RWA Protocol</h2>
-<p>Famr RWA integrates motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.<br>
-Tokens are not added to pool until after initial 200 NFT mints with over 89.9% BNB received.<br>
-Only miners can increase or mint FAMR assets into circulation.</p>
+<h2 style="color:var(--gold);">Structured RWA Protocol</h2>
+
+<p>
+Famr RWA integrates motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
+</p>
+<br>
+<p>
+• Tokens are not added to the StakePool until after the initial 200 NFT mints and over 89.9% BNB is received.
+</p>
+<p>
+• Only miners have the authority to increase or mint FAMR assets into circulation.
+</p>
+<p>
+• 800 Trillion FAMR (80% of total supply) is permanently burned after 200 NFT mints.
+</p>
 </section>
 
 <!-- SOCIALS -->
 <section id="socials">
-<h2 style="color: var(--gold);">Socials & Dev</h2>
+<h2 style="color:var(--gold);">Socials & Dev</h2>
 <p>Telegram Chat: t.me/bnbfamr</p>
 <p>Telegram Channel: t.me/famrUpdates</p>
 <p>X.com: x.com/ufaithbnb</p>
@@ -303,28 +312,24 @@ Only miners can increase or mint FAMR assets into circulation.</p>
 </section>
 
 <script>
-// NAV TOGGLE
 function toggleMenu(){
 var nav=document.getElementById("navLinks");
 if(nav.style.display==="flex"){
 nav.style.display="none";
 }else{
 nav.style.display="flex";
-nav.style.flexDirection="column";
-nav.style.gap="15px";
 }
 }
 
-// COPY CA
 function copyCA(){
 var text=document.getElementById("caText").innerText;
 navigator.clipboard.writeText(text);
 alert("Contract Address Copied");
 }
 
-// ACTIVE NAV HIGHLIGHT
 const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("#navLinks a");
+const navLinks=document.querySelectorAll(".nav-links a");
+
 window.addEventListener("scroll",function(){
 let current="";
 sections.forEach(section=>{
