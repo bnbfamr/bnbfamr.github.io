@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,20 +16,20 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
+    background: #ffffff;
     color: #111111;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
 }
 
 header {
     padding: 30px 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #eaeaea;
 }
 
 nav {
@@ -40,7 +40,7 @@ nav {
 
 .logo {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 1px;
 }
 
@@ -50,95 +50,99 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 35px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #111;
-    font-weight: 400;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    opacity: 0.6;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .hero {
-    padding: 120px 0;
+    padding: 140px 0 120px 0;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-size: 56px;
+    font-weight: 600;
+    margin-bottom: 25px;
 }
 
 .hero p {
     font-size: 18px;
     color: #555;
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 30px;
-    border: 1px solid #111;
-    text-decoration: none;
-    color: #111;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #111;
-    color: #fff;
+    max-width: 720px;
+    margin: auto;
 }
 
 .section {
-    padding: 100px 0;
-    border-top: 1px solid #f0f0f0;
+    padding: 120px 0;
+    border-top: 1px solid #eaeaea;
 }
 
 .section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 40px;
 }
 
 .section p {
+    max-width: 850px;
     color: #555;
-    max-width: 800px;
 }
 
-.features {
+.grid-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
 }
 
-.feature-box {
-    border: 1px solid #f0f0f0;
-    padding: 30px;
-    transition: 0.3s;
+.card {
+    border: 1px solid #eaeaea;
+    padding: 40px;
 }
 
-.feature-box:hover {
-    border-color: #111;
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
-.feature-box h3 {
-    margin-bottom: 10px;
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+
+.table th,
+.table td {
+    padding: 18px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 14px;
+}
+
+.table th {
+    font-weight: 600;
 }
 
 footer {
-    padding: 60px 0;
+    padding: 80px 0;
+    border-top: 1px solid #eaeaea;
     text-align: center;
-    border-top: 1px solid #f0f0f0;
     font-size: 14px;
     color: #777;
+}
+
+@media(max-width: 900px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .hero h1 {
+        font-size: 38px;
+    }
 }
 </style>
 </head>
@@ -150,9 +154,9 @@ footer {
         <nav>
             <div class="logo">FAMR RWA</div>
             <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">NFTs</a></li>
-                <li><a href="#">Tokenomics</a></li>
+                <li><a href="#token">Token</a></li>
+                <li><a href="#nft">NFT Architecture</a></li>
+                <li><a href="#rarity">Rarity Structure</a></li>
                 <li><a href="#">Whitepaper</a></li>
             </ul>
         </nav>
@@ -161,53 +165,134 @@ footer {
 
 <section class="hero">
     <div class="container">
-        <h1>Real World Assets. Tokenized.</h1>
+        <h1>Structured Real World Asset Protocol</h1>
         <p>
-            FAMR bridges decentralized finance with poultry-backed real world assets.
-            Sustainable yield. Structured emissions. Deflationary mechanisms.
+            FAMR integrates poultry-backed real world assets with a tiered NFT emission model,
+            controlled supply mechanics, and deflationary reinforcement via programmed burn cycles.
         </p>
-        <a href="#" class="btn">Read Whitepaper</a>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="token">
     <div class="container">
-        <h2>About FAMR</h2>
-        <p>
-            FAMR is a blockchain-powered real world asset protocol integrating 
-            agricultural poultry production with decentralized token economics. 
-            Our NFT-powered emission system introduces tiered yield, structured burn 
-            mechanics, and liquidity reinforcement.
-        </p>
+        <h2>Token Details</h2>
 
-        <div class="features">
-            <div class="feature-box">
-                <h3>ERC-1155 NFTs</h3>
-                <p>Five rarity tiers with structured APY ranging from 70% to 120%.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Core Structure</h3>
+                <p>
+                    Token Name: FAMR<br>
+                    Standard: BEP-20<br>
+                    Utility: Staking, NFT Burn Conversion, Liquidity Cycling<br>
+                    Mechanism: Deflationary Add-Burn Reinforcement
+                </p>
             </div>
 
-            <div class="feature-box">
-                <h3>Add-Burn Mechanism</h3>
-                <p>New mint cycles strengthen liquidity through automatic buybacks and token burns.</p>
-            </div>
-
-            <div class="feature-box">
-                <h3>Deflationary Design</h3>
-                <p>Up to 3.572T maximum burn exposure integrated into tokenomics.</p>
+            <div class="card">
+                <h3>Economic Controls</h3>
+                <p>
+                    Structured APY Range: 70% – 120%<br>
+                    Maximum NFT Burn Exposure: 3.572T FAMR<br>
+                    Liquidity Strengthening via Buyback & Burn<br>
+                    Controlled Emission Based on NFT Tier
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="nft">
     <div class="container">
-        <h2>Tokenomics Overview</h2>
+        <h2>FAMR NFT Architecture</h2>
         <p>
-            Total NFT Supply: 10,000  
-            Total Mint Potential: 820 BNB  
-            Tiered APY: 70% – 120%  
-            Structured Burn Rewards: 30M – 1B FAMR  
+            The FAMR Poultry Collection is deployed under the ERC-1155 standard,
+            allowing semi-fungible tier classification. Each NFT class represents
+            a staking power bracket with predefined APY and burn conversion weight.
         </p>
+
+        <div class="grid-2" style="margin-top:60px;">
+            <div class="card">
+                <h3>Collection Overview</h3>
+                <p>
+                    Total Supply: 10,000 NFTs<br>
+                    Mint Price Range: 0.065 – 0.105 BNB<br>
+                    Total Mint Potential: 820 BNB<br>
+                    Tier-Based Yield Assignment
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Add-Burn Liquidity Model</h3>
+                <p>
+                    Post-initial mint cycles utilize collected BNB to purchase FAMR from
+                    the liquidity pool and permanently burn tokens, reinforcing price
+                    floor and reducing circulating supply.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="rarity">
+    <div class="container">
+        <h2>Rarity Structure</h2>
+
+        <table class="table">
+            <tr>
+                <th>Class</th>
+                <th>Name</th>
+                <th>APY</th>
+                <th>Supply</th>
+                <th>Mint Price (BNB)</th>
+                <th>Burn Reward</th>
+            </tr>
+
+            <tr>
+                <td>AAAFAMR</td>
+                <td>Genesis Sovereign Hen</td>
+                <td>120%</td>
+                <td>1,200</td>
+                <td>0.105</td>
+                <td>1,000,000,000</td>
+            </tr>
+
+            <tr>
+                <td>BBBFAMR</td>
+                <td>Imperial Broiler</td>
+                <td>100%</td>
+                <td>1,800</td>
+                <td>0.095</td>
+                <td>650,000,000</td>
+            </tr>
+
+            <tr>
+                <td>CCCFAMR</td>
+                <td>Prime Layer</td>
+                <td>85%</td>
+                <td>2,200</td>
+                <td>0.085</td>
+                <td>350,000,000</td>
+            </tr>
+
+            <tr>
+                <td>DDDFAMR</td>
+                <td>Harvest Grower</td>
+                <td>75%</td>
+                <td>2,400</td>
+                <td>0.075</td>
+                <td>150,000,000</td>
+            </tr>
+
+            <tr>
+                <td>EEEFAMR</td>
+                <td>Field Chick</td>
+                <td>70%</td>
+                <td>2,400</td>
+                <td>0.065</td>
+                <td>30,000,000</td>
+            </tr>
+        </table>
+
     </div>
 </section>
 
