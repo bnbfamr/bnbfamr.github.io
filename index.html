@@ -12,41 +12,42 @@
     --border: #eaeaea;
 }
 * {margin:0;padding:0;box-sizing:border-box;}
-body {font-family:'Inter',sans-serif; background:#fff;color:var(--text);line-height:1.7;}
+body {font-family:'Inter',sans-serif;background:#fff;color:var(--text);line-height:1.6;}
 .container {width:90%;max-width:1200px;margin:auto;}
-header {padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1000;}
+header {padding:15px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1000;}
 nav {display:flex;justify-content:space-between;align-items:center;}
 .logo {font-weight:700;font-size:18px;}
-.nav-links {display:flex;gap:30px;}
+.nav-links {display:flex;gap:20px;}
 .nav-links a {text-decoration:none;color:var(--text);font-size:14px;font-weight:500;}
 .menu-toggle {display:none;font-size:24px;cursor:pointer;}
-.hero {padding:80px 0;text-align:center;}
-.hero h1 {font-size:42px;font-weight:600;margin-bottom:20px;}
-.hero p {max-width:700px;margin:auto;color:var(--muted);font-size:18px;}
-.section {padding:80px 0;border-top:1px solid var(--border);}
-.section h2 {font-size:28px;margin-bottom:30px;}
-.section-sub {margin-bottom:20px;color:var(--muted);font-size:16px;}
-.grid {display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
-.card {border:1px solid var(--border);padding:25px;border-radius:8px;}
-.card h3 {margin-bottom:10px;font-size:18px;}
-.card p, .card span {color:var(--muted);font-size:14px;}
+.hero {padding:60px 0;text-align:center;}
+.hero h1 {font-size:36px;font-weight:600;margin-bottom:15px;}
+.hero p {max-width:600px;margin:auto;color:var(--muted);font-size:16px;}
+.section {padding:60px 0;border-top:1px solid var(--border);}
+.section h2 {font-size:26px;margin-bottom:20px;text-align:center;}
+.card {border:1px solid var(--border);padding:20px;border-radius:8px;margin-bottom:20px;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 .table-wrapper {overflow-x:auto;}
-table {width:100%;border-collapse:collapse;min-width:700px;}
-th, td {text-align:left;padding:14px;border-bottom:1px solid var(--border);font-size:14px;}
+table {width:100%;border-collapse:collapse;}
+th, td {text-align:left;padding:12px;border-bottom:1px solid var(--border);}
 th {font-weight:600;}
-footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
-.nft-grid {display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-.nft-card {width:120px;height:120px;border:2px solid; border-radius:12px; display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;transition:all 0.3s ease;cursor:pointer;}
-.nft-card img {width:50px;height:50px;margin-bottom:8px;}
-.nft-card span {font-size:12px;font-weight:600;color:var(--text);}
-.nft-card .apy-details {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;transition:opacity 0.3s;}
-.nft-card:hover .apy-details {opacity:1;}
+footer {padding:40px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
+
+/* NFT Cards */
+.nft-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;justify-items:center;}
+.nft-card {border:2px solid #ccc;border-radius:10px;padding:10px;text-align:center;width:120px;}
+.nft-card img {width:50px;height:50px;margin-bottom:5px;}
+.nft-card span {display:block;font-weight:600;font-size:12px;margin-bottom:3px;}
+.nft-card small {font-size:11px;color:var(--muted);}
+
+/* Rarity Colors */
 .nft-card.aaa {border-color:gold;background:#fff8e1;}
 .nft-card.bbb {border-color:silver;background:#f5f5f5;}
 .nft-card.ccc {border-color:#cd7f32;background:#fbe9e7;}
 .nft-card.ddd {border-color:#4caf50;background:#e8f5e9;}
 .nft-card.eee {border-color:#2196f3;background:#e3f2fd;}
-@media(max-width:900px){.hero h1{font-size:32px;}.hero p{font-size:16px;}.grid{grid-template-columns:1fr;}.nft-card{width:100px;height:100px;}.nft-card img{width:40px;height:40px;}.nav-links{position:absolute;top:70px;right:0;background:#fff;flex-direction:column;width:200px;border-left:1px solid var(--border);border-bottom:1px solid var(--border);display:none;padding:20px;}.nav-links.active{display:flex;}}
+
+@media(max-width:600px){.hero h1{font-size:28px;}.hero p{font-size:14px;}}
 </style>
 </head>
 <body>
@@ -57,11 +58,11 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <div class="logo">FAMR RWA</div>
 <div class="nav-links" id="navLinks">
 <a href="#token">Token</a>
-<a href="#nft">NFT Architecture</a>
-<a href="#rarity">Rarity Structure</a>
+<a href="#nft">NFTs</a>
+<a href="#rarity">Rarity</a>
 <a href="#">Whitepaper</a>
 </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</div>
 </nav>
 </div>
 </header>
@@ -69,108 +70,51 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <section class="hero">
 <div class="container">
 <h1>Structured Real World Asset Protocol</h1>
-<p>FAMR integrates poultry-backed real world assets with a tiered NFT emission framework and a deflationary Add-Burn liquidity model.</p>
+<p>FAMR integrates poultry-backed real world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.</p>
 </div>
 </section>
 
 <section class="section" id="token">
 <div class="container">
-<h2>Token Details & Supply</h2>
+<h2>Token Details</h2>
 <div class="card">
-<p><strong>Contract Address:</strong> 0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
 <p><strong>Token Name:</strong> Famr RWA</p>
 <p><strong>Ticket:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
-<p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR (1 Quadrillion)</p>
-</div>
-
-<h3 style="margin-top:30px;">Tokenomics & Hard Scarcity</h3>
-<div class="table-wrapper">
-<table>
-<tr><th>Allocation</th><th>Amount</th></tr>
-<tr><td>Liquidity</td><td>100T FAMR</td></tr>
-<tr><td>Staking Rewards</td><td>50T FAMR</td></tr>
-<tr><td>NFT Conversion</td><td>10T FAMR</td></tr>
-<tr><td>Marketing & Ecosystem</td><td>40T FAMR</td></tr>
-<tr><td><strong>Allocated Total</strong></td><td>200T FAMR</td></tr>
-<tr><td><strong>Burnable Supply</strong></td><td>800T FAMR (after 200 NFT mints)</td></tr>
-</table>
+<p><strong>Contract Address:</strong> 0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
+<p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR</p>
+<p><strong>Tokenomics:</strong></p>
+<ul style="padding-left:15px;color:var(--muted);">
+<li>Liquidity: 100T $FAMR</li>
+<li>Staking Rewards: 50T $FAMR</li>
+<li>NFT Conversion: 10T $FAMR</li>
+<li>Marketing & Ecosystem: 40T $FAMR</li>
+<li>Burnable Supply: 800T $FAMR (after 200 NFT mints)</li>
+</ul>
 </div>
 </div>
 </section>
 
 <section class="section" id="nft">
 <div class="container">
-<h2>NFT Rarity & Staking APY</h2>
-<p>Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain Time: 5 years</p>
-
+<h2>NFT Rarity & APY</h2>
+<p style="text-align:center;color:var(--muted);margin-bottom:20px;">Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain: 5 years</p>
 <div class="nft-grid">
-<div class="nft-card aaa">
-<img src="nft-icon.png" alt="AAAFAMR">
-<span>AAAFAMR</span>
-<div class="apy-details">
-<p>APY: 120%</p>
-<p>Annual: 1,200,000,000 $FAMR</p>
-<p>Daily: ≈3,287,671 $FAMR</p>
-<p>Hourly: ≈136,986 $FAMR</p>
-</div>
-</div>
-
-<div class="nft-card bbb">
-<img src="nft-icon.png" alt="BBBFAMR">
-<span>BBBFAMR</span>
-<div class="apy-details">
-<p>APY: 100%</p>
-<p>Annual: 1,000,000,000 $FAMR</p>
-<p>Daily: ≈2,739,726 $FAMR</p>
-<p>Hourly: ≈114,155 $FAMR</p>
-</div>
-</div>
-
-<div class="nft-card ccc">
-<img src="nft-icon.png" alt="CCCFAMR">
-<span>CCCFAMR</span>
-<div class="apy-details">
-<p>APY: 85%</p>
-<p>Annual: 850,000,000 $FAMR</p>
-<p>Daily: ≈2,328,767 $FAMR</p>
-<p>Hourly: ≈97,031 $FAMR</p>
-</div>
-</div>
-
-<div class="nft-card ddd">
-<img src="nft-icon.png" alt="DDDFAMR">
-<span>DDDFAMR</span>
-<div class="apy-details">
-<p>APY: 75%</p>
-<p>Annual: 750,000,000 $FAMR</p>
-<p>Daily: ≈2,054,795 $FAMR</p>
-<p>Hourly: ≈85,616 $FAMR</p>
-</div>
-</div>
-
-<div class="nft-card eee">
-<img src="nft-icon.png" alt="EEEFAMR">
-<span>EEEFAMR</span>
-<div class="apy-details">
-<p>APY: 70%</p>
-<p>Annual: 700,000,000 $FAMR</p>
-<p>Daily: ≈1,917,808 $FAMR</p>
-<p>Hourly: ≈79,909 $FAMR</p>
-</div>
-</div>
+<div class="nft-card aaa"><img src="nft-icon.png" alt="AAAFAMR"><span>AAAFAMR</span><small>120% APY<br>≈136,986/hr</small></div>
+<div class="nft-card bbb"><img src="nft-icon.png" alt="BBBFAMR"><span>BBBFAMR</span><small>100% APY<br>≈114,155/hr</small></div>
+<div class="nft-card ccc"><img src="nft-icon.png" alt="CCCFAMR"><span>CCCFAMR</span><small>85% APY<br>≈97,031/hr</small></div>
+<div class="nft-card ddd"><img src="nft-icon.png" alt="DDDFAMR"><span>DDDFAMR</span><small>75% APY<br>≈85,616/hr</small></div>
+<div class="nft-card eee"><img src="nft-icon.png" alt="EEEFAMR"><span>EEEFAMR</span><small>70% APY<br>≈79,909/hr</small></div>
 </div>
 </div>
 </section>
 
 <section class="section" id="rarity">
 <div class="container">
-<h2>Rarity Structure & Earnings</h2>
+<h2>Rarity Earnings</h2>
 <div class="table-wrapper">
 <table>
-<tr>
-<th>Rarity Class</th><th>Name</th><th>APY</th><th>Annual</th><th>Daily</th><th>Hourly</th>
-</tr>
+<tr><th>Class</th><th>Name</th><th>APY</th><th>Annual</th><th>Daily</th><th>Hourly</th></tr>
 <tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200,000,000</td><td>≈3,287,671</td><td>≈136,986</td></tr>
 <tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,000,000,000</td><td>≈2,739,726</td><td>≈114,155</td></tr>
 <tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>850,000,000</td><td>≈2,328,767</td><td>≈97,031</td></tr>
@@ -187,10 +131,5 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 </div>
 </footer>
 
-<script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-}
-</script>
 </body>
 </html>
