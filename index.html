@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Famr RWA</title>
+<title>FAMR RWA</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -32,7 +32,6 @@ nav {display:flex;justify-content:space-between;align-items:center;flex-wrap:wra
 .card h3 {margin-bottom:10px;font-size:18px;font-weight:600;}
 .card p, .card span, .card li {color:var(--muted);font-size:14px;}
 .card ul {padding-left:18px;margin-top:10px;}
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:20px;}
 .table-wrapper {overflow-x:auto;margin-top:15px;}
 table {width:100%;border-collapse:collapse;}
 th, td {text-align:left;padding:12px;border-bottom:1px solid var(--border);}
@@ -41,30 +40,29 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 .social-links {margin-top:15px;text-align:center;}
 .social-links a {margin:0 10px;text-decoration:none;font-weight:700;color:var(--primary);cursor:pointer;}
 
-/* NFT Cards */
-.nft-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;justify-items:center;margin-top:20px;}
-.nft-card {border:2px solid #ccc;border-radius:12px;padding:12px;text-align:center;width:120px;background:#fff;transition:transform 0.3s ease, box-shadow 0.3s ease;box-shadow:0 4px 8px rgba(0,0,0,0.08);}
-.nft-card:hover{transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.15);}
-.nft-card svg {width:50px;height:50px;margin-bottom:6px;}
-.nft-card span {display:block;font-weight:700;font-size:12px;margin-bottom:3px;}
-.nft-card small {font-size:11px;color:var(--muted);}
-
-/* Rarity Colors with subtle gradient */
-.nft-card.aaa {border-image:var(--primary-gradient) 1; background:linear-gradient(145deg,#fff8e1,#ffeabf);}
-.nft-card.bbb {border-image:var(--primary-gradient) 1; background:linear-gradient(145deg,#f5f5f5,#e0e0e0);}
-.nft-card.ccc {border-image:var(--primary-gradient) 1; background:linear-gradient(145deg,#fbe9e7,#ffdfd0);}
-.nft-card.ddd {border-image:var(--primary-gradient) 1; background:linear-gradient(145deg,#e8f5e9,#d0f0d5);}
-.nft-card.eee {border-image:var(--primary-gradient) 1; background:linear-gradient(145deg,#e3f2fd,#d0e1ff);}
-
 /* Click-to-copy Contract Address */
 .copy-box {display:flex;flex-direction:column;align-items:flex-start;gap:5px;background:#f5f5f5;padding:8px 10px;border-radius:6px;font-family:monospace;font-size:14px;overflow-wrap:break-word;width:100%;}
 .copy-box button {background:var(--primary-gradient);color:#fff;border:none;padding:6px 12px;border-radius:4px;font-weight:700;cursor:pointer;transition:0.3s;}
 .copy-box button:hover{background:#520a8a;}
 
-/* NFT Buttons */
-.nft-buttons {text-align:center;margin-top:15px;}
-.nft-buttons a {display:inline-block;margin:5px 10px;padding:8px 18px;border-radius:6px;background:var(--primary-gradient);color:#fff;font-weight:700;text-decoration:none;transition:0.3s;}
-.nft-buttons a:hover {background:#520a8a;}
+/* NFT Carousel */
+.nft-carousel {display:flex;overflow-x:auto;gap:15px;padding:10px 0;scroll-behavior:smooth;}
+.nft-carousel::-webkit-scrollbar{display:none;}
+.nft-card {flex:0 0 180px;border-radius:20px;padding:15px;text-align:center;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:transform 0.3s ease, box-shadow 0.3s ease;}
+.nft-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.nft-card svg {width:60px;height:60px;margin-bottom:8px;}
+.nft-card span {display:block;font-weight:700;font-size:14px;margin-bottom:5px;}
+.nft-card small {font-size:12px;color:var(--muted);}
+.nft-card .btns {margin-top:8px;display:flex;gap:5px;justify-content:center;}
+.nft-card .btns a {flex:1;padding:6px 10px;font-size:12px;border-radius:8px;background:var(--primary-gradient);color:#fff;font-weight:700;text-decoration:none;transition:0.3s;}
+.nft-card .btns a:hover{background:#520a8a;}
+
+/* Rarity Colors (optional subtle backgrounds) */
+.nft-card.aaa{background:linear-gradient(145deg,#fff0e6,#ffe0b2);}
+.nft-card.bbb{background:linear-gradient(145deg,#f3f3f3,#e0e0e0);}
+.nft-card.ccc{background:linear-gradient(145deg,#fbe9e7,#ffdad1);}
+.nft-card.ddd{background:linear-gradient(145deg,#e8f5e9,#d0f0d5);}
+.nft-card.eee{background:linear-gradient(145deg,#e3f2fd,#d0e1ff);}
 
 /* Responsive */
 @media(max-width:768px){
@@ -72,7 +70,7 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
     .hero p{font-size:16px;}
     .nav-links{display:none;width:100%;flex-direction:column;}
     .nav-links.active{display:flex;}
-    .nft-card {width:100%;}
+    .nft-card {flex:0 0 140px;}
 }
 </style>
 </head>
@@ -95,8 +93,8 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 
 <section class="hero">
 <div class="container">
-<h1>Structured RWA Protocol</h1>
-<p>Famr RWA integrates a motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.</p>
+<h1>Structured Real World Asset Protocol</h1>
+<p>FAMR integrates poultry-backed real world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.</p>
 </div>
 </section>
 
@@ -120,7 +118,7 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <li>Marketing & Ecosystem: 40T $FAMR</li>
 <li>Burnable Supply: 800T $FAMR (after 200 NFT mints)</li>
 </ul>
-<p><strong>Note:</strong> FAMR Tokens are <em>not added to liquidity Pool</em> until after the first 200 NFT  community mints, where over 89.9% BNB received will be parmanently add and LP burn. Only miners can mint or release additional FAMR into circulation.</p>
+<p><strong>Note:</strong> Tokens are <em>not added to Pool</em> until after first 200 NFT mints with over 89.9% BNB received. Only miners can mint/increase FAMR in circulation.</p>
 </div>
 </div>
 </section>
@@ -129,54 +127,59 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <div class="container">
 <h2>NFT Rarity & APY</h2>
 <p style="text-align:center;color:var(--muted);margin-bottom:20px;">Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain: 5 years | Total NFTs: 10,000</p>
-<div class="nft-grid">
+
+<div class="nft-carousel">
 <div class="nft-card aaa">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="gold"/></svg>
 <span>AAAFAMR</span>
 <small>120% APY<br>Supply: 1,200<br>≈136,986/hr</small>
+<div class="btns">
+<a href="https://forge.mpty.site" target="_blank">Mint on dApp</a>
+<a href="#" target="_blank">OpenSEA</a>
 </div>
+</div>
+
 <div class="nft-card bbb">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="silver"/></svg>
 <span>BBBFAMR</span>
 <small>100% APY<br>Supply: 1,800<br>≈114,155/hr</small>
+<div class="btns">
+<a href="https://forge.mpty.site" target="_blank">Mint on dApp</a>
+<a href="#" target="_blank">OpenSEA</a>
 </div>
+</div>
+
 <div class="nft-card ccc">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#cd7f32"/></svg>
 <span>CCCFAMR</span>
 <small>85% APY<br>Supply: 2,200<br>≈97,031/hr</small>
+<div class="btns">
+<a href="https://forge.mpty.site" target="_blank">Mint on dApp</a>
+<a href="#" target="_blank">OpenSEA</a>
 </div>
+</div>
+
 <div class="nft-card ddd">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4caf50"/></svg>
 <span>DDDFAMR</span>
 <small>75% APY<br>Supply: 2,400<br>≈85,616/hr</small>
+<div class="btns">
+<a href="https://forge.mpty.site" target="_blank">Mint on dApp</a>
+<a href="#" target="_blank">OpenSEA</a>
 </div>
+</div>
+
 <div class="nft-card eee">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--primary)"/></svg>
 <span>EEEFAMR</span>
 <small>70% APY<br>Supply: 2,400<br>≈79,909/hr</small>
+<div class="btns">
+<a href="https://forge.mpty.site" target="_blank">Mint on dApp</a>
+<a href="#" target="_blank">OpenSEA</a>
+</div>
 </div>
 </div>
 
-<div class="nft-buttons">
-<a href="https://forge.mpty.site" target="_blank">Mint NFTs on dApp</a>
-<a href="#" target="_blank">Trade NFTs (OpenSEA)</a>
-</div>
-</div>
-</section>
-
-<section class="section" id="rarity">
-<div class="container">
-<h2>Rarity Earnings</h2>
-<div class="table-wrapper">
-<table>
-<tr><th>Class</th><th>Name</th><th>APY</th><th>Supply</th><th>Annual</th><th>Daily</th><th>Hourly</th></tr>
-<tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200</td><td>1,200,000,000</td><td>≈3,287,671</td><td>≈136,986</td></tr>
-<tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,800</td><td>1,000,000,000</td><td>≈2,739,726</td><td>≈114,155</td></tr>
-<tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>2,200</td><td>850,000,000</td><td>≈2,328,767</td><td>≈97,031</td></tr>
-<tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>2,400</td><td>750,000,000</td><td>≈2,054,795</td><td>≈85,616</td></tr>
-<tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>2,400</td><td>700,000,000</td><td>≈1,917,808</td><td>≈79,909</td></tr>
-</table>
-</div>
 </div>
 </section>
 
@@ -193,12 +196,11 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 
 <footer>
 <div class="container">
-© 2026 Famr RWA. All Rights Reserved.
+© 2026 FAMR RWA. All Rights Reserved.
 </div>
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}
 function copyCA(){navigator.clipboard.writeText(document.getElementById("contractAddress").textContent).then(()=>{alert("Contract Address copied!")});}
 </script>
 
