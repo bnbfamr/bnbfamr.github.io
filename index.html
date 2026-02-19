@@ -1,149 +1,309 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
+<style>
+/* ROOT COLORS */
+:root {
+    --text: #fff;
+    --muted: #ccc;
+    --border: rgba(212,175,55,0.3);
+    --gold: #d4af37;
+    --bg: #000;
+}
+
+/* RESET */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    top:0;
+    width:100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    z-index: 999;
+}
+nav .container {
+    max-width: 1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 5%;
+}
+nav .logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--gold);
+}
+nav .nav-links {
+    display: flex;
+    gap: 25px;
+}
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+}
+nav .menu-toggle {
+    display: none;
+    font-size:26px;
+    cursor:pointer;
+    color: var(--text);
+}
+
+/* HERO */
+section.hero {
+    padding: 80px 5% 60px;
+    text-align: center;
+}
+section.hero h1 {
+    font-size:42px;
+    color: var(--gold);
+    margin-bottom:20px;
+}
+section.hero p {
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    color: var(--muted);
+}
+
+/* TOKEN DETAILS */
+section#token {
+    padding:60px 5%;
+    text-align:center;
+}
+.token-card {
+    max-width:700px;
+    margin:40px auto;
+    border:1px solid var(--border);
+    padding:30px;
+    border-radius:16px;
+}
+.token-card p {
+    margin:10px 0;
+}
+.token-card button {
+    margin-top:10px;
+    padding:10px 20px;
+    background: var(--bg);
+    color: var(--gold);
+    border:1px solid var(--border);
+    border-radius:8px;
+    cursor:pointer;
+    width:100%;
+    max-width:250px;
+}
+
+/* NFT RARITY CAROUSEL */
+section#rarity {
+    padding:60px 5%;
+    text-align:center;
+}
+#carousel-wrapper {
+    overflow:hidden;
+    max-width:1100px;
+    margin:40px auto;
+}
+#carousel {
+    display:flex;
+    transition:0.5s;
+}
+.nft-card {
+    min-width:300px;
+    margin:10px;
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+    flex-shrink:0;
+    background: #111;
+}
+.nft-card h3 {
+    color: var(--gold);
+    margin-bottom:10px;
+}
+
+/* CAROUSEL BUTTONS */
+.carousel-btn {
+    cursor:pointer;
+    font-size:24px;
+    padding:10px 15px;
+    background:none;
+    border:1px solid var(--border);
+    color: var(--gold);
+    border-radius:8px;
+    margin:10px 5px;
+}
+.carousel-buttons {
+    margin-top:20px;
+}
+
+/* PROTOCOL SECTION */
+section#protocol {
+    padding:60px 5%;
+    text-align:center;
+}
+
+/* SOCIALS */
+section#socials {
+    padding:60px 5%;
+    text-align:center;
+    border-top:1px solid var(--border);
+}
+section#socials p {
+    margin:5px 0;
+}
+
+/* BUTTON HOVER */
+button:hover, .carousel-btn:hover, .nft-card:hover a {
+    box-shadow:0 0 15px rgba(212,175,55,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    nav .nav-links {
+        display:none;
+        flex-direction:column;
+        gap:15px;
+        background: var(--bg);
+        position:absolute;
+        top:65px;
+        right:0;
+        width:100%;
+        padding:15px 5%;
+    }
+    nav .menu-toggle { display:block; }
+    #carousel { flex-wrap: nowrap; overflow-x:auto; scroll-snap-type:x mandatory; }
+    .nft-card { scroll-snap-align:start; min-width:250px; }
+}
+</style>
 </head>
+<body>
 
-<body style="margin:0;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;scroll-behavior:smooth;">
-
-<!-- NAVIGATION -->
-<nav style="position:fixed;top:0;width:100%;background:#000;border-bottom:1px solid rgba(212,175,55,0.3);padding:15px 5%;box-sizing:border-box;z-index:999;">
-<div style="display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;">
-<div style="font-weight:bold;font-size:20px;color:#d4af37;">FAMR RWA</div>
-
-<div id="navLinks" style="display:flex;gap:25px;">
-<a href="#about" style="text-decoration:none;color:#fff;">About</a>
-<a href="#token" style="text-decoration:none;color:#fff;">Token</a>
-<a href="#rarity" style="text-decoration:none;color:#fff;">NFT Rarity</a>
-<a href="#protocol" style="text-decoration:none;color:#fff;">Protocol</a>
-<a href="#socials" style="text-decoration:none;color:#fff;">Socials</a>
+<!-- NAV -->
+<nav>
+<div class="container">
+<div class="logo">FAMR RWA</div>
+<div class="nav-links" id="navLinks">
+<a href="#hero">About</a>
+<a href="#token">Token</a>
+<a href="#rarity">NFT Rarity</a>
+<a href="#protocol">Protocol</a>
+<a href="#socials">Socials</a>
 </div>
-
-<div onclick="toggleMenu()" style="display:none;font-size:26px;color:#fff;cursor:pointer;" id="menuBtn">☰</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </div>
 </nav>
 
-<div style="height:90px;"></div>
+<div style="height:80px;"></div>
 
 <!-- HERO -->
-<section style="padding:80px 5%;text-align:center;">
-<h1 style="font-size:42px;margin:0 0 20px 0;color:#d4af37;">Famr RWA</h1>
-<p style="max-width:800px;margin:auto;font-size:18px;line-height:1.6;">
-Structured RWA Protocol integrating motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
-</p>
+<section class="hero" id="hero">
+<h1>Famr RWA</h1>
+<p>Structured RWA Protocol integrating motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.</p>
 </section>
 
 <!-- TOKEN DETAILS -->
-<section id="token" style="padding:60px 5%;text-align:center;">
-<h2 style="color:#d4af37;">Token Details</h2>
-
-<div style="max-width:700px;margin:40px auto;border:1px solid rgba(212,175,55,0.3);padding:30px;border-radius:16px;box-sizing:border-box;">
+<section id="token">
+<h2 style="color: var(--gold);">Token Details</h2>
+<div class="token-card">
 <p><strong>Token Name:</strong> Famr RWA</p>
 <p><strong>Ticker:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
-
-<p style="word-break:break-all;"><strong>Contract Address:</strong><br>
-<span id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span>
-</p>
-
-<button onclick="copyCA()" 
-style="margin-top:10px;padding:10px 20px;background:#000;color:#d4af37;border:1px solid rgba(212,175,55,0.4);border-radius:8px;cursor:pointer;width:100%;max-width:250px;"
-onmouseover="this.style.boxShadow='0 0 15px rgba(212,175,55,0.4)'"
-onmouseout="this.style.boxShadow='none'">
-Copy Contract Address
-</button>
-
-<p style="margin-top:20px;"><strong>Total Supply:</strong> 1,000,000,000,000,000 FAMR</p>
+<p><strong>Contract Address:</strong><br><span id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span></p>
+<button onclick="copyCA()">Copy Contract Address</button>
+<p><strong>Total Supply:</strong> 1,000,000,000,000,000 FAMR</p>
+<p><strong>Tokenomics & Hard Scarcity:</strong></p>
+<p>100T FAMR → Liquidity | 50T FAMR → Staking | 10T FAMR → NFT Conversion | 40T FAMR → Marketing & Ecosystem</p>
+<p>Remaining 800T FAMR (80%) burned after initial 200 NFT mints.</p>
 </div>
 </section>
 
 <!-- NFT RARITY -->
-<section id="rarity" style="padding:60px 5%;text-align:center;">
-<h2 style="color:#d4af37;">NFT Rarity</h2>
-<p>Staking NFT generates rarity %APY per hour.<br>
-StakePool Supply: 40T $FAMR | PoolDrain: 5 Years | Max NFTs: 10,000</p>
+<section id="rarity">
+<h2 style="color: var(--gold);">NFT Rarity</h2>
+<p>Staking NFT generates rarity %APY per hour.<br>StakePool Supply: 40T $FAMR | PoolDrain: 5 years | Max NFTs: 10,000</p>
 
-<div style="overflow:hidden;max-width:1100px;margin:40px auto;">
-<div id="carousel" style="display:flex;transition:0.5s;">
-
-<!-- Card -->
-<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
-<h3 style="color:#d4af37;">AAAFAMR</h3>
-<p>120% APY</p>
+<div id="carousel-wrapper">
+<div id="carousel">
+<div class="nft-card">
+<h3>AAAFAMR</h3>
+<p>Genesis Sovereign Hen</p>
+<p>APY: 120%</p>
 <p>Annual: 1,200,000,000</p>
 <p>Hourly: 136,986</p>
-<p>Supply: 2,000 NFTs</p>
+<p>Supply: 2,000</p>
 </div>
-
-<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
-<h3 style="color:#d4af37;">BBBFAMR</h3>
-<p>85% APY</p>
+<div class="nft-card">
+<h3>BBBFAMR</h3>
+<p>Imperial Broiler</p>
+<p>APY: 100%</p>
 <p>Annual: 850,000,000</p>
 <p>Hourly: 97,031</p>
-<p>Supply: 2,000 NFTs</p>
+<p>Supply: 2,000</p>
 </div>
-
-<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
-<h3 style="color:#d4af37;">CCCFAMR</h3>
-<p>75% APY</p>
-<p>Supply: 2,000 NFTs</p>
+<div class="nft-card">
+<h3>CCCFAMR</h3>
+<p>Prime Layer</p>
+<p>APY: 85%</p>
+<p>Supply: 2,000</p>
 </div>
-
-<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
-<h3 style="color:#d4af37;">DDDFAMR</h3>
-<p>70% APY</p>
-<p>Supply: 2,000 NFTs</p>
+<div class="nft-card">
+<h3>DDDFAMR</h3>
+<p>Harvest Grower</p>
+<p>APY: 75%</p>
+<p>Supply: 2,000</p>
 </div>
-
-<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
-<h3 style="color:#d4af37;">EFAMR</h3>
-<p>100% APY</p>
-<p>Supply: 2,000 NFTs</p>
-</div>
-
+<div class="nft-card">
+<h3>EEEFAMR</h3>
+<p>Field Chick</p>
+<p>APY: 70%</p>
+<p>Supply: 2,000</p>
 </div>
 </div>
+</div>
 
-<div style="margin-top:30px;">
-<a href="https://forge.mpty.site" target="_blank"
-style="display:inline-block;margin:10px;padding:12px 28px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;border-radius:8px;text-align:center;"
-onmouseover="this.style.boxShadow='0 0 20px rgba(212,175,55,0.4)'"
-onmouseout="this.style.boxShadow='none'">
-Mint On dApp
-</a>
-
-<a href="#" 
-style="display:inline-block;margin:10px;padding:12px 28px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;border-radius:8px;text-align:center;"
-onmouseover="this.style.boxShadow='0 0 20px rgba(212,175,55,0.4)'"
-onmouseout="this.style.boxShadow='none'">
-OpenSEA Marketplace
-</a>
+<div class="carousel-buttons">
+<a href="https://forge.mpty.site" target="_blank" class="carousel-btn">Mint On dApp</a>
+<a href="#" target="_blank" class="carousel-btn">OpenSEA Marketplace</a>
 </div>
 </section>
 
 <!-- PROTOCOL -->
-<section id="protocol" style="padding:60px 5%;text-align:center;">
-<h2 style="color:#d4af37;">Structured RWA Protocol</h2>
-<p style="max-width:900px;margin:auto;">
-Famr RWA integrates motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
-Tokens are not added to the pool until after initial 200 NFT mints with over 89.9% BNB received.
-Only miners have power to increase or mint FAMR assets into circulation.
-</p>
+<section id="protocol">
+<h2 style="color: var(--gold);">Structured RWA Protocol</h2>
+<p>Famr RWA integrates motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.<br>
+Tokens are not added to pool until after initial 200 NFT mints with over 89.9% BNB received.<br>
+Only miners can increase or mint FAMR assets into circulation.</p>
 </section>
 
 <!-- SOCIALS -->
-<section id="socials" style="padding:60px 5%;text-align:center;border-top:1px solid rgba(212,175,55,0.2);">
-<h2 style="color:#d4af37;">Socials</h2>
+<section id="socials">
+<h2 style="color: var(--gold);">Socials & Dev</h2>
 <p>Telegram Chat: t.me/bnbfamr</p>
 <p>Telegram Channel: t.me/famrUpdates</p>
 <p>X.com: x.com/ufaithbnb</p>
 <p>Dev Contact: t.me/bnbfamr001</p>
 </section>
 
-<!-- SCRIPTS -->
 <script>
+// NAV TOGGLE
 function toggleMenu(){
 var nav=document.getElementById("navLinks");
 if(nav.style.display==="flex"){
@@ -155,16 +315,16 @@ nav.style.gap="15px";
 }
 }
 
+// COPY CA
 function copyCA(){
 var text=document.getElementById("caText").innerText;
 navigator.clipboard.writeText(text);
 alert("Contract Address Copied");
 }
 
-/* Active Nav Highlight */
+// ACTIVE NAV HIGHLIGHT
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll("#navLinks a");
-
 window.addEventListener("scroll",function(){
 let current="";
 sections.forEach(section=>{
