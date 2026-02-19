@@ -37,7 +37,7 @@ th, td {text-align:left;padding:12px;border-bottom:1px solid var(--border);}
 th {font-weight:600;}
 footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
 .social-links {margin-top:15px;text-align:center;}
-.social-links a {margin:0 10px;text-decoration:none;font-weight:700;color:var(--primary);}
+.social-links a {margin:0 10px;text-decoration:none;font-weight:700;color:var(--primary);cursor:pointer;}
 
 /* NFT Cards */
 .nft-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;justify-items:center;margin-top:20px;}
@@ -53,6 +53,10 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 .nft-card.ccc {border-color:#cd7f32;background:#fbe9e7;}
 .nft-card.ddd {border-color:#4caf50;background:#e8f5e9;}
 .nft-card.eee {border-color:#2196f3;background:#e3f2fd;}
+
+/* Click-to-copy Contract Address */
+.copy-box {display:flex;align-items:center;gap:8px;background:#f5f5f5;padding:8px 10px;border-radius:6px;font-family:monospace;font-size:14px;overflow-wrap:break-word;}
+.copy-box button {background:var(--primary);color:#fff;border:none;padding:4px 8px;border-radius:4px;font-weight:600;cursor:pointer;}
 
 /* Responsive */
 @media(max-width:768px){.hero h1{font-size:32px;}.hero p{font-size:16px;}.nav-links{display:none;width:100%;flex-direction:column;}.nav-links.active{display:flex;}}
@@ -89,7 +93,10 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <p><strong>Token Name:</strong> Famr RWA</p>
 <p><strong>Ticket:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
-<p><strong>Contract Address:</strong> 0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
+<div class="copy-box">
+<span id="contractAddress">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span>
+<button onclick="copyCA()">Copy</button>
+</div>
 <p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR</p>
 <h3>Tokenomics & Hard Scarcity</h3>
 <ul style="padding-left:18px;color:var(--muted);">
@@ -99,6 +106,7 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <li>Marketing & Ecosystem: 40T $FAMR</li>
 <li>Burnable Supply: 800T $FAMR (after 200 NFT mints)</li>
 </ul>
+<p><strong>Note:</strong> Tokens are <em>not added to the Pool</em> until after the first 200 NFT mints with over 89.9% BNB received. Only miners can mint or increase FAMR in circulation.</p>
 </div>
 </div>
 </section>
@@ -106,37 +114,37 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <section class="section" id="nft">
 <div class="container">
 <h2>NFT Rarity & APY</h2>
-<p style="text-align:center;color:var(--muted);margin-bottom:20px;">Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain: 5 years</p>
+<p style="text-align:center;color:var(--muted);margin-bottom:20px;">Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain: 5 years | Total NFTs: 10,000</p>
 <div class="nft-grid">
 
 <div class="nft-card aaa">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="gold"/></svg>
 <span>AAAFAMR</span>
-<small>120% APY<br>≈136,986/hr</small>
+<small>120% APY<br>Supply: 1,200<br>≈136,986/hr</small>
 </div>
 
 <div class="nft-card bbb">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="silver"/></svg>
 <span>BBBFAMR</span>
-<small>100% APY<br>≈114,155/hr</small>
+<small>100% APY<br>Supply: 1,800<br>≈114,155/hr</small>
 </div>
 
 <div class="nft-card ccc">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#cd7f32"/></svg>
 <span>CCCFAMR</span>
-<small>85% APY<br>≈97,031/hr</small>
+<small>85% APY<br>Supply: 2,200<br>≈97,031/hr</small>
 </div>
 
 <div class="nft-card ddd">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4caf50"/></svg>
 <span>DDDFAMR</span>
-<small>75% APY<br>≈85,616/hr</small>
+<small>75% APY<br>Supply: 2,400<br>≈85,616/hr</small>
 </div>
 
 <div class="nft-card eee">
 <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#2196f3"/></svg>
 <span>EEEFAMR</span>
-<small>70% APY<br>≈79,909/hr</small>
+<small>70% APY<br>Supply: 2,400<br>≈79,909/hr</small>
 </div>
 
 </div>
@@ -148,12 +156,12 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <h2>Rarity Earnings</h2>
 <div class="table-wrapper">
 <table>
-<tr><th>Class</th><th>Name</th><th>APY</th><th>Annual</th><th>Daily</th><th>Hourly</th></tr>
-<tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200,000,000</td><td>≈3,287,671</td><td>≈136,986</td></tr>
-<tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,000,000,000</td><td>≈2,739,726</td><td>≈114,155</td></tr>
-<tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>850,000,000</td><td>≈2,328,767</td><td>≈97,031</td></tr>
-<tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>750,000,000</td><td>≈2,054,795</td><td>≈85,616</td></tr>
-<tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>700,000,000</td><td>≈1,917,808</td><td>≈79,909</td></tr>
+<tr><th>Class</th><th>Name</th><th>APY</th><th>Supply</th><th>Annual</th><th>Daily</th><th>Hourly</th></tr>
+<tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200</td><td>1,200,000,000</td><td>≈3,287,671</td><td>≈136,986</td></tr>
+<tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,800</td><td>1,000,000,000</td><td>≈2,739,726</td><td>≈114,155</td></tr>
+<tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>2,200</td><td>850,000,000</td><td>≈2,328,767</td><td>≈97,031</td></tr>
+<tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>2,400</td><td>750,000,000</td><td>≈2,054,795</td><td>≈85,616</td></tr>
+<tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>2,400</td><td>700,000,000</td><td>≈1,917,808</td><td>≈79,909</td></tr>
 </table>
 </div>
 </div>
@@ -164,7 +172,7 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <h2>Connect with Us</h2>
 <div class="social-links">
 <a href="https://t.me/bnbfamr" target="_blank">Telegram Chat</a>
-<a href="https://t.me/famrUpdate" target="_blank">Telegram Channel</a>
+<a href="https://t.me/famrUpdates" target="_blank">Telegram Channel</a>
 <a href="https://x.com/ufaithbnb" target="_blank">X.com</a>
 </div>
 </div>
@@ -177,9 +185,8 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 </footer>
 
 <script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-}
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}
+function copyCA(){navigator.clipboard.writeText(document.getElementById("contractAddress").textContent).then(()=>{alert("Contract Address copied!")});}
 </script>
 
 </body>
