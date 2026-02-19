@@ -10,8 +10,8 @@
     --text: #111;
     --muted: #666;
     --border: #eaeaea;
-    --primary: #6a0dad; /* Deep Glossy Purple */
-    --primary-gradient: linear-gradient(135deg,#6a0dad,#8a2be2);
+    --primary: #000; /* Black theme */
+    --primary-gradient: linear-gradient(135deg,#000,#222);
     --bg-light: #f9f9f9;
 }
 * {margin:0;padding:0;box-sizing:border-box;}
@@ -42,12 +42,12 @@ th {font-weight:600;}
 footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
 .social-links {margin-top:15px;text-align:center;}
 .social-links a {display:block;margin:5px 0;text-decoration:none;font-weight:700;color:var(--primary);cursor:pointer;transition:0.3s;}
-.social-links a:hover{color:#8a2be2;}
+.social-links a:hover{color:#444;}
 
 /* Copy Button */
 .copy-box {display:flex;flex-direction:column;align-items:center;gap:5px;background:#f5f5f5;padding:8px 10px;border-radius:6px;font-family:monospace;font-size:14px;word-break:break-all;}
 .copy-box button {background:var(--primary-gradient);color:#fff;border:none;padding:6px 12px;border-radius:4px;font-weight:700;cursor:pointer;transition:0.3s;}
-.copy-box button:hover{background:#520a8a;}
+.copy-box button:hover{background:#222;}
 
 /* NFT Carousel */
 .nft-carousel {display:flex;overflow-x:auto;gap:15px;padding:10px 0;scroll-behavior:smooth;transition:0.3s;}
@@ -61,14 +61,14 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 /* Carousel Buttons Below */
 .carousel-buttons {display:flex;justify-content:center;gap:10px;margin-top:15px;}
 .carousel-buttons a {padding:8px 16px;border-radius:8px;background:var(--primary-gradient);color:#fff;font-weight:700;text-decoration:none;text-align:center;transition:0.3s;display:inline-block;width:150px;}
-.carousel-buttons a:hover{background:#520a8a;}
+.carousel-buttons a:hover{background:#222;}
 
 /* Rarity Colors (optional subtle backgrounds) */
-.nft-card.aaa{background:linear-gradient(145deg,#fff0e6,#ffe0b2);}
-.nft-card.bbb{background:linear-gradient(145deg,#f3f3f3,#e0e0e0);}
-.nft-card.ccc{background:linear-gradient(145deg,#fbe9e7,#ffdad1);}
-.nft-card.ddd{background:linear-gradient(145deg,#e8f5e9,#d0f0d5);}
-.nft-card.eee{background:linear-gradient(145deg,#e3f2fd,#d0e1ff);}
+.nft-card.aaa{background:linear-gradient(145deg,#f5f5f5,#e6e6e6);}
+.nft-card.bbb{background:linear-gradient(145deg,#e0e0e0,#d1d1d1);}
+.nft-card.ccc{background:linear-gradient(145deg,#dcdcdc,#cfcfcf);}
+.nft-card.ddd{background:linear-gradient(145deg,#c8c8c8,#bdbdbd);}
+.nft-card.eee{background:linear-gradient(145deg,#b3b3b3,#a8a8a8);}
 
 /* Responsive */
 @media(max-width:768px){
@@ -140,27 +140,27 @@ StakePool Supply: 40T $FAMR | PoolDrain: 5 years | Max.NFTs: 10,000
 
 <div class="nft-carousel">
 <div class="nft-card aaa">
-<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="gold"/></svg>
+<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#000"/></svg>
 <span>AAAFAMR</span>
 <small>120% APY<br>Supply: 1,200<br>≈136,986/hr</small>
 </div>
 <div class="nft-card bbb">
-<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="silver"/></svg>
+<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#222"/></svg>
 <span>BBBFAMR</span>
 <small>100% APY<br>Supply: 1,800<br>≈114,155/hr</small>
 </div>
 <div class="nft-card ccc">
-<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#cd7f32"/></svg>
+<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#444"/></svg>
 <span>CCCFAMR</span>
 <small>85% APY<br>Supply: 2,200<br>≈97,031/hr</small>
 </div>
 <div class="nft-card ddd">
-<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4caf50"/></svg>
+<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#666"/></svg>
 <span>DDDFAMR</span>
 <small>75% APY<br>Supply: 2,400<br>≈85,616/hr</small>
 </div>
 <div class="nft-card eee">
-<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--primary)"/></svg>
+<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#888"/></svg>
 <span>EEEFAMR</span>
 <small>70% APY<br>Supply: 2,400<br>≈79,909/hr</small>
 </div>
