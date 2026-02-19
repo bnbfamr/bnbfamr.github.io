@@ -55,11 +55,21 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 .nft-card.eee {border-color:#2196f3;background:#e3f2fd;}
 
 /* Click-to-copy Contract Address */
-.copy-box {display:flex;align-items:center;gap:8px;background:#f5f5f5;padding:8px 10px;border-radius:6px;font-family:monospace;font-size:14px;overflow-wrap:break-word;}
-.copy-box button {background:var(--primary);color:#fff;border:none;padding:4px 8px;border-radius:4px;font-weight:600;cursor:pointer;}
+.copy-box {display:flex;flex-direction:column;align-items:flex-start;gap:5px;background:#f5f5f5;padding:8px 10px;border-radius:6px;font-family:monospace;font-size:14px;overflow-wrap:break-word;}
+.copy-box button {background:var(--primary);color:#fff;border:none;padding:6px 12px;border-radius:4px;font-weight:600;cursor:pointer;}
+
+/* NFT Buttons */
+.nft-buttons {text-align:center;margin-top:15px;}
+.nft-buttons a {display:inline-block;margin:5px 10px;padding:8px 18px;border-radius:6px;background:var(--primary);color:#fff;font-weight:600;text-decoration:none;transition:0.3s;}
+.nft-buttons a:hover {background:#1976d2;}
 
 /* Responsive */
-@media(max-width:768px){.hero h1{font-size:32px;}.hero p{font-size:16px;}.nav-links{display:none;width:100%;flex-direction:column;}.nav-links.active{display:flex;}}
+@media(max-width:768px){
+    .hero h1{font-size:32px;}
+    .hero p{font-size:16px;}
+    .nav-links{display:none;width:100%;flex-direction:column;}
+    .nav-links.active{display:flex;}
+}
 </style>
 </head>
 <body>
@@ -95,7 +105,7 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 <p><strong>Network:</strong> BNB Smart Chain</p>
 <div class="copy-box">
 <span id="contractAddress">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span>
-<button onclick="copyCA()">Copy</button>
+<button onclick="copyCA()">Copy Contract Address</button>
 </div>
 <p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR</p>
 <h3>Tokenomics & Hard Scarcity</h3>
@@ -148,6 +158,12 @@ footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font
 </div>
 
 </div>
+
+<div class="nft-buttons">
+<a href="https://forge.mpty.site" target="_blank">Mint NFTs on dApp</a>
+<a href="#" target="_blank">Trade NFTs (OpenSEA)</a>
+</div>
+
 </div>
 </section>
 
