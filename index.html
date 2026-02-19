@@ -1,146 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="margin:0;background:#000;color:#fff;font-family:'Inter',sans-serif;scroll-behavior:smooth;">
+<body style="margin:0;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;scroll-behavior:smooth;">
 
-<!-- HEADER -->
-<header style="position:sticky;top:0;background:#000;border-bottom:1px solid rgba(212,175,55,0.2);z-index:1000;">
-<div style="max-width:1200px;margin:auto;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
-<div style="font-weight:700;font-size:22px;color:#d4af37;">FAMR RWA</div>
+<!-- NAVIGATION -->
+<nav style="position:fixed;top:0;width:100%;background:#000;border-bottom:1px solid rgba(212,175,55,0.3);padding:15px 5%;box-sizing:border-box;z-index:999;">
+<div style="display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;">
+<div style="font-weight:bold;font-size:20px;color:#d4af37;">FAMR RWA</div>
 
-<div id="navLinks" style="display:flex;gap:20px;">
-<a href="#token" style="color:#fff;text-decoration:none;font-size:14px;">Token Details</a>
-<a href="#nft" style="color:#fff;text-decoration:none;font-size:14px;">NFTs</a>
-<a href="#social" style="color:#fff;text-decoration:none;font-size:14px;">Connect</a>
-<a href="#" style="color:#fff;text-decoration:none;font-size:14px;">Whitepaper</a>
+<div id="navLinks" style="display:flex;gap:25px;">
+<a href="#about" style="text-decoration:none;color:#fff;">About</a>
+<a href="#token" style="text-decoration:none;color:#fff;">Token</a>
+<a href="#rarity" style="text-decoration:none;color:#fff;">NFT Rarity</a>
+<a href="#protocol" style="text-decoration:none;color:#fff;">Protocol</a>
+<a href="#socials" style="text-decoration:none;color:#fff;">Socials</a>
 </div>
 
 <div onclick="toggleMenu()" style="display:none;font-size:26px;color:#fff;cursor:pointer;" id="menuBtn">☰</div>
 </div>
-</header>
+</nav>
+
+<div style="height:90px;"></div>
 
 <!-- HERO -->
-<section style="padding:110px 5%;text-align:center;background:#0a0a0a;">
-<h1 style="font-size:42px;color:#d4af37;margin-bottom:20px;">Structured RWA Protocol</h1>
-<p style="max-width:700px;margin:auto;color:#bbb;font-size:18px;">
-Famr RWA integrates a motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
+<section style="padding:80px 5%;text-align:center;">
+<h1 style="font-size:42px;margin:0 0 20px 0;color:#d4af37;">Famr RWA</h1>
+<p style="max-width:800px;margin:auto;font-size:18px;line-height:1.6;">
+Structured RWA Protocol integrating motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
 </p>
 </section>
 
-<!-- TOKEN SECTION -->
-<section id="token" style="padding:90px 5%;border-top:1px solid rgba(212,175,55,0.15);text-align:center;">
-<h2 style="color:#d4af37;margin-bottom:30px;">Token Details & Supply</h2>
+<!-- TOKEN DETAILS -->
+<section id="token" style="padding:60px 5%;text-align:center;">
+<h2 style="color:#d4af37;">Token Details</h2>
 
-<div style="max-width:700px;margin:auto;background:#0f0f0f;padding:35px;border-radius:18px;border:1px solid rgba(212,175,55,0.3);transition:0.3s;"
-onmouseover="this.style.boxShadow='0 0 30px rgba(212,175,55,0.15)'"
-onmouseout="this.style.boxShadow='none'">
-
+<div style="max-width:700px;margin:40px auto;border:1px solid rgba(212,175,55,0.3);padding:30px;border-radius:16px;box-sizing:border-box;">
 <p><strong>Token Name:</strong> Famr RWA</p>
 <p><strong>Ticker:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
 
-<div style="margin:15px 0;padding:12px;background:#111;border-radius:10px;border:1px solid rgba(212,175,55,0.25);font-family:monospace;word-break:break-all;">
-<span id="ca">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span><br>
-<button onclick="copyCA()" style="margin-top:8px;padding:6px 14px;border-radius:8px;background:transparent;border:1px solid rgba(212,175,55,0.4);color:#d4af37;cursor:pointer;">
-Copy Contract
-</button>
-</div>
-
-<p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR</p>
-
-<h3 style="color:#d4af37;margin-top:25px;">Tokenomics & Hard Scarcity</h3>
-<ul style="list-style:none;padding:0;margin-top:10px;">
-<li>Liquidity: 100T $FAMR</li>
-<li>Staking Rewards: 50T $FAMR</li>
-<li>NFT Conversion: 10T $FAMR</li>
-<li>Marketing & Ecosystem: 40T $FAMR</li>
-<li>Burnable Supply: 800T $FAMR (after 200 NFT mints)</li>
-</ul>
-
-<p style="margin-top:15px;color:#bbb;font-size:14px;">
-Tokens are not added to Pool until first 200 NFT mints with over 89.9% BNB received.
-Only miners can mint/increase FAMR in circulation.
-</p>
-</div>
-</section>
-
-<!-- NFT SECTION -->
-<section id="nft" style="padding:90px 5%;border-top:1px solid rgba(212,175,55,0.15);text-align:center;">
-<h2 style="color:#d4af37;">NFT Rarity & APY</h2>
-
-<p style="color:#bbb;margin-bottom:30px;">
-StakePool Supply: 40T $FAMR | PoolDrain: 5 Years | Max NFTs: 10,000
+<p style="word-break:break-all;"><strong>Contract Address:</strong><br>
+<span id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span>
 </p>
 
-<div style="display:flex;overflow-x:auto;gap:20px;padding-bottom:20px;scroll-snap-type:x mandatory;">
-
-<!-- NFT CARD TEMPLATE -->
-<div style="flex:0 0 220px;background:#111;padding:22px;border-radius:20px;border:1px solid rgba(212,175,55,0.25);scroll-snap-align:center;"
-onmouseover="this.style.boxShadow='0 0 25px rgba(212,175,55,0.2)'"
+<button onclick="copyCA()" 
+style="margin-top:10px;padding:10px 20px;background:#000;color:#d4af37;border:1px solid rgba(212,175,55,0.4);border-radius:8px;cursor:pointer;width:100%;max-width:250px;"
+onmouseover="this.style.boxShadow='0 0 15px rgba(212,175,55,0.4)'"
 onmouseout="this.style.boxShadow='none'">
-<div style="color:#d4af37;font-weight:700;">AAAFAMR</div>
-<div style="color:#bbb;font-size:14px;">120% APY<br>Supply: 1,200<br>≈136,986/hr</div>
-</div>
+Copy Contract Address
+</button>
 
-<div style="flex:0 0 220px;background:#111;padding:22px;border-radius:20px;border:1px solid rgba(212,175,55,0.25);scroll-snap-align:center;">
-<div style="color:#d4af37;font-weight:700;">BBBFAMR</div>
-<div style="color:#bbb;font-size:14px;">100% APY<br>Supply: 1,800<br>≈114,155/hr</div>
-</div>
-
-<div style="flex:0 0 220px;background:#111;padding:22px;border-radius:20px;border:1px solid rgba(212,175,55,0.25);scroll-snap-align:center;">
-<div style="color:#d4af37;font-weight:700;">CCCFAMR</div>
-<div style="color:#bbb;font-size:14px;">85% APY<br>Supply: 2,200<br>≈97,031/hr</div>
-</div>
-
-<div style="flex:0 0 220px;background:#111;padding:22px;border-radius:20px;border:1px solid rgba(212,175,55,0.25);scroll-snap-align:center;">
-<div style="color:#d4af37;font-weight:700;">DDDFAMR</div>
-<div style="color:#bbb;font-size:14px;">75% APY<br>Supply: 2,400<br>≈85,616/hr</div>
-</div>
-
-<div style="flex:0 0 220px;background:#111;padding:22px;border-radius:20px;border:1px solid rgba(212,175,55,0.25);scroll-snap-align:center;">
-<div style="color:#d4af37;font-weight:700;">EEEFAMR</div>
-<div style="color:#bbb;font-size:14px;">70% APY<br>Supply: 2,400<br>≈79,909/hr</div>
-</div>
-
-</div>
-
-<div style="margin-top:25px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
-<a href="https://forge.mpty.site" target="_blank" style="padding:12px 22px;border-radius:12px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;">Mint on dApp</a>
-<a href="#" target="_blank" style="padding:12px 22px;border-radius:12px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;">OpenSEA Marketplace</a>
+<p style="margin-top:20px;"><strong>Total Supply:</strong> 1,000,000,000,000,000 FAMR</p>
 </div>
 </section>
 
-<!-- SOCIAL -->
-<section id="social" style="padding:90px 5%;border-top:1px solid rgba(212,175,55,0.15);text-align:center;">
-<h2 style="color:#d4af37;margin-bottom:20px;">Connect With Us</h2>
+<!-- NFT RARITY -->
+<section id="rarity" style="padding:60px 5%;text-align:center;">
+<h2 style="color:#d4af37;">NFT Rarity</h2>
+<p>Staking NFT generates rarity %APY per hour.<br>
+StakePool Supply: 40T $FAMR | PoolDrain: 5 Years | Max NFTs: 10,000</p>
 
-<a href="https://t.me/bnbfamr" target="_blank" style="display:block;margin:8px 0;color:#d4af37;text-decoration:none;">Telegram Chat</a>
-<a href="https://t.me/famrUpdates" target="_blank" style="display:block;margin:8px 0;color:#d4af37;text-decoration:none;">Telegram Channel</a>
-<a href="https://x.com/ufaithbnb" target="_blank" style="display:block;margin:8px 0;color:#d4af37;text-decoration:none;">X.com</a>
-<a href="https://t.me/bnbfamr001" target="_blank" style="display:block;margin:8px 0;color:#d4af37;text-decoration:none;">Dev Contact</a>
+<div style="overflow:hidden;max-width:1100px;margin:40px auto;">
+<div id="carousel" style="display:flex;transition:0.5s;">
+
+<!-- Card -->
+<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
+<h3 style="color:#d4af37;">AAAFAMR</h3>
+<p>120% APY</p>
+<p>Annual: 1,200,000,000</p>
+<p>Hourly: 136,986</p>
+<p>Supply: 2,000 NFTs</p>
+</div>
+
+<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
+<h3 style="color:#d4af37;">BBBFAMR</h3>
+<p>85% APY</p>
+<p>Annual: 850,000,000</p>
+<p>Hourly: 97,031</p>
+<p>Supply: 2,000 NFTs</p>
+</div>
+
+<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
+<h3 style="color:#d4af37;">CCCFAMR</h3>
+<p>75% APY</p>
+<p>Supply: 2,000 NFTs</p>
+</div>
+
+<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
+<h3 style="color:#d4af37;">DDDFAMR</h3>
+<p>70% APY</p>
+<p>Supply: 2,000 NFTs</p>
+</div>
+
+<div style="min-width:300px;margin:10px;border:1px solid rgba(212,175,55,0.3);padding:25px;border-radius:22px;">
+<h3 style="color:#d4af37;">EFAMR</h3>
+<p>100% APY</p>
+<p>Supply: 2,000 NFTs</p>
+</div>
+
+</div>
+</div>
+
+<div style="margin-top:30px;">
+<a href="https://forge.mpty.site" target="_blank"
+style="display:inline-block;margin:10px;padding:12px 28px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;border-radius:8px;text-align:center;"
+onmouseover="this.style.boxShadow='0 0 20px rgba(212,175,55,0.4)'"
+onmouseout="this.style.boxShadow='none'">
+Mint On dApp
+</a>
+
+<a href="#" 
+style="display:inline-block;margin:10px;padding:12px 28px;border:1px solid rgba(212,175,55,0.4);color:#d4af37;text-decoration:none;border-radius:8px;text-align:center;"
+onmouseover="this.style.boxShadow='0 0 20px rgba(212,175,55,0.4)'"
+onmouseout="this.style.boxShadow='none'">
+OpenSEA Marketplace
+</a>
+</div>
 </section>
 
-<footer style="padding:50px 0;border-top:1px solid rgba(212,175,55,0.2);text-align:center;color:#777;">
-© 2026 FAMR RWA. All Rights Reserved.
-</footer>
+<!-- PROTOCOL -->
+<section id="protocol" style="padding:60px 5%;text-align:center;">
+<h2 style="color:#d4af37;">Structured RWA Protocol</h2>
+<p style="max-width:900px;margin:auto;">
+Famr RWA integrates motion poultry-backed surreal world assets with tiered NFT emission and a deflationary Add-Burn liquidity model.
+Tokens are not added to the pool until after initial 200 NFT mints with over 89.9% BNB received.
+Only miners have power to increase or mint FAMR assets into circulation.
+</p>
+</section>
 
+<!-- SOCIALS -->
+<section id="socials" style="padding:60px 5%;text-align:center;border-top:1px solid rgba(212,175,55,0.2);">
+<h2 style="color:#d4af37;">Socials</h2>
+<p>Telegram Chat: t.me/bnbfamr</p>
+<p>Telegram Channel: t.me/famrUpdates</p>
+<p>X.com: x.com/ufaithbnb</p>
+<p>Dev Contact: t.me/bnbfamr001</p>
+</section>
+
+<!-- SCRIPTS -->
 <script>
-function copyCA(){
-navigator.clipboard.writeText(document.getElementById("ca").innerText);
-alert("Contract copied!");
-}
-
 function toggleMenu(){
 var nav=document.getElementById("navLinks");
-if(nav.style.display==="flex"){nav.style.display="none";}
-else{nav.style.display="flex";}
+if(nav.style.display==="flex"){
+nav.style.display="none";
+}else{
+nav.style.display="flex";
+nav.style.flexDirection="column";
+nav.style.gap="15px";
 }
+}
+
+function copyCA(){
+var text=document.getElementById("caText").innerText;
+navigator.clipboard.writeText(text);
+alert("Contract Address Copied");
+}
+
+/* Active Nav Highlight */
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("#navLinks a");
+
+window.addEventListener("scroll",function(){
+let current="";
+sections.forEach(section=>{
+const sectionTop=section.offsetTop-120;
+if(window.scrollY>=sectionTop){
+current=section.getAttribute("id");
+}
+});
+navLinks.forEach(link=>{
+link.style.color="#fff";
+if(link.getAttribute("href")==="#"+current){
+link.style.color="#d4af37";
+}
+});
+});
 </script>
 
 </body>
