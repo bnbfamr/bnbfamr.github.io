@@ -4,792 +4,187 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 :root {
     --text: #111;
     --muted: #666;
     --border: #eaeaea;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #fff;
-    color: var(--text);
-    line-height: 1.7;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* HEADER */
-
-header {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    color: var(--muted);
-    font-size: 18px;
-}
-
-/* SECTIONS */
-
-.section {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-}
-
-.section h2 {
-    font-size: 30px;
-    margin-bottom: 40px;
-}
-
-.section-sub {
-    margin-bottom: 30px;
-    color: var(--muted);
-    font-size: 16px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.card {
-    border: 1px solid var(--border);
-    padding: 30px;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* TABLE */
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
-}
-
-th, td {
-    text-align: left;
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-}
-
-th {
-    font-weight: 600;
-}
-
-/* NFT Carousel */
-
-.carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.3s ease;
-}
-
-.nft-card {
-    min-width: 220px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-}
-
-.nft-card img {
-    width: 100%;
-    display: block;
-}
-
-.nft-info {
-    padding: 15px;
-}
-
-.nft-info h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.nft-info p {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 5px;
-}
-
-.nft-info span {
-    font-weight: 600;
-    color: var(--text);
-}
-
-/* Carousel buttons */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-}
-
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
-
-/* FOOTER */
-
-footer {
-    padding: 60px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-size: 14px;
-    color: var(--muted);
-}
-
-/* MOBILE */
-
-@media (max-width: 900px) {
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #fff;
-        flex-direction: column;
-        width: 200px;
-        border-left: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        display: none;
-        padding: 20px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .carousel-track {
-        gap: 10px;
-    }
-
-    .nft-card {
-        min-width: 180px;
-    }
-}
-
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Inter',sans-serif; background:#fff;color:var(--text);line-height:1.7;}
+.container {width:90%;max-width:1200px;margin:auto;}
+header {padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1000;}
+nav {display:flex;justify-content:space-between;align-items:center;}
+.logo {font-weight:700;font-size:18px;}
+.nav-links {display:flex;gap:30px;}
+.nav-links a {text-decoration:none;color:var(--text);font-size:14px;font-weight:500;}
+.menu-toggle {display:none;font-size:24px;cursor:pointer;}
+.hero {padding:80px 0;text-align:center;}
+.hero h1 {font-size:42px;font-weight:600;margin-bottom:20px;}
+.hero p {max-width:700px;margin:auto;color:var(--muted);font-size:18px;}
+.section {padding:80px 0;border-top:1px solid var(--border);}
+.section h2 {font-size:28px;margin-bottom:30px;}
+.section-sub {margin-bottom:20px;color:var(--muted);font-size:16px;}
+.grid {display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
+.card {border:1px solid var(--border);padding:25px;border-radius:8px;}
+.card h3 {margin-bottom:10px;font-size:18px;}
+.card p, .card span {color:var(--muted);font-size:14px;}
+.table-wrapper {overflow-x:auto;}
+table {width:100%;border-collapse:collapse;min-width:700px;}
+th, td {text-align:left;padding:14px;border-bottom:1px solid var(--border);font-size:14px;}
+th {font-weight:600;}
+footer {padding:50px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
+.nft-grid {display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.nft-card {width:120px;height:120px;border:2px solid; border-radius:12px; display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;transition:all 0.3s ease;cursor:pointer;}
+.nft-card img {width:50px;height:50px;margin-bottom:8px;}
+.nft-card span {font-size:12px;font-weight:600;color:var(--text);}
+.nft-card .apy-details {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;transition:opacity 0.3s;}
+.nft-card:hover .apy-details {opacity:1;}
+.nft-card.aaa {border-color:gold;background:#fff8e1;}
+.nft-card.bbb {border-color:silver;background:#f5f5f5;}
+.nft-card.ccc {border-color:#cd7f32;background:#fbe9e7;}
+.nft-card.ddd {border-color:#4caf50;background:#e8f5e9;}
+.nft-card.eee {border-color:#2196f3;background:#e3f2fd;}
+@media(max-width:900px){.hero h1{font-size:32px;}.hero p{font-size:16px;}.grid{grid-template-columns:1fr;}.nft-card{width:100px;height:100px;}.nft-card img{width:40px;height:40px;}.nav-links{position:absolute;top:70px;right:0;background:#fff;flex-direction:column;width:200px;border-left:1px solid var(--border);border-bottom:1px solid var(--border);display:none;padding:20px;}.nav-links.active{display:flex;}}
 </style>
 </head>
 <body>
 
 <header>
-    <div class="container">
-        <nav>
-            <div class="logo">FAMR RWA</div>
-            <div class="nav-links" id="navLinks">
-                <a href="#token">Token</a>
-                <a href="#nft">NFT Architecture</a>
-                <a href="#rarity">Rarity Structure</a>
-                <a href="#">Whitepaper</a>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        </nav>
-    </div>
+<div class="container">
+<nav>
+<div class="logo">FAMR RWA</div>
+<div class="nav-links" id="navLinks">
+<a href="#token">Token</a>
+<a href="#nft">NFT Architecture</a>
+<a href="#rarity">Rarity Structure</a>
+<a href="#">Whitepaper</a>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+</div>
 </header>
 
 <section class="hero">
-    <div class="container">
-        <h1>Structured Real World Asset Protocol</h1>
-        <p>FAMR integrates poultry-backed real world assets with a tiered NFT emission framework and a deflationary Add-Burn liquidity model.</p>
-    </div>
+<div class="container">
+<h1>Structured Real World Asset Protocol</h1>
+<p>FAMR integrates poultry-backed real world assets with a tiered NFT emission framework and a deflationary Add-Burn liquidity model.</p>
+</div>
 </section>
 
 <section class="section" id="token">
-    <div class="container">
-        <h2>Token Details</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Core Structure</h3>
-                <p>Token: FAMR<br>Standard: BEP-20<br>Utility: Staking, NFT Conversion, Liquidity Reinforcement<br>Emission Model: Tier-Based APY Allocation</p>
-            </div>
-            <div class="card">
-                <h3>Economic Controls</h3>
-                <p>APY Range: 70% – 120%<br>NFT Supply: 10,000<br>Maximum Burn Exposure: 3.572T FAMR<br>Structured Buyback & Burn Cycles</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2>Token Details & Supply</h2>
+<div class="card">
+<p><strong>Contract Address:</strong> 0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
+<p><strong>Token Name:</strong> Famr RWA</p>
+<p><strong>Ticket:</strong> FAMR</p>
+<p><strong>Network:</strong> BNB Smart Chain</p>
+<p><strong>Total Supply:</strong> 1,000,000,000,000,000 $FAMR (1 Quadrillion)</p>
+</div>
+
+<h3 style="margin-top:30px;">Tokenomics & Hard Scarcity</h3>
+<div class="table-wrapper">
+<table>
+<tr><th>Allocation</th><th>Amount</th></tr>
+<tr><td>Liquidity</td><td>100T FAMR</td></tr>
+<tr><td>Staking Rewards</td><td>50T FAMR</td></tr>
+<tr><td>NFT Conversion</td><td>10T FAMR</td></tr>
+<tr><td>Marketing & Ecosystem</td><td>40T FAMR</td></tr>
+<tr><td><strong>Allocated Total</strong></td><td>200T FAMR</td></tr>
+<tr><td><strong>Burnable Supply</strong></td><td>800T FAMR (after 200 NFT mints)</td></tr>
+</table>
+</div>
+</div>
 </section>
 
 <section class="section" id="nft">
-    <div class="container">
-        <h2>FAMR NFT Architecture</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Collection Overview</h3>
-                <p>ERC-1155 Standard<br>Semi-Fungible Tier Classification<br>Mint Range: 0.065 – 0.105 BNB<br>Total Raise Potential: 820 BNB</p>
-            </div>
-            <div class="card">
-                <h3>Add-Burn Mechanism</h3>
-                <p>Future mint cycles use collected BNB to purchase FAMR from liquidity pools and permanently burn tokens to strengthen the price floor.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container">
+<h2>NFT Rarity & Staking APY</h2>
+<p>Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain Time: 5 years</p>
 
-<section class="section" id="collection">
-    <div class="container">
-        <h2>FAMR NFT Collection</h2>
-        <p class="section-sub">ERC-1155 Poultry Collection — Tiered Rarity Emission Structure</p>
+<div class="nft-grid">
+<div class="nft-card aaa">
+<img src="nft-icon.png" alt="AAAFAMR">
+<span>AAAFAMR</span>
+<div class="apy-details">
+<p>APY: 120%</p>
+<p>Annual: 1,200,000,000 $FAMR</p>
+<p>Daily: ≈3,287,671 $FAMR</p>
+<p>Hourly: ≈136,986 $FAMR</p>
+</div>
+</div>
 
-        <div class="carousel-wrapper">
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="carousel-track" id="carouselTrack">
-                <div class="nft-card"><img src="nft1.jpg" alt="AAAFAMR"><div class="nft-info"><h3>AAAFAMR</h3><p>Genesis Sovereign Hen</p><span>APY: 120%</span></div></div>
-                <div class="nft-card"><img src="nft2.jpg" alt="BBBFAMR"><div class="nft-info"><h3>BBBFAMR</h3><p>Imperial Broiler</p><span>APY: 100%</span></div></div>
-                <div class="nft-card"><img src="nft3.jpg" alt="CCCFAMR"><div class="nft-info"><h3>CCCFAMR</h3><p>Prime Layer</p><span>APY: 85%</span></div></div>
-                <div class="nft-card"><img src="nft4.jpg" alt="DDDFAMR"><div class="nft-info"><h3>DDDFAMR</h3><p>Harvest Grower</p><span>APY: 75%</span></div></div>
-                <div class="nft-card"><img src="nft5.jpg" alt="EEEFAMR"><div class="nft-info"><h3>EEEFAMR</h3><p>Field Chick</p><span>APY: 70%</span></div></div>
-            </div>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
+<div class="nft-card bbb">
+<img src="nft-icon.png" alt="BBBFAMR">
+<span>BBBFAMR</span>
+<div class="apy-details">
+<p>APY: 100%</p>
+<p>Annual: 1,000,000,000 $FAMR</p>
+<p>Daily: ≈2,739,726 $FAMR</p>
+<p>Hourly: ≈114,155 $FAMR</p>
+</div>
+</div>
 
-        <div class="contract-box" style="margin-top:20px;text-align:center;">
-            <span>Contract Address:</span>
-            <code>0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</code>
-        </div>
-    </div>
+<div class="nft-card ccc">
+<img src="nft-icon.png" alt="CCCFAMR">
+<span>CCCFAMR</span>
+<div class="apy-details">
+<p>APY: 85%</p>
+<p>Annual: 850,000,000 $FAMR</p>
+<p>Daily: ≈2,328,767 $FAMR</p>
+<p>Hourly: ≈97,031 $FAMR</p>
+</div>
+</div>
+
+<div class="nft-card ddd">
+<img src="nft-icon.png" alt="DDDFAMR">
+<span>DDDFAMR</span>
+<div class="apy-details">
+<p>APY: 75%</p>
+<p>Annual: 750,000,000 $FAMR</p>
+<p>Daily: ≈2,054,795 $FAMR</p>
+<p>Hourly: ≈85,616 $FAMR</p>
+</div>
+</div>
+
+<div class="nft-card eee">
+<img src="nft-icon.png" alt="EEEFAMR">
+<span>EEEFAMR</span>
+<div class="apy-details">
+<p>APY: 70%</p>
+<p>Annual: 700,000,000 $FAMR</p>
+<p>Daily: ≈1,917,808 $FAMR</p>
+<p>Hourly: ≈79,909 $FAMR</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <section class="section" id="rarity">
-    <div class="container">
-        <h2>Rarity Structure</h2>
-        <div class="table-wrapper">
-            <table>
-                <tr>
-                    <th>Class</th>
-                    <th>Name</th>
-                    <th>APY</th>
-                    <th>Supply</th>
-                    <th>Price (BNB)</th>
-                    <th>Burn Reward</th>
-                </tr>
-                <tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200</td><td>0.105</td><td>1,000,000,000</td></tr>
-                <tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,800</td><td>0.095</td><td>650,000,000</td></tr>
-                <tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>2,200</td><td>0.085</td><td>350,000,000</td></tr>
-                <tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>2,400</td><td>0.075</td><td>150,000,000</td></tr>
-                <tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>2,400</td><td>0.065</td><td>30,000,000</td></tr>
-            </table>
-        </div>
-    </div>
+<div class="container">
+<h2>Rarity Structure & Earnings</h2>
+<div class="table-wrapper">
+<table>
+<tr>
+<th>Rarity Class</th><th>Name</th><th>APY</th><th>Annual</th><th>Daily</th><th>Hourly</th>
+</tr>
+<tr><td>AAAFAMR</td><td>Genesis Sovereign Hen</td><td>120%</td><td>1,200,000,000</td><td>≈3,287,671</td><td>≈136,986</td></tr>
+<tr><td>BBBFAMR</td><td>Imperial Broiler</td><td>100%</td><td>1,000,000,000</td><td>≈2,739,726</td><td>≈114,155</td></tr>
+<tr><td>CCCFAMR</td><td>Prime Layer</td><td>85%</td><td>850,000,000</td><td>≈2,328,767</td><td>≈97,031</td></tr>
+<tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>750,000,000</td><td>≈2,054,795</td><td>≈85,616</td></tr>
+<tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>700,000,000</td><td>≈1,917,808</td><td>≈79,909</td></tr>
+</table>
+</div>
+</div>
 </section>
 
 <footer>
-    <div class="container">
-        © 2026 FAMR RWA. All Rights Reserved.
-    </div>
-</footer>
-
-<script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-}
-
-// Simple horizontal carousel
-let currentSlide = 0;
-function moveSlide(direction) {
-    const track = document.getElementById('carouselTrack');
-    const cardWidth = track.querySelector('.nft-card').offsetWidth + 20; // include gap
-    currentSlide += direction;
-    const maxSlide = track.children.length - Math.floor(track.parentElement.offsetWidth / cardWidth);
-    if(currentSlide < 0) currentSlide = 0;
-    if(currentSlide > maxSlide) currentSlide = maxSlide;
-    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-}
-</script>
-
-</body>
-</html>/* HEADER */
-
-header {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    color: var(--muted);
-    font-size: 18px;
-}
-
-/* SECTIONS */
-
-.section {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-}
-
-.section h2 {
-    font-size: 30px;
-    margin-bottom: 40px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.card {
-    border: 1px solid var(--border);
-    padding: 30px;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* TABLE */
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
-}
-
-th, td {
-    text-align: left;
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-}
-
-th {
-    font-weight: 600;
-}
-
-/* FOOTER */
-
-footer {
-    padding: 60px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-size: 14px;
-    color: var(--muted);
-}
-
-/* MOBILE */
-
-@media (max-width: 900px) {
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #fff;
-        flex-direction: column;
-        width: 200px;
-        border-left: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        display: none;
-        padding: 20px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo">FAMR RWA</div>
-
-            <div class="nav-links" id="navLinks">
-                <a href="#token">Token</a>
-                <a href="#nft">NFT Architecture</a>
-                <a href="#rarity">Rarity Structure</a>
-                <a href="#">Whitepaper</a>
-            </div>
-
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        </nav>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="container">
-        <h1>Structured Real World Asset Protocol</h1>
-        <p>
-            FAMR integrates poultry-backed real world assets with a tiered NFT emission
-            framework and a deflationary Add-Burn liquidity model.
-        </p>
-    </div>
-</section>
-
-<section class="section" id="token">
-    <div class="container">
-        <h2>Token Details</h2>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Core Structure</h3>
-                <p>
-                    Token: FAMR<br>
-                    Standard: BEP-20<br>
-                    Utility: Staking, NFT Conversion, Liquidity Reinforcement<br>
-                    Emission Model: Tier-Based APY Allocation
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Economic Controls</h3>
-                <p>
-                    APY Range: 70% – 120%<br>
-                    NFT Supply: 10,000<br>
-                    Maximum Burn Exposure: 3.572T FAMR<br>
-                    Structured Buyback & Burn Cycles
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="nft">
-    <div class="container">
-        <h2>FAMR NFT Architecture</h2>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Collection Overview</h3>
-                <p>
-                    ERC-1155 Standard<br>
-                    Semi-Fungible Tier Classification<br>
-                    Mint Range: 0.065 – 0.105 BNB<br>
-                    Total Raise Potential: 820 BNB
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Add-Burn Mechanism</h3>
-                <p>
-                    Future mint cycles use collected BNB to purchase FAMR from liquidity
-                    pools and permanently burn tokens to strengthen the price floor.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section" id="collection">
-    <div class="container">
-        <h2>FAMR NFT Collection</h2>
-        <p class="section-sub">
-            ERC-1155 Poultry Collection — Tiered Rarity Emission Structure
-        </p>
-
-        <div class="carousel-wrapper">
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-
-            <div class="carousel-track" id="carouselTrack">
-
-                <div class="nft-card">
-                    <img src="nft1.jpg" alt="AAAFAMR Genesis">
-                    <div class="nft-info">
-                        <h3>AAAFAMR</h3>
-                        <p>Genesis Sovereign Hen</p>
-                        <span>APY: 120%</span>
-                    </div>
-                </div>
-
-                <div class="nft-card">
-                    <img src="nft1.jpg" alt="BBBFAMR">
-                    <div class="nft-info">
-                        <h3>BBBFAMR</h3>
-                        <p>Imperial Broiler</p>
-                        <span>APY: 100%</span>
-                    </div>
-                </div>
-
-                <div class="nft-card">
-                    <img src="nft1.jpg" alt="CCCFAMR">
-                    <div class="nft-info">
-                        <h3>CCCFAMR</h3>
-                        <p>Prime Layer</p>
-                        <span>APY: 85%</span>
-                    </div>
-                </div>
-
-                <div class="nft-card">
-                    <img src="nft1.jpg" alt="DDDFAMR">
-                    <div class="nft-info">
-                        <h3>DDDFAMR</h3>
-                        <p>Harvest Grower</p>
-                        <span>APY: 75%</span>
-                    </div>
-                </div>
-
-                <div class="nft-card">
-                    <img src="nft1.jpg" alt="EEEFAMR">
-                    <div class="nft-info">
-                        <h3>EEEFAMR</h3>
-                        <p>Field Chick</p>
-                        <span>APY: 70%</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-
-        <div class="contract-box">
-            <span>Contract Address:</span>
-            <code>0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</code>
-        </div>
-
-    </div>
-</section>
-<section class="section" id="rarity">
-    <div class="container">
-        <h2>Rarity Structure</h2>
-
-        <div class="table-wrapper">
-            <table>
-                <tr>
-                    <th>Class</th>
-                    <th>Name</th>
-                    <th>APY</th>
-                    <th>Supply</th>
-                    <th>Price (BNB)</th>
-                    <th>Burn Reward</th>
-                </tr>
-
-                <tr>
-                    <td>AAAFAMR</td>
-                    <td>Genesis Sovereign Hen</td>
-                    <td>120%</td>
-                    <td>1,200</td>
-                    <td>0.105</td>
-                    <td>1,000,000,000</td>
-                </tr>
-
-                <tr>
-                    <td>BBBFAMR</td>
-                    <td>Imperial Broiler</td>
-                    <td>100%</td>
-                    <td>1,800</td>
-                    <td>0.095</td>
-                    <td>650,000,000</td>
-                </tr>
-
-                <tr>
-                    <td>CCCFAMR</td>
-                    <td>Prime Layer</td>
-                    <td>85%</td>
-                    <td>2,200</td>
-                    <td>0.085</td>
-                    <td>350,000,000</td>
-                </tr>
-
-                <tr>
-                    <td>DDDFAMR</td>
-                    <td>Harvest Grower</td>
-                    <td>75%</td>
-                    <td>2,400</td>
-                    <td>0.075</td>
-                    <td>150,000,000</td>
-                </tr>
-
-                <tr>
-                    <td>EEEFAMR</td>
-                    <td>Field Chick</td>
-                    <td>70%</td>
-                    <td>2,400</td>
-                    <td>0.065</td>
-                    <td>30,000,000</td>
-                </tr>
-            </table>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        © 2026 FAMR RWA. All Rights Reserved.
-    </div>
+<div class="container">
+© 2026 FAMR RWA. All Rights Reserved.
+</div>
 </footer>
 
 <script>
@@ -797,6 +192,5 @@ function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("active");
 }
 </script>
-
 </body>
 </html>
