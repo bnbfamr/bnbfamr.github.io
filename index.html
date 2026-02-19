@@ -4,48 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --text: #111;
-    --muted: #666;
-    --border: #eaeaea;
+    --text:#111;
+    --muted:#666;
+    --border:#eaeaea;
+    --primary:#1a73e8;
 }
 * {margin:0;padding:0;box-sizing:border-box;}
 body {font-family:'Inter',sans-serif;background:#fff;color:var(--text);line-height:1.6;}
 .container {width:90%;max-width:1200px;margin:auto;}
 header {padding:15px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1000;}
 nav {display:flex;justify-content:space-between;align-items:center;}
-.logo {font-weight:700;font-size:18px;}
+.logo {font-weight:700;font-size:20px;color:var(--primary);}
 .nav-links {display:flex;gap:20px;}
 .nav-links a {text-decoration:none;color:var(--text);font-size:14px;font-weight:500;}
 .menu-toggle {display:none;font-size:24px;cursor:pointer;}
 .hero {padding:60px 0;text-align:center;}
-.hero h1 {font-size:36px;font-weight:600;margin-bottom:15px;}
+.hero h1 {font-size:40px;font-weight:700;margin-bottom:15px;}
 .hero p {max-width:600px;margin:auto;color:var(--muted);font-size:16px;}
 .section {padding:60px 0;border-top:1px solid var(--border);}
-.section h2 {font-size:26px;margin-bottom:20px;text-align:center;}
-.card {border:1px solid var(--border);padding:20px;border-radius:8px;margin-bottom:20px;}
+.section h2 {font-size:28px;margin-bottom:20px;text-align:center;font-weight:700;}
+.card {border:1px solid var(--border);padding:20px;border-radius:10px;margin-bottom:20px;line-height:1.5;}
+.card p strong{font-weight:600;}
 .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 .table-wrapper {overflow-x:auto;}
 table {width:100%;border-collapse:collapse;}
-th, td {text-align:left;padding:12px;border-bottom:1px solid var(--border);}
-th {font-weight:600;}
-footer {padding:40px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
+th,td{text-align:left;padding:12px;border-bottom:1px solid var(--border);}
+th{font-weight:600;}
+footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted);}
 
 /* NFT Cards */
-.nft-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;justify-items:center;}
-.nft-card {border:2px solid #ccc;border-radius:10px;padding:10px;text-align:center;width:120px;}
-.nft-card img {width:50px;height:50px;margin-bottom:5px;}
-.nft-card span {display:block;font-weight:600;font-size:12px;margin-bottom:3px;}
-.nft-card small {font-size:11px;color:var(--muted);}
+.nft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;justify-items:center;}
+.nft-card{border:2px solid #ccc;border-radius:12px;padding:15px;text-align:center;width:130px;background:#fff;transition:transform 0.2s;}
+.nft-card:hover{transform:scale(1.05);}
+.nft-card svg{width:50px;height:50px;margin-bottom:5px;}
+.nft-card span{display:block;font-weight:600;font-size:12px;margin-bottom:3px;}
+.nft-card small{font-size:11px;color:var(--muted);}
 
 /* Rarity Colors */
-.nft-card.aaa {border-color:gold;background:#fff8e1;}
-.nft-card.bbb {border-color:silver;background:#f5f5f5;}
-.nft-card.ccc {border-color:#cd7f32;background:#fbe9e7;}
-.nft-card.ddd {border-color:#4caf50;background:#e8f5e9;}
-.nft-card.eee {border-color:#2196f3;background:#e3f2fd;}
+.nft-card.aaa{border-color:gold;background:#fff8e1;}
+.nft-card.bbb{border-color:silver;background:#f5f5f5;}
+.nft-card.ccc{border-color:#cd7f32;background:#fbe9e7;}
+.nft-card.ddd{border-color:#4caf50;background:#e8f5e9;}
+.nft-card.eee{border-color:#2196f3;background:#e3f2fd;}
+
+/* Social Links */
+.social-links{display:flex;justify-content:center;gap:25px;margin-top:30px;}
+.social-links a{text-decoration:none;font-weight:600;color:var(--primary);font-size:14px;}
 
 @media(max-width:600px){.hero h1{font-size:28px;}.hero p{font-size:14px;}}
 </style>
@@ -100,11 +107,37 @@ footer {padding:40px 0;border-top:1px solid var(--border);text-align:center;font
 <h2>NFT Rarity & APY</h2>
 <p style="text-align:center;color:var(--muted);margin-bottom:20px;">Any staked NFT generates APY per hour according to rarity. StakePool Supply: 40T $FAMR | PoolDrain: 5 years</p>
 <div class="nft-grid">
-<div class="nft-card aaa"><img src="nft-icon.png" alt="AAAFAMR"><span>AAAFAMR</span><small>120% APY<br>≈136,986/hr</small></div>
-<div class="nft-card bbb"><img src="nft-icon.png" alt="BBBFAMR"><span>BBBFAMR</span><small>100% APY<br>≈114,155/hr</small></div>
-<div class="nft-card ccc"><img src="nft-icon.png" alt="CCCFAMR"><span>CCCFAMR</span><small>85% APY<br>≈97,031/hr</small></div>
-<div class="nft-card ddd"><img src="nft-icon.png" alt="DDDFAMR"><span>DDDFAMR</span><small>75% APY<br>≈85,616/hr</small></div>
-<div class="nft-card eee"><img src="nft-icon.png" alt="EEEFAMR"><span>EEEFAMR</span><small>70% APY<br>≈79,909/hr</small></div>
+
+<div class="nft-card aaa">
+<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="gold" stroke-width="4"/><path d="M32 10v22l18 10" stroke="gold" stroke-width="2"/></svg>
+<span>AAAFAMR</span>
+<small>120% APY<br>≈136,986/hr</small>
+</div>
+
+<div class="nft-card bbb">
+<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="silver" stroke-width="4"/><path d="M32 10v22l18 10" stroke="silver" stroke-width="2"/></svg>
+<span>BBBFAMR</span>
+<small>100% APY<br>≈114,155/hr</small>
+</div>
+
+<div class="nft-card ccc">
+<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#cd7f32" stroke-width="4"/><path d="M32 10v22l18 10" stroke="#cd7f32" stroke-width="2"/></svg>
+<span>CCCFAMR</span>
+<small>85% APY<br>≈97,031/hr</small>
+</div>
+
+<div class="nft-card ddd">
+<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#4caf50" stroke-width="4"/><path d="M32 10v22l18 10" stroke="#4caf50" stroke-width="2"/></svg>
+<span>DDDFAMR</span>
+<small>75% APY<br>≈85,616/hr</small>
+</div>
+
+<div class="nft-card eee">
+<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#2196f3" stroke-width="4"/><path d="M32 10v22l18 10" stroke="#2196f3" stroke-width="2"/></svg>
+<span>EEEFAMR</span>
+<small>70% APY<br>≈79,909/hr</small>
+</div>
+
 </div>
 </div>
 </section>
@@ -121,6 +154,12 @@ footer {padding:40px 0;border-top:1px solid var(--border);text-align:center;font
 <tr><td>DDDFAMR</td><td>Harvest Grower</td><td>75%</td><td>750,000,000</td><td>≈2,054,795</td><td>≈85,616</td></tr>
 <tr><td>EEEFAMR</td><td>Field Chick</td><td>70%</td><td>700,000,000</td><td>≈1,917,808</td><td>≈79,909</td></tr>
 </table>
+</div>
+
+<div class="social-links">
+<a href="https://t.me/bnbfamr" target="_blank">Telegram Chat</a>
+<a href="https://t.me/famrUpdate" target="_blank">Telegram Channel</a>
+<a href="https://x.com/bnbfamr" target="_blank">X.com</a>
 </div>
 </div>
 </section>
