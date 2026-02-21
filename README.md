@@ -1,9 +1,10 @@
-### bnbfamr.github.io | FAMR is an NFT base token on the BNB Chain created by @bnbfamr001 (TG). 
+### [Official Website](https://bnbfamr.github.io/) | [Official TG](https://t.me/bnbfamr) | [Official Twitter](https://x.com/ufaithbnb). 
 
 # FAMR RWA - Investor Whitepaper:
 # Real-World Asset NFT Staking Protocol
 
 ---
+
 ## Executive Summary
 The Famr RWA is a structured NFT-powered staking protocol designed to integrate: Real-World Asset alignment, Tier-based yield architecture, Fixed 5-year emission schedule, Burn-integrated supply control with a mathematically sustainable tokenomics. The protocol distributes staking rewards from a finite supply of 40 Trillion $FAMR from is staking pool contracts, ensuring predictable emissions and controlled inflation over a fixed 5-year period.
 
