@@ -32,12 +32,12 @@ The ecosystem integrates tier-based NFT staking, fixed emission schedules, and b
 
 The total maximum supply of 1 Quadrillion FAMR is structured as follows:
 
-| Allocation Category        | Amount (FAMR) | Notes |
-|----------------------------|---------------|-------|
-| Liquidity                  | 100T          | Initial and strategic liquidity provisioning |
-| Staking Rewards (5 Years)  | 34.8T         | Fixed 5-year emission schedule |
-| NFT Conversion Pool        | 5.2T          | Reserved for NFT burn redemption |
-| Marketing & Ecosystem      | 15T           | Growth, partnerships, development |
+| Allocation Category        | Amount (FAMR) | Notes                                                         |
+|----------------------------|---------------|---------------------------------------------------------------|
+| Liquidity                  | 100T          | Initial and strategic liquidity provisioning                  |
+| Staking Rewards (5 Years)  | 34.8T         | Fixed 5-year emission schedule                                |
+| NFT Conversion Pool        | 5.2T          | Reserved for NFT burn redemption                              |
+| Marketing & Ecosystem      | 15T           | Growth, partnerships, development                             |
 | Permanent Burn / Lock      | 840T          | Burned or 5-year locked after 200 NFT mints & governance vote |
 
 ---
