@@ -10,12 +10,57 @@ The Famr RWA is a structured NFT-powered staking protocol designed to integrate:
 ---
 
 ## 1. Protocol Overview
-Famr RWA combines NFT ownership with structured staking emissions. Each NFT tier provides; Fixed APY class, Pre-calculated sustainable reward allocation, Guaranteed burn redemption value and a transparent supply structure.
-Total NFT Supply: 10,000 NFTs
+
+FAMR RWA is a structured Real-World Asset (RWA) NFT staking protocol built on BNB Smart Chain.  
+The ecosystem integrates tier-based NFT staking, fixed emission schedules, and burn-backed supply mechanics to ensure long-term sustainability.
 
 ---
 
-## 2. Total Allocation Structure
+### Token Details
+- Token Name: Famr RWA  
+- Ticker: FAMR  
+- Network: BNB Smart Chain (BEP-20)  
+- FAMR Contract Address:
+[0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7](https://bscscan.com/token/0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7)
+- Max Supply: 1 Quadrillion FAMR  
+- NFT Standard: ERC-1155  
+- Total NFT Supply: 10,000 FAMR NFTs  
+
+---
+
+### Tokenomics & Hard Scarcity
+
+The total maximum supply of 1 Quadrillion FAMR is structured as follows:
+
+| Allocation Category        | Amount (FAMR) | Notes |
+|----------------------------|---------------|-------|
+| Liquidity                  | 100T          | Initial and strategic liquidity provisioning |
+| Staking Rewards (5 Years)  | 34.8T         | Fixed 5-year emission schedule |
+| NFT Conversion Pool        | 5.2T          | Reserved for NFT burn redemption |
+| Marketing & Ecosystem      | 15T           | Growth, partnerships, development |
+| Permanent Burn / Lock      | 840T          | Burned or 5-year locked after 200 NFT mints & governance vote |
+
+---
+
+### Hard Scarcity Mechanism
+
+- 840 Trillion FAMR will be permanently burned or time-locked.
+- DEX Liquidity Pool Activation occurs after:
+  - 200 NFT mints (✔️)
+  - Governance confirmation poll for burn or lock (✔️)
+- This mechanism enforces long-term supply discipline.
+
+The protocol is engineered to balance:
+
+- Controlled emissions  
+- Burn-integrated supply reduction  
+- Tier-weighted NFT yield  
+- Long-term scarcity  
+
+FAMR RWA prioritizes mathematical sustainability and transparent token allocation.
+---
+
+## 2. Total dApp Pool Allocation Structure
 Staking Allocation (5-Year Program)
 40,000,000,000,000 FAMR (40 Trillion)
 Duration: 5 Years.
