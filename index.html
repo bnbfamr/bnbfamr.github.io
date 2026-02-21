@@ -4,18 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAMR RWA</title>
-
 <style>
 :root{
 --bg:#000;
---text:#ffffff;
---muted:#bbbbbb;
+--text:#fff;
+--muted:#bbb;
 --gold:#d4af37;
 --border:rgba(212,175,55,0.35);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:var(--bg);
@@ -23,156 +20,68 @@ color:var(--text);
 line-height:1.6;
 scroll-behavior:smooth;
 }
-
 /* NAV */
 nav{
-position:fixed;
-top:0;
-width:100%;
-background:#000;
-border-bottom:1px solid var(--border);
-z-index:1000;
+position:fixed; top:0; width:100%; background:#000; border-bottom:1px solid var(--border); z-index:1000;
 }
 nav .wrap{
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 5%;
+max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:15px 5%;
 }
-.logo{
-font-weight:bold;
-font-size:20px;
-color:var(--gold);
-}
+.logo{font-weight:bold;font-size:20px;color:var(--gold);}
 .nav-links{
-display:flex;
-gap:25px;
+display:flex; gap:25px; transition:max-height 0.3s ease; overflow:hidden;
 }
-.nav-links a{
-text-decoration:none;
-color:var(--text);
-}
-.menu{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
-
+.nav-links a{text-decoration:none;color:var(--text);}
+.menu{display:none;font-size:26px;cursor:pointer;}
 /* SECTIONS */
-section{
-padding:80px 5%;
-text-align:center;
-max-width:1200px;
-margin:auto;
-}
-
+section{padding:80px 5%;text-align:center;max-width:1200px;margin:auto;}
 /* HERO */
-.hero h1{
-font-size:42px;
-color:var(--gold);
-margin-bottom:20px;
-}
-.hero p{
-max-width:800px;
-margin:auto;
-font-size:18px;
-color:var(--muted);
-}
-
+.hero h1{font-size:42px;color:var(--gold);margin-bottom:20px;}
+.hero p{max-width:800px;margin:auto;font-size:18px;color:var(--muted);}
 /* TOKEN CARD */
 .token-card{
-max-width:750px;
-margin:40px auto;
-border:1px solid var(--border);
-border-radius:18px;
-padding:30px;
+max-width:750px;margin:40px auto;border:1px solid var(--border);border-radius:18px;padding:30px;
 }
 .token-card p{margin:10px 0;}
 .token-card button{
-margin-top:15px;
-padding:10px 20px;
-background:#000;
-color:var(--gold);
-border:1px solid var(--border);
-border-radius:8px;
-cursor:pointer;
-width:100%;
-max-width:260px;
+margin-top:15px;padding:10px 20px;background:#000;color:var(--gold);border:1px solid var(--border);
+border-radius:8px;cursor:pointer;width:100%;max-width:260px;
 }
 .token-card button:hover{
 box-shadow:0 0 18px rgba(212,175,55,0.35);
 }
-
 /* CAROUSEL */
-.carousel-wrap{
-overflow:hidden;
-margin-top:40px;
-}
-.carousel{
-display:flex;
-gap:20px;
-overflow-x:auto;
-scroll-behavior:smooth;
-}
-.nft-card{
-min-width:280px;
-flex-shrink:0;
-border:1px solid var(--border);
-border-radius:22px;
-padding:25px;
-background:#111;
-}
-.nft-card h3{
-color:var(--gold);
-margin-bottom:10px;
-}
-.nft-card:hover{
-box-shadow:0 0 25px rgba(212,175,55,0.25);
-}
-
-/* BUTTONS */
-.action-buttons{
-margin-top:30px;
-}
+.carousel-wrap{overflow:hidden;margin-top:40px;}
+.carousel{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth; scrollbar-width:none;}
+.carousel::-webkit-scrollbar{display:none;}
+.nft-card{min-width:280px;flex-shrink:0;border:1px solid var(--border);border-radius:22px;padding:25px;background:#111;}
+.nft-card h2{color:var(--gold);margin-bottom:10px;}
+.nft-card h3{margin-bottom:10px;}
+.nft-card:hover{box-shadow:0 0 25px rgba(212,175,55,0.25);}
 .action-buttons a{
-display:inline-block;
-margin:10px;
-padding:12px 30px;
-border:1px solid var(--border);
-border-radius:8px;
-color:var(--gold);
-text-decoration:none;
+display:inline-block;margin:10px;padding:12px 30px;border:1px solid var(--border);border-radius:8px;color:var(--gold);text-decoration:none;
+transition:0.3s; 
 }
 .action-buttons a:hover{
-box-shadow:0 0 20px rgba(212,175,55,0.4);
+box-shadow:0 0 25px rgba(212,175,55,0.5); transform:translateY(-3px);
 }
-
-/* SOCIAL */
-#socials{
-border-top:1px solid var(--border);
+/* SOCIAL BUTTONS */
+.social-buttons{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
+.social-buttons button{
+padding:10px 20px; border:none; border-radius:6px; cursor:pointer; color:white; font-weight:bold; transition:0.3s;
 }
-
+.social-buttons button:hover{box-shadow:0 0 20px rgba(212,175,55,0.6); transform:translateY(-2px);}
+.social-telegram{background:#0088cc;}
+.social-x{background:#1DA1F2;}
+.social-dev{background:#34af23;}
+#socials{border-top:1px solid var(--border);}
 /* MOBILE */
 @media(max-width:900px){
-.nav-links{
-display:none;
-flex-direction:column;
-gap:15px;
-background:#000;
-position:absolute;
-top:65px;
-right:0;
-width:100%;
-padding:20px 5%;
-border-bottom:1px solid var(--border);
-}
+.nav-links{display:none;flex-direction:column; gap:15px; background:#000; position:absolute; top:65px; right:0; width:100%; padding:20px 5%; border-bottom:1px solid var(--border);}
 .menu{display:block;}
 }
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
@@ -195,15 +104,12 @@ border-bottom:1px solid var(--border);
 <!-- HERO -->
 <section class="hero" id="hero">
 <h1>Famr RWA Protocol:</h1>
-<p>
-A Structured Real-World Asset protocol powered by tiered NFT emission, NFT staking mechanics, and a deflationary-liquidity model built on BNB Smart Chain. Famr RWA Protocol integrates motion backed surreal world assets with tiered NFT, emissions and a deflationary Add-Burn liquidity model.
-</p>
+<p>A Structured Real-World Asset protocol powered by tiered NFT emission, NFT staking mechanics, and a deflationary-liquidity model built on BNB Smart Chain. Famr RWA Protocol integrates motion backed surreal world assets with tiered NFT, emissions and a deflationary Add-Burn liquidity model.</p>
 <br>
 <h1 style="color:var(--gold);">40,000,000,000,000 $FAMR Tokens are reserved in the Staking Pool for mining</h1>
-<h3>
-• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation.
-</h3>
+<h3>• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation.</h3>
 </section>
+
 <!-- TOKEN DETAILS -->
 <section id="token">
 <h2 style="color:var(--gold);">Token Details</h2>
@@ -212,14 +118,9 @@ A Structured Real-World Asset protocol powered by tiered NFT emission, NFT staki
 <p><strong>Ticker:</strong> FAMR</p>
 <p><strong>Network:</strong> BNB Smart Chain</p>
 <p><strong>Contract Address:</strong></p>
-<p style="word-break:break-all;" id="caText">
-0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7
-</p>
-
+<p style="word-break:break-all;" id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
 <button onclick="copyCA()">Copy Contract Address</button>
-
 <p><strong>Total Supply:</strong> 1,000,000,000,000,000 FAMR</p>
-
 <p><strong>Tokenomics & Hard Scarcity</strong></p>
 <p>100T → Liquidity</p>
 <p>50T → Staking Rewards</p>
@@ -232,10 +133,7 @@ A Structured Real-World Asset protocol powered by tiered NFT emission, NFT staki
 <!-- NFT RARITY -->
 <section id="rarity">
 <h2 style="color:var(--gold);">NFT Rarity</h2>
-<p>
-Staking NFT generates rarity % APY per hour.<br>
-StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | PoolDrain: 5 Years | Max NFTs: 10,000
-</p>
+<p>Staking NFT generates rarity % APY per hour.<br>StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | PoolDrain: 5 Years | Max NFTs: 10,000</p>
 
 <div class="carousel-wrap">
 <div class="carousel">
@@ -294,7 +192,7 @@ StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | PoolDrain: 5 Years
   <p>Supply: 2,800 NFTs</p>
   <p>Burn Reward: 200,000,000 FAMR</p>
 </div>
-  
+
 </div>
 </div>
 
@@ -307,78 +205,44 @@ StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | PoolDrain: 5 Years
 <!-- PROTOCOL -->
 <section id="protocol">
 <h2 style="color:var(--gold);">Structured RWA dApp Partnership</h2>
-
-<p>
-Famr RWA Protocol is in partnership with Emptycoin Product dApp for fullscale integration for substanability of its ecosystem. Holders of the famr RWA NFTs can either mint, stake, burn or trade
-</p>
+<p>Famr RWA Protocol is in partnership with Emptycoin Product dApp for fullscale integration for sustainability of its ecosystem. Holders of the famr RWA NFTs can either mint, stake, burn or trade</p>
 <br>
-<p>
-• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation.
-</p>
-<p>
-• A possible 800 Trillion FAMR (80% of total supply) is sheduled for a permanently burned after 200 NFT mints is circulated.
-</p>
+<p>• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation.</p>
+<p>• A possible 800 Trillion FAMR (80% of total supply) is scheduled to be permanently burned after 200 NFT mints are circulated.</p>
 </section>
 
 <!-- SOCIALS -->
 <section id="socials">
-  <h2 style="color: var(--gold);">Socials & Dev</h2>
-  <div class="social-buttons" style="display: flex; gap: 10px; flex-wrap: wrap;">
-    <a href="https://t.me/bnbfamr" target="_blank" style="text-decoration: none;">
-      <button style="padding: 10px 20px; background-color: #0088cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Telegram Chat
-      </button>
-    </a>
-    <a href="https://t.me/famrUpdates" target="_blank" style="text-decoration: none;">
-      <button style="padding: 10px 20px; background-color: #0088cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Telegram Channel
-      </button>
-    </a>
-    <a href="https://x.com/ufaithbnb" target="_blank" style="text-decoration: none;">
-      <button style="padding: 10px 20px; background-color: #1DA1F2; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        X.com
-      </button>
-    </a>
-    <a href="https://t.me/bnbfamr001" target="_blank" style="text-decoration: none;">
-      <button style="padding: 10px 20px; background-color: #34af23; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Dev Contact
-      </button>
-    </a>
-  </div>
+<h2 style="color: var(--gold);">Socials & Dev</h2>
+<div class="social-buttons">
+<a href="https://t.me/bnbfamr" target="_blank"><button class="social-telegram">Telegram Chat</button></a>
+<a href="https://t.me/famrUpdates" target="_blank"><button class="social-telegram">Telegram Channel</button></a>
+<a href="https://x.com/ufaithbnb" target="_blank"><button class="social-x">X.com</button></a>
+<a href="https://t.me/bnbfamr001" target="_blank"><button class="social-dev">Dev Contact</button></a>
+</div>
 </section>
 
 <script>
 function toggleMenu(){
 var nav=document.getElementById("navLinks");
-if(nav.style.display==="flex"){
-nav.style.display="none";
-}else{
-nav.style.display="flex";
+if(nav.style.display==="flex"){nav.style.display="none";}else{nav.style.display="flex";}
 }
-}
-
 function copyCA(){
 var text=document.getElementById("caText").innerText;
 navigator.clipboard.writeText(text);
 alert("Contract Address Copied");
 }
-
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll(".nav-links a");
-
 window.addEventListener("scroll",function(){
 let current="";
 sections.forEach(section=>{
 const sectionTop=section.offsetTop-120;
-if(window.scrollY>=sectionTop){
-current=section.getAttribute("id");
-}
+if(window.scrollY>=sectionTop){current=section.getAttribute("id");}
 });
 navLinks.forEach(link=>{
 link.style.color="#fff";
-if(link.getAttribute("href")==="#"+current){
-link.style.color="#d4af37";
-}
+if(link.getAttribute("href")==="#"+current){link.style.color="#d4af37";}
 });
 });
 </script>
