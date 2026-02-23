@@ -31,7 +31,7 @@
 --surface:#ffffff;
 --surface-elevated:#f5f5f4;
 --text:#1c1917;
---text-secondary:#78716c;
+--text-secondary:#57534e;
 --text-muted:#a8a29e;
 --gold:#b45309;
 --gold-bright:#d97706;
@@ -47,8 +47,8 @@ body{
 font-family:var(--font-body);
 background:var(--bg);
 color:var(--text);
-line-height:1.6;
-font-size:15px;
+line-height:1.7;
+font-size:16px;
 font-weight:400;
 letter-spacing:-0.01em;
 -webkit-font-smoothing:antialiased;
@@ -57,8 +57,8 @@ transition:background-color 0.6s ease,color 0.6s ease;
 }
 ::selection{background:var(--gold);color:var(--bg);}
 
-/* THEME TOGGLE */
-.theme-toggle{
+/* THEME TOGGLE - DESKTOP */
+.theme-toggle-desktop{
 position:fixed;top:24px;right:24px;z-index:2001;
 width:56px;height:28px;
 background:var(--surface);
@@ -69,7 +69,21 @@ display:flex;align-items:center;padding:2px;
 transition:var(--transition);
 box-shadow:0 2px 8px var(--shadow);
 }
-.theme-toggle:hover{border-color:var(--gold);}
+.theme-toggle-desktop:hover{border-color:var(--gold);}
+
+/* THEME TOGGLE - MOBILE */
+.theme-toggle-mobile{
+display:none;
+width:44px;height:22px;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:11px;
+cursor:pointer;
+align-items:center;padding:2px;
+transition:var(--transition);
+}
+.theme-toggle-mobile:active{border-color:var(--gold);}
+
 .toggle-slider{
 width:22px;height:22px;
 background:var(--gold);
@@ -78,10 +92,16 @@ transform:translateX(0);
 transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
 display:flex;align-items:center;justify-content:center;
 font-size:12px;
+position:relative;
+}
+.theme-toggle-mobile .toggle-slider{
+width:18px;height:18px;
+font-size:10px;
 }
 [data-theme="light"] .toggle-slider{transform:translateX(28px);}
-.toggle-icon{transition:opacity 0.3s;}
-.sun{opacity:0;position:absolute;}
+[data-theme="light"] .theme-toggle-mobile .toggle-slider{transform:translateX(22px);}
+.toggle-icon{transition:opacity 0.3s;position:absolute;}
+.sun{opacity:0;}
 [data-theme="light"] .sun{opacity:1;}
 [data-theme="light"] .moon{opacity:0;}
 
@@ -147,12 +167,14 @@ h1,h2,h3{
 font-family:var(--font-display);
 font-weight:600;line-height:1.15;
 letter-spacing:-0.02em;
+text-align:center;
 }
 .section-label{
 font-family:var(--font-body);
-font-size:11px;font-weight:600;
+font-size:12px;font-weight:600;
 text-transform:uppercase;letter-spacing:0.15em;
 color:var(--gold);margin-bottom:16px;
+text-align:center;
 }
 .section-title{
 font-size:clamp(36px,5vw,56px);
@@ -160,8 +182,9 @@ color:var(--text);margin-bottom:20px;
 font-weight:600;
 }
 .section-subtitle{
-font-size:17px;color:var(--text-secondary);max-width:640px;
-margin:0 auto 60px;line-height:1.7;font-weight:400;
+font-size:18px;color:var(--text-secondary);max-width:680px;
+margin:0 auto 60px;line-height:1.8;font-weight:400;
+text-align:center;
 }
 
 /* SECTIONS */
@@ -183,8 +206,8 @@ font-weight:600;
 color:var(--gold);font-style:normal;
 }
 .hero-subtitle{
-font-size:19px;color:var(--text-secondary);max-width:680px;
-margin:0 auto 48px;line-height:1.8;font-weight:400;
+font-size:20px;color:var(--text-secondary);max-width:720px;
+margin:0 auto 48px;line-height:1.9;font-weight:400;
 }
 .hero-stat{
 display:inline-flex;flex-direction:column;align-items:center;
@@ -209,7 +232,7 @@ max-width:800px;margin-left:auto;margin-right:auto;text-align:left;
 transition:var(--transition);
 }
 .hero-note p{
-font-size:17px;color:var(--text-secondary);line-height:1.9;
+font-size:18px;color:var(--text-secondary);line-height:1.9;
 }
 .hero-note strong{
 color:var(--gold);font-weight:600;
@@ -223,6 +246,7 @@ display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
 .token-info h3{
 font-family:var(--font-display);font-size:26px;
 margin-bottom:32px;color:var(--text);font-weight:600;
+text-align:left;
 }
 .token-detail{
 display:flex;justify-content:space-between;align-items:center;
@@ -232,11 +256,11 @@ transition:var(--transition);
 .token-detail:hover{padding-left:8px;}
 .token-detail:last-child{border-bottom:none;}
 .token-detail-label{
-font-size:12px;color:var(--text-muted);
+font-size:13px;color:var(--text-muted);
 text-transform:uppercase;letter-spacing:0.08em;font-weight:500;
 }
 .token-detail-value{
-font-family:var(--font-body);font-size:15px;color:var(--text);
+font-family:var(--font-body);font-size:16px;color:var(--text);
 font-weight:500;
 }
 .token-detail-value.gold{
@@ -244,14 +268,14 @@ color:var(--gold);font-weight:600;
 font-family:var(--font-display);font-size:18px;
 }
 .token-detail-value.address{
-font-family:var(--font-mono);font-size:12px;
+font-family:var(--font-mono);font-size:13px;
 background:var(--surface-elevated);padding:10px 14px;border-radius:8px;
 border:1px solid var(--border);color:var(--text-secondary);
 letter-spacing:-0.02em;
 }
 .copy-btn{
 background:transparent;border:1px solid var(--border);color:var(--gold);
-padding:10px 20px;border-radius:8px;cursor:pointer;font-size:11px;
+padding:10px 20px;border-radius:8px;cursor:pointer;font-size:12px;
 text-transform:uppercase;letter-spacing:0.08em;font-weight:600;
 transition:var(--transition);margin-top:12px;
 }
@@ -271,7 +295,7 @@ transition:var(--transition);
 font-family:var(--font-display);font-size:24px;color:var(--gold);
 font-weight:600;
 }
-.tokenomics-desc{font-size:14px;color:var(--text-muted);font-weight:400;}
+.tokenomics-desc{font-size:15px;color:var(--text-muted);font-weight:400;}
 .burn-notice{
 margin-top:48px;padding:28px;border:1px solid var(--border);
 border-radius:12px;background:var(--surface);text-align:center;
@@ -279,7 +303,7 @@ transition:var(--transition);
 }
 .burn-notice:hover{border-color:var(--gold);}
 .burn-notice p{
-font-size:15px;color:var(--text-secondary);line-height:1.8;
+font-size:16px;color:var(--text-secondary);line-height:1.8;
 }
 .burn-notice strong{
 color:var(--gold);font-weight:600;
@@ -395,8 +419,53 @@ font-family:var(--font-display);font-size:20px;
 margin-bottom:14px;color:var(--gold);font-weight:600;
 }
 .protocol-feature p{
-font-size:15px;color:var(--text-secondary);line-height:1.7;
+font-size:16px;color:var(--text-secondary);line-height:1.7;
 }
+.protocol-note{
+margin-top:60px;padding:32px;border:1px solid var(--border);border-radius:16px;background:var(--surface);
+}
+.protocol-note p{
+font-size:17px;color:var(--text-secondary);line-height:1.9;text-align:center;
+}
+.protocol-note strong{
+color:var(--gold);font-family:var(--font-body);
+}
+
+/* FAQ SECTION */
+.faq-section{background:var(--surface);}
+.faq-container{max-width:800px;margin:0 auto;}
+.faq-item{
+border-bottom:1px solid var(--border);margin-bottom:0;
+transition:var(--transition);
+}
+.faq-item:last-child{border-bottom:none;}
+.faq-question{
+width:100%;text-align:left;padding:28px 0;
+background:transparent;border:none;color:var(--text);
+font-family:var(--font-body);font-size:18px;font-weight:500;
+cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+transition:color 0.3s ease;
+}
+.faq-question:hover{color:var(--gold);}
+.faq-icon{
+width:24px;height:24px;position:relative;flex-shrink:0;margin-left:16px;
+}
+.faq-icon::before,.faq-icon::after{
+content:'';position:absolute;background:var(--gold);transition:transform 0.3s ease;
+}
+.faq-icon::before{width:2px;height:100%;left:50%;transform:translateX(-50%);}
+.faq-icon::after{width:100%;height:2px;top:50%;transform:translateY(-50%);}
+.faq-item.active .faq-icon::before{transform:translateX(-50%) rotate(90deg);}
+.faq-answer{
+max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;
+}
+.faq-answer-content{
+padding-bottom:28px;font-size:16px;color:var(--text-secondary);
+line-height:1.9;
+}
+.faq-answer-content strong{color:var(--gold);font-weight:600;}
+.faq-answer-content p{margin-bottom:16px;}
+.faq-answer-content p:last-child{margin-bottom:0;}
 
 /* SOCIALS */
 .socials-grid{
@@ -420,7 +489,7 @@ footer{
 padding:60px 5%;border-top:1px solid var(--border);text-align:center;
 }
 footer p{
-font-size:13px;color:var(--text-muted);font-weight:400;
+font-size:14px;color:var(--text-muted);font-weight:400;
 }
 
 /* NOTIFICATION */
@@ -444,17 +513,10 @@ color:var(--bg);font-size:11px;font-weight:700;
 
 /* MOBILE */
 @media(max-width:900px){
-.theme-toggle{
-position:static;
-width:44px;height:22px;
-order:1;
-}
-.toggle-slider{width:18px;height:18px;}
-[data-theme="light"] .toggle-slider{transform:translateX(22px);}
-.nav-controls{
-display:flex;align-items:center;gap:12px;
-}
-.menu{order:2;display:block;}
+.theme-toggle-desktop{display:none;}
+.theme-toggle-mobile{display:flex;}
+.nav-controls{gap:12px;}
+.menu{display:block;}
 .nav-links{
 position:fixed;top:70px;left:0;right:0;
 background:var(--bg);flex-direction:column;
@@ -473,13 +535,15 @@ border-bottom:1px solid var(--border);font-size:14px;
 .protocol-features{grid-template-columns:1fr;}
 .nft-card{width:280px;padding:28px;}
 .hero-note{padding:24px;}
+.faq-question{font-size:16px;padding:24px 0;}
+.faq-answer-content{padding-bottom:24px;font-size:15px;}
 }
 </style>
 </head>
 <body>
 
-<!-- THEME TOGGLE -->
-<div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+<!-- THEME TOGGLE - DESKTOP ONLY -->
+<div class="theme-toggle-desktop" onclick="toggleTheme()" aria-label="Toggle theme">
 <div class="toggle-slider">
 <span class="toggle-icon moon">🌙</span>
 <span class="toggle-icon sun">☀️</span>
@@ -490,11 +554,19 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="wrap">
 <div class="logo">FAMR RWA</div>
 <div class="nav-controls">
+<!-- THEME TOGGLE - MOBILE ONLY -->
+<div class="theme-toggle-mobile" onclick="toggleTheme()" aria-label="Toggle theme">
+<div class="toggle-slider">
+<span class="toggle-icon moon">🌙</span>
+<span class="toggle-icon sun">☀️</span>
+</div>
+</div>
 <div class="nav-links" id="navLinks">
 <a href="#hero" class="active">About</a>
 <a href="#token">Token</a>
 <a href="#rarity">NFTs</a>
 <a href="#protocol">Protocol</a>
+<a href="#faq">FAQ</a>
 <a href="#socials">Connect</a>
 </div>
 <div class="menu" onclick="toggleMenu()">
@@ -564,7 +636,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 
 <div>
-<h3>Tokenomics Distribution</h3>
+<h3 style="font-family:var(--font-display);font-size:26px;margin-bottom:32px;color:var(--text);font-weight:600;text-align:left;">Tokenomics Distribution</h3>
 <div class="tokenomics-list">
 <div class="tokenomics-item">
 <div>
@@ -786,12 +858,112 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 </div>
 
-<div style="margin-top:60px;padding:32px;border:1px solid var(--border);border-radius:16px;background:var(--surface);">
-<p style="font-size:16px;color:var(--text-secondary);line-height:1.8;text-align:center;">
-<strong style="color:var(--gold);font-family:var(--font-body);">Governance Note:</strong> A possible <strong>840 Trillion FAMR</strong> is scheduled for permanent burn or 5-year lock after the first <strong>200 NFT mints</strong> are circulated and governance poll is completed.
-</p>
+<div class="protocol-note">
+<p><strong>Governance Note:</strong> A possible <strong>840 Trillion FAMR</strong> is scheduled for permanent burn or 5-year lock after the first <strong>200 NFT mints</strong> are circulated and governance poll is completed.</p>
 </div>
 </div>
+</div>
+</section>
+
+<section class="faq-section" id="faq">
+<div class="container faq-container">
+<p class="section-label">Support</p>
+<h2 class="section-title">Frequently Asked Questions</h2>
+<p class="section-subtitle">Everything you need to know about FAMR RWA tokens, NFT staking, and the ecosystem.</p>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>What is FAMR RWA and how does it work?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>FAMR RWA (Real World Asset) is a structured tokenization protocol built on the BNB Smart Chain. It combines <strong>ERC1155 NFTs</strong> with deflationary tokenomics to create a sustainable yield generation ecosystem.</p>
+<p>The protocol works through a unique mining mechanism where only <strong>NFT stakers</strong> have the authority to mint or increase FAMR circulation. By staking tiered NFTs, participants earn hourly rewards based on their NFT's APY percentage, creating a controlled emission schedule over 5 years.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>How do I start earning with FAMR NFTs?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>To begin earning, follow these steps:</p>
+<p>1. <strong>Mint an NFT</strong>: Visit our dApp and select from 5 tiers (AAA to EEE), each with different APY rates (120% to 70%) and price points (0.105 to 0.025 BNB).</p>
+<p>2. <strong>Stake your NFT</strong>: Once minted, stake your NFT in the protocol to activate mining authority and begin earning hourly FAMR rewards.</p>
+<p>3. <strong>Claim rewards</strong>: Accumulated rewards can be claimed periodically based on your tier's APY rate.</p>
+<p>The higher your tier, the greater your yield. For example, AAAFAMR generates 112,141 FAMR per hour, while EEEFAMR generates 65,460 FAMR per hour.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>What is the burn mechanism and how does it benefit me?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>Each NFT tier has an associated <strong>burn reward</strong> from a dedicated 5.2T FAMR pool. If you choose to permanently destroy your NFT, you receive an instant lump sum payment:</p>
+<p>• AAAFAMR: 1,000,000,000 FAMR<br>
+• BBBFAMR: 800,000,000 FAMR<br>
+• CCCFAMR: 600,000,000 FAMR<br>
+• DDDFAMR: 400,000,000 FAMR<br>
+• EEEFAMR: 200,000,000 FAMR</p>
+<p>This creates a strategic choice: continue staking for ongoing yields, or burn for immediate liquidity. The burn mechanism also ensures deflationary pressure on the NFT supply, potentially increasing scarcity value for remaining holders.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>What is the 840T FAMR burn/lock mechanism?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>After the first <strong>200 NFTs are minted and circulated</strong>, the protocol will initiate a governance poll to determine the fate of <strong>840 Trillion FAMR</strong> (84% of total supply).</p>
+<p>This massive allocation will either be:</p>
+<p>• <strong>Permanently burned</strong> - removed from circulation forever, creating extreme scarcity<br>
+• <strong>5-year locked</strong> - time-locked in a smart contract with gradual release</p>
+<p>This mechanism ensures long-term sustainability, prevents inflation, and aligns with community governance decisions. The 200 NFT threshold ensures sufficient decentralization before this critical decision.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>Is the smart contract audited and secure?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>FAMR RWA operates through a partnership with <strong>Emptycoin Product dApp</strong>, which handles the technical infrastructure and smart contract deployment. The protocol utilizes <strong>ERC1155 standard</strong> for NFTs, a battle-tested standard used by major platforms.</p>
+<p>The contract address is publicly verified on BNB Smart Chain: <strong>0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</strong>. All transactions, staking operations, and reward distributions are fully transparent and on-chain.</p>
+<p>As with any DeFi protocol, users should conduct their own research and only invest what they can afford to lose. Never share your private keys or seed phrases.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+<span>How is the 5-year staking pool structured?</span>
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p>The <strong>34.8 Trillion FAMR</strong> staking pool is distributed over exactly 5 years (1,825 days) through a tiered emission schedule:</p>
+<p>• <strong>Pool Cycle</strong>: 5 years with linear decay mechanics<br>
+• <strong>Distribution</strong>: Hourly rewards based on staked NFT tier<br>
+• <strong>Total Supply Cap</strong>: No additional minting beyond the 34.8T allocation</p>
+<p>Early participants benefit from higher emission rates, while the deflationary design ensures that as more users join, individual yields adjust to maintain sustainability. The 40T FAMR currently reserved represents the unclaimed portion of this pool.</p>
+</div>
+</div>
+</div>
+
 </div>
 </section>
 
@@ -853,6 +1025,20 @@ document.documentElement.setAttribute('data-theme',savedTheme);
 function toggleMenu(){
 const nav=document.getElementById("navLinks");
 nav.classList.toggle("active");
+}
+
+// FAQ Toggle
+function toggleFaq(button){
+const item=button.parentElement;
+const isActive=item.classList.contains('active');
+// Close all items
+document.querySelectorAll('.faq-item').forEach(faq=>{
+faq.classList.remove('active');
+});
+// Open clicked item if it wasn't active
+if(!isActive){
+item.classList.add('active');
+}
 }
 
 // Copy Contract Address
