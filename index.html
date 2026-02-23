@@ -1,251 +1,899 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAMR RWA</title>
+<title>FAMR RWA | Real World Asset Tokenization</title>
 <style>
+/* THEME VARIABLES */
 :root{
---bg:#000;
---text:#fff;
---muted:#bbb;
+--bg:#050505;
+--surface:#0a0a0a;
+--surface-elevated:#111111;
+--text:#fafafa;
+--text-secondary:#a3a3a3;
+--text-muted:#737373;
 --gold:#d4af37;
---border:rgba(212,175,55,0.35);
+--gold-bright:#f4d03f;
+--gold-dim:#b8941d;
+--border:rgba(212,175,55,0.12);
+--border-hover:rgba(212,175,55,0.3);
+--shadow:rgba(0,0,0,0.4);
+--success:#22c55e;
+--font-display:'Playfair Display','Georgia',serif;
+--font-body:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+--font-mono:'JetBrains Mono','Fira Code',monospace;
+--transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
 }
+
+[data-theme="light"]{
+--bg:#fafaf9;
+--surface:#ffffff;
+--surface-elevated:#f5f5f4;
+--text:#1c1917;
+--text-secondary:#78716c;
+--text-muted:#a8a29e;
+--gold:#b45309;
+--gold-bright:#d97706;
+--gold-dim:#92400e;
+--border:rgba(180,83,9,0.15);
+--border-hover:rgba(180,83,9,0.4);
+--shadow:rgba(0,0,0,0.08);
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
-font-family:Arial,Helvetica,sans-serif;
+font-family:var(--font-body);
 background:var(--bg);
 color:var(--text);
 line-height:1.6;
-scroll-behavior:smooth;
+font-size:15px;
+font-weight:400;
+letter-spacing:-0.01em;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+transition:background-color 0.6s ease,color 0.6s ease;
 }
-/* NAV */
+::selection{background:var(--gold);color:var(--bg);}
+
+/* THEME TOGGLE */
+.theme-toggle{
+position:fixed;top:24px;right:24px;z-index:2001;
+width:56px;height:28px;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:14px;
+cursor:pointer;
+display:flex;align-items:center;padding:2px;
+transition:var(--transition);
+box-shadow:0 2px 8px var(--shadow);
+}
+.theme-toggle:hover{border-color:var(--gold);}
+.toggle-slider{
+width:22px;height:22px;
+background:var(--gold);
+border-radius:50%;
+transform:translateX(0);
+transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+display:flex;align-items:center;justify-content:center;
+font-size:12px;
+}
+[data-theme="light"] .toggle-slider{transform:translateX(28px);}
+.toggle-icon{transition:opacity 0.3s;}
+.sun{opacity:0;position:absolute;}
+[data-theme="light"] .sun{opacity:1;}
+[data-theme="light"] .moon{opacity:0;}
+
+/* NAVIGATION */
 nav{
-position:fixed; top:0; width:100%; background:#000; border-bottom:1px solid var(--border); z-index:1000;
+position:fixed;top:0;width:100%;z-index:1000;
+background:rgba(var(--bg-rgb,5,5,5),0.85);
+backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+transition:var(--transition);
+}
+[data-theme="light"] nav{
+background:rgba(250,250,249,0.85);
+--bg-rgb:250,250,249;
+}
+nav.scrolled{
+background:rgba(var(--bg-rgb,5,5,5),0.95);
+border-bottom-color:var(--border-hover);
 }
 nav .wrap{
-max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:15px 5%;
+max-width:1100px;margin:auto;
+display:flex;justify-content:space-between;align-items:center;
+padding:0 5%;height:70px;
 }
-.logo{font-weight:bold;font-size:20px;color:var(--gold);}
-.nav-links{
-display:flex; gap:25px; transition:max-height 0.3s ease; overflow:hidden;
+.logo{
+font-family:var(--font-display);
+font-weight:600;font-size:24px;
+color:var(--gold);
+letter-spacing:0.02em;
 }
-.nav-links a{text-decoration:none;color:var(--text);}
-.menu{display:none;font-size:26px;cursor:pointer;}
+.nav-links{display:flex;gap:40px;align-items:center;}
+.nav-links a{
+text-decoration:none;color:var(--text-muted);
+font-size:13px;font-weight:500;letter-spacing:0.02em;
+text-transform:uppercase;
+transition:color 0.3s ease;position:relative;
+}
+.nav-links a:hover{color:var(--text);}
+.nav-links a::after{
+content:'';position:absolute;bottom:-6px;left:0;
+width:0;height:1px;background:var(--gold);
+transition:width 0.3s ease;
+}
+.nav-links a:hover::after{width:100%;}
+.nav-links a.active{color:var(--gold);}
+.nav-links a.active::after{width:100%;}
+.menu{display:none;cursor:pointer;padding:10px;}
+.menu span{
+display:block;width:24px;height:1.5px;background:var(--text);
+margin:6px 0;transition:all 0.3s ease;
+}
+
+/* SPACER */
+.spacer{height:70px;}
+
+/* TYPOGRAPHY */
+h1,h2,h3{
+font-family:var(--font-display);
+font-weight:600;line-height:1.15;
+letter-spacing:-0.02em;
+}
+.section-label{
+font-family:var(--font-body);
+font-size:11px;font-weight:600;
+text-transform:uppercase;letter-spacing:0.15em;
+color:var(--gold);margin-bottom:16px;
+}
+.section-title{
+font-size:clamp(36px,5vw,56px);
+color:var(--text);margin-bottom:20px;
+font-weight:600;
+}
+.section-subtitle{
+font-size:17px;color:var(--text-secondary);max-width:640px;
+margin:0 auto 60px;line-height:1.7;font-weight:400;
+}
+
 /* SECTIONS */
-section{padding:80px 5%;text-align:center;max-width:1200px;margin:auto;}
+section{padding:100px 5%;position:relative;}
+.container{max-width:1100px;margin:0 auto;}
+
 /* HERO */
-.hero h1{font-size:42px;color:var(--gold);margin-bottom:20px;}
-.hero p{max-width:800px;margin:auto;font-size:18px;color:var(--muted);}
-/* TOKEN CARD */
-.token-card{
-max-width:750px;margin:40px auto;border:1px solid var(--border);border-radius:18px;padding:30px;
+.hero{
+min-height:calc(100vh - 70px);
+display:flex;flex-direction:column;justify-content:center;
+text-align:center;padding:80px 5%;
 }
-.token-card p{margin:10px 0;}
-.token-card button{
-margin-top:15px;padding:10px 20px;background:#000;color:var(--gold);border:1px solid var(--border);
-border-radius:8px;cursor:pointer;width:100%;max-width:260px;
+.hero h1{
+font-size:clamp(44px,7vw,80px);
+margin-bottom:24px;
+font-weight:600;
 }
-.token-card button:hover{
-box-shadow:0 0 18px rgba(212,175,55,0.35);
+.hero h1 em{
+color:var(--gold);font-style:normal;
 }
-/* CAROUSEL */
-.carousel-wrap{overflow:hidden;margin-top:40px;}
-.carousel{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth; scrollbar-width:none;}
-.carousel::-webkit-scrollbar{display:none;}
-.nft-card{min-width:280px;flex-shrink:0;border:1px solid var(--border);border-radius:22px;padding:25px;background:#111;}
-.nft-card h2{color:var(--gold);margin-bottom:10px;}
-.nft-card h3{margin-bottom:10px;}
-.nft-card:hover{box-shadow:0 0 25px rgba(212,175,55,0.25);}
-.action-buttons a{
-display:inline-block;margin:10px;padding:12px 30px;border:1px solid var(--border);border-radius:8px;color:var(--gold);text-decoration:none;
-transition:0.3s; 
+.hero-subtitle{
+font-size:19px;color:var(--text-secondary);max-width:680px;
+margin:0 auto 48px;line-height:1.8;font-weight:400;
 }
-.action-buttons a:hover{
-box-shadow:0 0 25px rgba(212,175,55,0.5); transform:translateY(-3px);
+.hero-stat{
+display:inline-flex;flex-direction:column;align-items:center;
+padding:32px 48px;border:1px solid var(--border);
+border-radius:16px;background:var(--surface);
+transition:var(--transition);
 }
-/* SOCIAL BUTTONS */
-.social-buttons{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
-.social-buttons button{
-padding:10px 20px; border:none; border-radius:6px; cursor:pointer; color:white; font-weight:bold; transition:0.3s;
+.hero-stat:hover{border-color:var(--gold);transform:translateY(-2px);}
+.hero-stat-value{
+font-family:var(--font-display);font-size:42px;color:var(--gold);
+margin-bottom:8px;font-weight:600;
 }
-.social-buttons button:hover{box-shadow:0 0 20px rgba(212,175,55,0.6); transform:translateY(-2px);}
-.social-telegram{background:#0088cc;}
-.social-x{background:#1DA1F2;}
-.social-dev{background:#34af23;}
-#socials{border-top:1px solid var(--border);}
+.hero-stat-label{
+font-size:11px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.15em;font-weight:500;
+}
+.hero-note{
+margin-top:80px;padding:32px 40px;
+border-left:3px solid var(--gold);
+background:var(--surface);border-radius:0 12px 12px 0;
+max-width:800px;margin-left:auto;margin-right:auto;text-align:left;
+transition:var(--transition);
+}
+.hero-note p{
+font-size:17px;color:var(--text-secondary);line-height:1.9;
+}
+.hero-note strong{
+color:var(--gold);font-weight:600;
+font-family:var(--font-body);
+}
+
+/* TOKEN SECTION */
+.token-grid{
+display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+}
+.token-info h3{
+font-family:var(--font-display);font-size:26px;
+margin-bottom:32px;color:var(--text);font-weight:600;
+}
+.token-detail{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 0;border-bottom:1px solid var(--border);
+transition:var(--transition);
+}
+.token-detail:hover{padding-left:8px;}
+.token-detail:last-child{border-bottom:none;}
+.token-detail-label{
+font-size:12px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.08em;font-weight:500;
+}
+.token-detail-value{
+font-family:var(--font-body);font-size:15px;color:var(--text);
+font-weight:500;
+}
+.token-detail-value.gold{
+color:var(--gold);font-weight:600;
+font-family:var(--font-display);font-size:18px;
+}
+.token-detail-value.address{
+font-family:var(--font-mono);font-size:12px;
+background:var(--surface-elevated);padding:10px 14px;border-radius:8px;
+border:1px solid var(--border);color:var(--text-secondary);
+letter-spacing:-0.02em;
+}
+.copy-btn{
+background:transparent;border:1px solid var(--border);color:var(--gold);
+padding:10px 20px;border-radius:8px;cursor:pointer;font-size:11px;
+text-transform:uppercase;letter-spacing:0.08em;font-weight:600;
+transition:var(--transition);margin-top:12px;
+}
+.copy-btn:hover{
+border-color:var(--gold);background:rgba(212,175,55,0.08);
+transform:translateY(-1px);
+}
+.tokenomics-list{margin-top:48px;}
+.tokenomics-item{
+display:flex;justify-content:space-between;align-items:center;
+padding:24px 0;border-bottom:1px solid var(--border);
+transition:var(--transition);
+}
+.tokenomics-item:hover{padding-left:8px;}
+.tokenomics-item:last-child{border-bottom:none;}
+.tokenomics-amount{
+font-family:var(--font-display);font-size:24px;color:var(--gold);
+font-weight:600;
+}
+.tokenomics-desc{font-size:14px;color:var(--text-muted);font-weight:400;}
+.burn-notice{
+margin-top:48px;padding:28px;border:1px solid var(--border);
+border-radius:12px;background:var(--surface);text-align:center;
+transition:var(--transition);
+}
+.burn-notice:hover{border-color:var(--gold);}
+.burn-notice p{
+font-size:15px;color:var(--text-secondary);line-height:1.8;
+}
+.burn-notice strong{
+color:var(--gold);font-weight:600;
+}
+
+/* NFT CARDS */
+.nft-section{text-align:center;}
+.nft-carousel{
+display:flex;gap:20px;overflow-x:auto;
+scroll-behavior:smooth;scrollbar-width:none;
+padding:20px 0;margin:0 -5%;padding-left:5%;padding-right:5%;
+}
+.nft-carousel::-webkit-scrollbar{display:none;}
+.nft-card{
+flex-shrink:0;width:300px;background:var(--surface);
+border:1px solid var(--border);border-radius:20px;
+padding:36px;transition:var(--transition);
+}
+.nft-card:hover{
+border-color:var(--border-hover);
+transform:translateY(-6px);box-shadow:0 24px 48px var(--shadow);
+}
+.nft-tier{
+font-family:var(--font-body);font-size:10px;font-weight:700;
+text-transform:uppercase;letter-spacing:0.2em;
+color:var(--gold);margin-bottom:12px;
+}
+.nft-name{
+font-family:var(--font-display);font-size:26px;
+margin-bottom:6px;font-weight:600;
+}
+.nft-type{
+font-family:var(--font-mono);font-size:13px;
+color:var(--text-muted);margin-bottom:28px;letter-spacing:0.05em;
+}
+.nft-price{
+font-family:var(--font-display);font-size:32px;color:var(--gold);
+margin-bottom:28px;font-weight:600;
+}
+.nft-stats{margin-bottom:28px;}
+.nft-stat{
+display:flex;justify-content:space-between;align-items:center;
+padding:14px 0;border-bottom:1px solid var(--border);
+}
+.nft-stat:last-child{border-bottom:none;}
+.nft-stat-label{
+font-size:11px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.08em;font-weight:500;
+}
+.nft-stat-value{
+font-family:var(--font-body);font-size:14px;font-weight:500;
+color:var(--text);
+}
+.nft-burn{
+padding:18px;background:rgba(212,175,55,0.06);border-radius:10px;
+border:1px solid var(--border);text-align:center;
+}
+.nft-burn-label{
+font-size:10px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.12em;
+font-weight:600;margin-bottom:6px;
+}
+.nft-burn-value{
+font-family:var(--font-display);font-size:20px;color:var(--gold);
+font-weight:600;
+}
+
+/* BUTTONS */
+.action-buttons{
+display:flex;gap:16px;justify-content:center;margin-top:60px;flex-wrap:wrap;
+}
+.btn{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 32px;border-radius:10px;
+font-size:12px;font-weight:600;letter-spacing:0.05em;
+text-transform:uppercase;text-decoration:none;
+transition:var(--transition);border:none;cursor:pointer;
+}
+.btn-primary{
+background:var(--gold);color:var(--bg);
+}
+.btn-primary:hover{
+background:var(--gold-bright);transform:translateY(-2px);
+box-shadow:0 8px 24px rgba(212,175,55,0.25);
+}
+[data-theme="light"] .btn-primary:hover{
+box-shadow:0 8px 24px rgba(180,83,9,0.2);
+}
+.btn-secondary{
+background:transparent;color:var(--text);border:1.5px solid var(--border);
+}
+.btn-secondary:hover{
+border-color:var(--gold);color:var(--gold);transform:translateY(-2px);
+}
+
+/* PROTOCOL */
+.protocol-content{
+max-width:800px;margin:0 auto;text-align:center;
+}
+.protocol-features{
+display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+margin-top:60px;text-align:left;
+}
+.protocol-feature{
+padding:36px;border:1px solid var(--border);border-radius:16px;
+background:var(--surface);transition:var(--transition);
+}
+.protocol-feature:hover{
+border-color:var(--gold);transform:translateY(-2px);
+}
+.protocol-feature h4{
+font-family:var(--font-display);font-size:20px;
+margin-bottom:14px;color:var(--gold);font-weight:600;
+}
+.protocol-feature p{
+font-size:15px;color:var(--text-secondary);line-height:1.7;
+}
+
+/* SOCIALS */
+.socials-grid{
+display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+}
+.social-btn{
+display:flex;align-items:center;gap:12px;
+padding:16px 28px;border-radius:10px;
+background:var(--surface);border:1.5px solid var(--border);
+color:var(--text-secondary);text-decoration:none;font-size:14px;
+font-weight:500;transition:var(--transition);
+}
+.social-btn:hover{
+border-color:var(--gold);color:var(--gold);
+transform:translateY(-2px);background:var(--surface-elevated);
+}
+.social-btn svg{width:18px;height:18px;fill:currentColor;}
+
+/* FOOTER */
+footer{
+padding:60px 5%;border-top:1px solid var(--border);text-align:center;
+}
+footer p{
+font-size:13px;color:var(--text-muted);font-weight:400;
+}
+
+/* NOTIFICATION */
+.notification{
+position:fixed;top:90px;right:24px;
+background:var(--surface);border:1px solid var(--border);
+border-radius:12px;padding:16px 24px;
+display:flex;align-items:center;gap:14px;
+transform:translateX(400px);opacity:0;
+transition:all 0.5s cubic-bezier(0.4,0,0.2,1);z-index:2000;
+box-shadow:0 12px 40px var(--shadow);
+backdrop-filter:blur(10px);
+}
+.notification.show{transform:translateX(0);opacity:1;}
+.notification-icon{
+width:22px;height:22px;border-radius:50%;
+background:var(--success);display:flex;align-items:center;justify-content:center;
+color:var(--bg);font-size:11px;font-weight:700;
+}
+.notification-text{font-size:14px;color:var(--text);font-weight:500;}
+
 /* MOBILE */
 @media(max-width:900px){
-.nav-links{display:none;flex-direction:column; gap:15px; background:#000; position:absolute; top:65px; right:0; width:100%; padding:20px 5%; border-bottom:1px solid var(--border);}
+.theme-toggle{top:18px;right:18px;width:48px;height:24px;}
+.toggle-slider{width:18px;height:18px;}
+[data-theme="light"] .toggle-slider{transform:translateX(24px);}
+.nav-links{
+position:fixed;top:70px;left:0;right:0;
+background:var(--bg);flex-direction:column;
+gap:0;padding:0;border-bottom:1px solid var(--border);
+max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.nav-links.active{max-height:400px;}
+.nav-links a{
+display:block;width:100%;padding:20px 5%;
+border-bottom:1px solid var(--border);font-size:14px;
+}
+.nav-links a:last-child{border-bottom:none;}
+.nav-links a::after{display:none;}
 .menu{display:block;}
+.token-grid{grid-template-columns:1fr;gap:48px;}
+.protocol-features{grid-template-columns:1fr;}
+.nft-card{width:280px;padding:28px;}
+.hero-note{padding:24px;}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+*{transition:none!important;animation:none!important;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- THEME TOGGLE -->
+<div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+<div class="toggle-slider">
+<span class="toggle-icon moon">🌙</span>
+<span class="toggle-icon sun">☀️</span>
+</div>
+</div>
+
+<nav id="navbar">
 <div class="wrap">
 <div class="logo">FAMR RWA</div>
 <div class="nav-links" id="navLinks">
-<a href="#hero">About</a>
+<a href="#hero" class="active">About</a>
 <a href="#token">Token</a>
-<a href="#rarity">NFT Rarity</a>
+<a href="#rarity">NFTs</a>
 <a href="#protocol">Protocol</a>
-<a href="#socials">Socials</a>
+<a href="#socials">Connect</a>
 </div>
-<div class="menu" onclick="toggleMenu()">☰</div>
+<div class="menu" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
 </div>
 </nav>
 
-<div style="height:80px;"></div>
+<div class="spacer"></div>
 
-<!-- HERO -->
 <section class="hero" id="hero">
-<h1>Famr RWA Tokens:</h1>
-<p>A structured, surreal world asset powered by a 10,000 tiered NFT emissions with staking mechanics, and a deflationary-liquidity model...</p>
-<br>
-<h1 style="color:var(--gold);">40 Trillion $FAMR reserved in Staking Pool.</h1>
-<h2>• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation. NFTs can be Staked, Burnt or traded for rewards</h2>
+<div class="container">
+<p class="section-label">Real World Asset Tokenization</p>
+<h1>FAMR <em>RWA</em> Tokens</h1>
+<p class="hero-subtitle">A structured, surreal world asset powered by 10,000 tiered NFT emissions with staking mechanics and a deflationary-liquidity model designed for sustainable yield generation.</p>
+
+<div class="hero-stat">
+<div class="hero-stat-value">40 Trillion</div>
+<div class="hero-stat-label">$FAMR Reserved in Staking Pool</div>
+</div>
+
+<div class="hero-note">
+<p>Only <strong>NFT stakers (miners)</strong> have the authority to increase or mint $FAMR assets into circulation. NFTs can be <strong>Staked</strong>, <strong>Burnt</strong> or <strong>Traded</strong> for rewards.</p>
+</div>
+</div>
 </section>
 
-<!-- TOKEN DETAILS -->
 <section id="token">
-<h1 style="color:var(--gold);">Token Details</h1>
-<div class="token-card">
-<p><strong>Token Name:</strong> Famr RWA</p>
-<p><strong>Ticker:</strong> FAMR</p>
-<p><strong>Network:</strong> BNB Smart Chain</p>
-<p><strong>Contract Address:</strong></p>
-<p style="word-break:break-all;" id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</p>
-<button onclick="copyCA()">Copy Contract Address</button>
-<p><strong>Max. Supply:</strong> 1 Quandrillion FAMR</p>
-<p><strong>NFT-Type:</strong> ERC1155 Standard</p>
-<p><strong>NFT-Supply:</strong> 10,000 FAMR-NFTs</p>
+<div class="container">
+<p class="section-label">Specifications</p>
+<h2 class="section-title">Token Details</h2>
+<p class="section-subtitle">FAMR operates on the BNB Smart Chain with a max supply of 1 quadrillion tokens, distributed through a carefully structured emission schedule.</p>
 
-<h3 style="color:var(--gold);">Tokenomics & Hard Scarcity</h3>
-<p>100T → Liquidity</p>
-<p>34.8T → Staking Rewards (5yrs span)</p>
-<p>5.2T → NFT Conversion</p>
-<p>15T → Marketing & Ecosystem</p>
-<p>Remaining 840T shall permanently be burned (or 5yrs locked) after 200 NFT mints and governance poll.</p>
+<div class="token-grid">
+<div class="token-info">
+<h3>Contract Information</h3>
+<div class="token-detail">
+<span class="token-detail-label">Token Name</span>
+<span class="token-detail-value">Famr RWA</span>
+</div>
+<div class="token-detail">
+<span class="token-detail-label">Ticker</span>
+<span class="token-detail-value gold">FAMR</span>
+</div>
+<div class="token-detail">
+<span class="token-detail-label">Network</span>
+<span class="token-detail-value">BNB Smart Chain</span>
+</div>
+<div class="token-detail" style="flex-direction:column;align-items:flex-start;gap:12px;">
+<span class="token-detail-label">Contract Address</span>
+<span class="token-detail-value address" id="caText">0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</span>
+<button class="copy-btn" onclick="copyCA()">Copy Address</button>
+</div>
+<div class="token-detail">
+<span class="token-detail-label">Max Supply</span>
+<span class="token-detail-value">1 Quadrillion FAMR</span>
+</div>
+<div class="token-detail">
+<span class="token-detail-label">NFT Standard</span>
+<span class="token-detail-value">ERC1155</span>
+</div>
+<div class="token-detail">
+<span class="token-detail-label">NFT Supply</span>
+<span class="token-detail-value gold">10,000 FAMR-NFTs</span>
+</div>
+</div>
+
+<div>
+<h3>Tokenomics Distribution</h3>
+<div class="tokenomics-list">
+<div class="tokenomics-item">
+<div>
+<div class="tokenomics-amount">100T</div>
+<div class="tokenomics-desc">Initial Liquidity Pool</div>
+</div>
+</div>
+<div class="tokenomics-item">
+<div>
+<div class="tokenomics-amount">34.8T</div>
+<div class="tokenomics-desc">Staking Rewards (5 Year Span)</div>
+</div>
+</div>
+<div class="tokenomics-item">
+<div>
+<div class="tokenomics-amount">5.2T</div>
+<div class="tokenomics-desc">NFT Conversion & Burn Rewards</div>
+</div>
+</div>
+<div class="tokenomics-item">
+<div>
+<div class="tokenomics-amount">15T</div>
+<div class="tokenomics-desc">Marketing & Ecosystem Growth</div>
+</div>
+</div>
+</div>
+
+<div class="burn-notice">
+<p><strong>Hard Scarcity Mechanism:</strong> Remaining <strong>840 Trillion FAMR</strong> shall be permanently burned or locked for 5 years after 200 NFT mints and governance poll completion.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 
-<!-- NFT RARITY -->
-<section id="rarity">
-<h2 style="color:var(--gold);">NFT Rarity</h2>
-<p>Staking NFT generates rarity % APY/hr.<br>StakePool Sup: 34.8T FAMR | BurnReward Sup: 5.2T FAMR | Poolcycle: 5 Yrs | Max.NFTs: 10,000</p>
+<section class="nft-section" id="rarity">
+<div class="container">
+<p class="section-label">Yield Tiers</p>
+<h2 class="section-title">NFT Rarity Levels</h2>
+<p class="section-subtitle">Each NFT tier generates distinct rarity-based APY per hour. StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | Pool Cycle: 5 Years</p>
 
-<div class="carousel-wrap">
-<div class="carousel">
-
+<div class="nft-carousel">
 <div class="nft-card">
-  <h2>AAAFAMR (120% APY)</h2>
-  <h3>The Sovereign Hen</h3>
-  <p>Price: 0.105 BNB</p>
-  <p>Annual per NFT: 982,352,941 FAMR</p>
-  <p>Daily per NFT: 2,691,382 FAMR</p>
-  <p>Hourly per NFT: 112,141 FAMR</p>
-  <p>Supply: 1,200 NFTs</p>
-  <p style="color:var(--gold);">Burn🔥 Reward: 1,000,000,000 FAMR</p>
+<div class="nft-tier">Tier 1 • 120% APY</div>
+<h3 class="nft-name">The Sovereign Hen</h3>
+<p class="nft-type">AAAFAMR</p>
+<div class="nft-price">0.105 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat">
+<span class="nft-stat-label">Annual Yield</span>
+<span class="nft-stat-value">982,352,941 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Daily</span>
+<span class="nft-stat-value">2,691,382 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Hourly</span>
+<span class="nft-stat-value">112,141 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Supply</span>
+<span class="nft-stat-value">1,200 NFTs</span>
+</div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">1,000,000,000 FAMR 🔥</div>
+</div>
 </div>
 
 <div class="nft-card">
-  <h2>BBBFAMR (100% APY)</h2>
-  <h3>Imperial Broiler</h3>
-  <p style="color:var(--gold);">Price: 0.085 BNB</p>
-  <p>Annual per NFT: 818,823,529 FAMR</p>
-  <p>Daily per NFT: 2,243,353 FAMR</p>
-  <p>Hourly per NFT: 93,473 FAMR</p>
-  <p>Supply: 1,600 NFTs</p>
-  <p style="color:var(--gold);">Burn🔥 Reward: 800,000,000 FAMR</p>
+<div class="nft-tier">Tier 2 • 100% APY</div>
+<h3 class="nft-name">Imperial Broiler</h3>
+<p class="nft-type">BBBFAMR</p>
+<div class="nft-price">0.085 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat">
+<span class="nft-stat-label">Annual Yield</span>
+<span class="nft-stat-value">818,823,529 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Daily</span>
+<span class="nft-stat-value">2,243,353 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Hourly</span>
+<span class="nft-stat-value">93,473 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Supply</span>
+<span class="nft-stat-value">1,600 NFTs</span>
+</div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">800,000,000 FAMR 🔥</div>
+</div>
 </div>
 
 <div class="nft-card">
-  <h2>CCCFAMR (85% APY)</h2>
-  <h3>Imperial Broiler</h3>
-  <p style="color:var(--gold);">Price: 0.065 BNB</p>
-  <p>Annual per NFT: 696,000,000 FAMR</p>
-  <p>Daily per NFT: 1,907,671 FAMR</p>
-  <p>Hourly per NFT: 79,486 FAMR</p>
-  <p>Supply: 2,000 NFTs</p>
-  <p style="color:var(--gold);">Burn🔥 Reward: 600,000,000 FAMR</p>
+<div class="nft-tier">Tier 3 • 85% APY</div>
+<h3 class="nft-name">Imperial Broiler</h3>
+<p class="nft-type">CCCFAMR</p>
+<div class="nft-price">0.065 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat">
+<span class="nft-stat-label">Annual Yield</span>
+<span class="nft-stat-value">696,000,000 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Daily</span>
+<span class="nft-stat-value">1,907,671 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Hourly</span>
+<span class="nft-stat-value">79,486 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Supply</span>
+<span class="nft-stat-value">2,000 NFTs</span>
+</div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">600,000,000 FAMR 🔥</div>
+</div>
 </div>
 
 <div class="nft-card">
-  <h2>DDDFAMR (75% APY)</h2>
-  <h3>Prime Layer</h3>
-  <p style="color:var(--gold);">Price: 0.045 BNB</p>
-  <p>Annual per NFT: 613,750,000 FAMR</p>
-  <p>Daily per NFT: 1,681,507 FAMR</p>
-  <p>Hourly per NFT: 70,063 FAMR</p>
-  <p>Supply: 2,400 NFTs</p>
-  <p style="color:var(--gold);">Burn🔥 Reward: 400,000,000 FAMR</p>
+<div class="nft-tier">Tier 4 • 75% APY</div>
+<h3 class="nft-name">Prime Layer</h3>
+<p class="nft-type">DDDFAMR</p>
+<div class="nft-price">0.045 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat">
+<span class="nft-stat-label">Annual Yield</span>
+<span class="nft-stat-value">613,750,000 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Daily</span>
+<span class="nft-stat-value">1,681,507 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Hourly</span>
+<span class="nft-stat-value">70,063 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Supply</span>
+<span class="nft-stat-value">2,400 NFTs</span>
+</div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">400,000,000 FAMR 🔥</div>
+</div>
 </div>
 
 <div class="nft-card">
-  <h2>EEEFAMR (70% APY)</h2>
-  <h3>Field Chick</h3>
-  <p style="color:var(--gold);">Price: 0.025 BNB</p>
-  <p>Annual per NFT: 573,428,571 FAMR</p>
-  <p>Daily per NFT: 1,571,037 FAMR</p>
-  <p>Hourly per NFT: 65,460 FAMR</p>
-  <p>Supply: 2,800 NFTs</p>
-  <p style="color:var(--gold);">Burn🔥 Reward: 200,000,000 FAMR</p>
+<div class="nft-tier">Tier 5 • 70% APY</div>
+<h3 class="nft-name">Field Chick</h3>
+<p class="nft-type">EEEFAMR</p>
+<div class="nft-price">0.025 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat">
+<span class="nft-stat-label">Annual Yield</span>
+<span class="nft-stat-value">573,428,571 FAMR</span>
 </div>
-
+<div class="nft-stat">
+<span class="nft-stat-label">Daily</span>
+<span class="nft-stat-value">1,571,037 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Hourly</span>
+<span class="nft-stat-value">65,460 FAMR</span>
+</div>
+<div class="nft-stat">
+<span class="nft-stat-label">Supply</span>
+<span class="nft-stat-value">2,800 NFTs</span>
+</div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">200,000,000 FAMR 🔥</div>
+</div>
 </div>
 </div>
 
 <div class="action-buttons">
-<a href="https://mint.mpty.site" target="_blank">Mint On dApp</a>
-<a href="#" target="_blank">OpenSEA Marketplace</a>
+<a href="https://mint.mpty.site" target="_blank" class="btn btn-primary">Mint on dApp</a>
+<a href="#" target="_blank" class="btn btn-secondary">OpenSea Marketplace</a>
+</div>
 </div>
 </section>
 
-<!-- PROTOCOL -->
 <section id="protocol">
-<h2 style="color:var(--gold);">Structured RWA dApp Partnership</h2>
-<p>Famr RWA Protocol its in partnership with Emptycoin Product dApp for fullscale integration, and sustainability of its ecosystem. Holders of the famr RWA NFTs can either mint, stake, burn or trade</p>
-<br>
-<p>• Only NFT stakers (miners) have the authority to increase or mint $FAMR assets into circulation.</p>
-<p>• A possible 840 Trillion FAMR is scheduled to be permanently burned (5yrs lock) after first 200 NFT mints are circulated.</p>
-</section>
+<div class="container">
+<p class="section-label">Ecosystem</p>
+<h2 class="section-title">Structured RWA Protocol</h2>
+<div class="protocol-content">
+<p class="section-subtitle">FAMR RWA Protocol operates in partnership with Emptycoin Product dApp for full-scale integration and long-term sustainability of its ecosystem.</p>
 
-<!-- SOCIALS -->
-<section id="socials">
-<h2 style="color: var(--gold);">Socials & Dev</h2>
-<div class="social-buttons">
-<a href="https://t.me/bnbfamr" target="_blank"><button class="social-telegram">Telegram Chat</button></a>
-<a href="https://t.me/famrUpdates" target="_blank"><button class="social-telegram">Telegram Channel</button></a>
-<a href="https://x.com/ufaithbnb" target="_blank"><button class="social-x">X.com</button></a>
-<a href="https://t.me/bnbfamr001" target="_blank"><button class="social-dev">Dev Contact</button></a>
+<div class="protocol-features">
+<div class="protocol-feature">
+<h4>Mint</h4>
+<p>Acquire tiered NFTs through the decentralized minting interface. Each NFT represents a unique yield-generating position within the ecosystem.</p>
+</div>
+<div class="protocol-feature">
+<h4>Stake</h4>
+<p>Lock your NFTs to activate mining authority and generate hourly FAMR rewards based on your tier's APY percentage.</p>
+</div>
+<div class="protocol-feature">
+<h4>Burn</h4>
+<p>Permanently destroy NFTs to receive instant burn rewards from the 5.2T FAMR allocation pool.</p>
+</div>
+<div class="protocol-feature">
+<h4>Trade</h4>
+<p>Exchange NFTs on secondary markets with embedded rarity value and accumulated staking potential.</p>
+</div>
+</div>
+
+<div style="margin-top:60px;padding:32px;border:1px solid var(--border);border-radius:16px;background:var(--surface);">
+<p style="font-size:16px;color:var(--text-secondary);line-height:1.8;text-align:center;">
+<strong style="color:var(--gold);font-family:var(--font-body);">Governance Note:</strong> A possible <strong>840 Trillion FAMR</strong> is scheduled for permanent burn or 5-year lock after the first <strong>200 NFT mints</strong> are circulated and governance poll is completed.
+</p>
+</div>
+</div>
 </div>
 </section>
+
+<section id="socials">
+<div class="container">
+<p class="section-label">Community</p>
+<h2 class="section-title">Connect With Us</h2>
+<p class="section-subtitle">Join the FAMR ecosystem across our official channels for updates, support, and governance participation.</p>
+
+<div class="socials-grid">
+<a href="https://t.me/bnbfamr" target="_blank" class="social-btn">
+<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.27l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+Telegram Chat
+</a>
+<a href="https://t.me/famrUpdates" target="_blank" class="social-btn">
+<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.27l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+Telegram Channel
+</a>
+<a href="https://x.com/ufaithbnb" target="_blank" class="social-btn">
+<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+X (Twitter)
+</a>
+<a href="https://t.me/bnbfamr001" target="_blank" class="social-btn">
+<svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+Dev Contact
+</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>© 2024 FAMR RWA. All rights reserved. Built on BNB Smart Chain.</p>
+</div>
+</footer>
+
+<div class="notification" id="notification">
+<div class="notification-icon">✓</div>
+<div class="notification-text">Contract address copied to clipboard</div>
+</div>
 
 <script>
+// Theme Toggle
+function toggleTheme(){
+const html=document.documentElement;
+const current=html.getAttribute('data-theme');
+const next=current==='dark'?'light':'dark';
+html.setAttribute('data-theme',next);
+localStorage.setItem('theme',next);
+}
+
+// Load saved theme
+const savedTheme=localStorage.getItem('theme');
+if(savedTheme){
+document.documentElement.setAttribute('data-theme',savedTheme);
+}
+
+// Mobile Menu
 function toggleMenu(){
-var nav=document.getElementById("navLinks");
-if(nav.style.display==="flex"){nav.style.display="none";}else{nav.style.display="flex";}
+const nav=document.getElementById("navLinks");
+nav.classList.toggle("active");
 }
+
+// Copy Contract Address
 function copyCA(){
-var text=document.getElementById("caText").innerText;
-navigator.clipboard.writeText(text);
-alert("Contract Address Copied");
+const text=document.getElementById("caText").innerText;
+navigator.clipboard.writeText(text).then(()=>{
+showNotification();
+});
 }
+
+function showNotification(){
+const notif=document.getElementById("notification");
+notif.classList.add("show");
+setTimeout(()=>{
+notif.classList.remove("show");
+},3000);
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll',function(){
+const nav=document.getElementById('navbar');
+if(window.scrollY>50){
+nav.classList.add('scrolled');
+}else{
+nav.classList.remove('scrolled');
+}
+});
+
+// Active nav link on scroll
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll(".nav-links a");
 window.addEventListener("scroll",function(){
 let current="";
 sections.forEach(section=>{
-const sectionTop=section.offsetTop-120;
-if(window.scrollY>=sectionTop){current=section.getAttribute("id");}
+const sectionTop=section.offsetTop-100;
+if(window.scrollY>=sectionTop){
+current=section.getAttribute("id");
+}
 });
 navLinks.forEach(link=>{
-link.style.color="#fff";
-if(link.getAttribute("href")==="#"+current){link.style.color="#d4af37";}
+link.classList.remove("active");
+if(link.getAttribute("href")==="#"+current){
+link.classList.add("active");
+}
+});
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link=>{
+link.addEventListener('click',()=>{
+document.getElementById('navLinks').classList.remove('active');
 });
 });
 </script>
