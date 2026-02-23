@@ -309,65 +309,65 @@ font-size:16px;color:var(--text-secondary);line-height:1.8;
 color:var(--gold);font-weight:600;
 }
 
-/* NFT CARDS */
+/* NFT CARDS - COMPACT VERSION */
 .nft-section{text-align:center;}
 .nft-carousel{
-display:flex;gap:20px;overflow-x:auto;
+display:flex;gap:16px;overflow-x:auto;
 scroll-behavior:smooth;scrollbar-width:none;
 padding:20px 0;margin:0 -5%;padding-left:5%;padding-right:5%;
 }
 .nft-carousel::-webkit-scrollbar{display:none;}
 .nft-card{
-flex-shrink:0;width:300px;background:var(--surface);
-border:1px solid var(--border);border-radius:20px;
-padding:36px;transition:var(--transition);
+flex-shrink:0;width:260px;background:var(--surface);
+border:1px solid var(--border);border-radius:16px;
+padding:24px;transition:var(--transition);
 }
 .nft-card:hover{
 border-color:var(--border-hover);
-transform:translateY(-6px);box-shadow:0 24px 48px var(--shadow);
+transform:translateY(-4px);box-shadow:0 16px 32px var(--shadow);
 }
 .nft-tier{
 font-family:var(--font-body);font-size:10px;font-weight:700;
-text-transform:uppercase;letter-spacing:0.2em;
-color:var(--gold);margin-bottom:12px;
+text-transform:uppercase;letter-spacing:0.15em;
+color:var(--gold);margin-bottom:8px;
 }
 .nft-name{
-font-family:var(--font-display);font-size:26px;
-margin-bottom:6px;font-weight:600;
+font-family:var(--font-display);font-size:20px;
+margin-bottom:4px;font-weight:600;
 }
 .nft-type{
-font-family:var(--font-mono);font-size:13px;
-color:var(--text-muted);margin-bottom:28px;letter-spacing:0.05em;
+font-family:var(--font-mono);font-size:12px;
+color:var(--text-muted);margin-bottom:16px;letter-spacing:0.05em;
 }
 .nft-price{
-font-family:var(--font-display);font-size:32px;color:var(--gold);
-margin-bottom:28px;font-weight:600;
+font-family:var(--font-display);font-size:24px;color:var(--gold);
+margin-bottom:16px;font-weight:600;
 }
-.nft-stats{margin-bottom:28px;}
+.nft-stats{margin-bottom:16px;}
 .nft-stat{
 display:flex;justify-content:space-between;align-items:center;
-padding:14px 0;border-bottom:1px solid var(--border);
+padding:8px 0;border-bottom:1px solid var(--border);
 }
 .nft-stat:last-child{border-bottom:none;}
 .nft-stat-label{
-font-size:11px;color:var(--text-muted);
-text-transform:uppercase;letter-spacing:0.08em;font-weight:500;
+font-size:10px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.05em;font-weight:500;
 }
 .nft-stat-value{
-font-family:var(--font-body);font-size:14px;font-weight:500;
+font-family:var(--font-body);font-size:13px;font-weight:500;
 color:var(--text);
 }
 .nft-burn{
-padding:18px;background:rgba(212,175,55,0.06);border-radius:10px;
+padding:12px;background:rgba(212,175,55,0.06);border-radius:8px;
 border:1px solid var(--border);text-align:center;
 }
 .nft-burn-label{
-font-size:10px;color:var(--text-muted);
-text-transform:uppercase;letter-spacing:0.12em;
-font-weight:600;margin-bottom:6px;
+font-size:9px;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.1em;
+font-weight:600;margin-bottom:4px;
 }
 .nft-burn-value{
-font-family:var(--font-display);font-size:20px;color:var(--gold);
+font-family:var(--font-display);font-size:16px;color:var(--gold);
 font-weight:600;
 }
 
@@ -435,20 +435,20 @@ color:var(--gold);font-family:var(--font-body);
 .faq-section{background:var(--surface);}
 .faq-container{max-width:800px;margin:0 auto;}
 .faq-item{
-border-bottom:1px solid var(--border);margin-bottom:0;
+border-bottom:1px solid var(--border);
 transition:var(--transition);
 }
 .faq-item:last-child{border-bottom:none;}
 .faq-question{
-width:100%;text-align:left;padding:28px 0;
+width:100%;text-align:left;padding:24px 0;
 background:transparent;border:none;color:var(--text);
-font-family:var(--font-body);font-size:18px;font-weight:500;
+font-family:var(--font-body);font-size:17px;font-weight:500;
 cursor:pointer;display:flex;justify-content:space-between;align-items:center;
 transition:color 0.3s ease;
 }
 .faq-question:hover{color:var(--gold);}
 .faq-icon{
-width:24px;height:24px;position:relative;flex-shrink:0;margin-left:16px;
+width:20px;height:20px;position:relative;flex-shrink:0;margin-left:16px;
 }
 .faq-icon::before,.faq-icon::after{
 content:'';position:absolute;background:var(--gold);transition:transform 0.3s ease;
@@ -457,15 +457,21 @@ content:'';position:absolute;background:var(--gold);transition:transform 0.3s ea
 .faq-icon::after{width:100%;height:2px;top:50%;transform:translateY(-50%);}
 .faq-item.active .faq-icon::before{transform:translateX(-50%) rotate(90deg);}
 .faq-answer{
-max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;
+display:none;
+padding-bottom:24px;
+}
+.faq-item.active .faq-answer{
+display:block;
 }
 .faq-answer-content{
-padding-bottom:28px;font-size:16px;color:var(--text-secondary);
+font-size:15px;color:var(--text-secondary);
 line-height:1.9;
 }
 .faq-answer-content strong{color:var(--gold);font-weight:600;}
 .faq-answer-content p{margin-bottom:16px;}
 .faq-answer-content p:last-child{margin-bottom:0;}
+.faq-answer-content ul{margin-left:20px;margin-bottom:16px;}
+.faq-answer-content li{margin-bottom:12px;}
 
 /* SOCIALS */
 .socials-grid{
@@ -533,10 +539,10 @@ border-bottom:1px solid var(--border);font-size:14px;
 .nav-links a::after{display:none;}
 .token-grid{grid-template-columns:1fr;gap:48px;}
 .protocol-features{grid-template-columns:1fr;}
-.nft-card{width:280px;padding:28px;}
+.nft-card{width:240px;padding:20px;}
 .hero-note{padding:24px;}
-.faq-question{font-size:16px;padding:24px 0;}
-.faq-answer-content{padding-bottom:24px;font-size:15px;}
+.faq-question{font-size:16px;padding:20px 0;}
+.faq-answer-content{font-size:14px;}
 }
 </style>
 </head>
@@ -686,12 +692,12 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="nft-price">0.105 BNB</div>
 <div class="nft-stats">
 <div class="nft-stat">
-<span class="nft-stat-label">Annual Yield</span>
-<span class="nft-stat-value">982,352,941 FAMR</span>
+<span class="nft-stat-label">Annual</span>
+<span class="nft-stat-value">982.35M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">2,691,382 FAMR</span>
+<span class="nft-stat-value">2.69M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Hourly</span>
@@ -704,7 +710,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">1,000,000,000 FAMR 🔥</div>
+<div class="nft-burn-value">1B FAMR 🔥</div>
 </div>
 </div>
 
@@ -715,12 +721,12 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="nft-price">0.085 BNB</div>
 <div class="nft-stats">
 <div class="nft-stat">
-<span class="nft-stat-label">Annual Yield</span>
-<span class="nft-stat-value">818,823,529 FAMR</span>
+<span class="nft-stat-label">Annual</span>
+<span class="nft-stat-value">818.82M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">2,243,353 FAMR</span>
+<span class="nft-stat-value">2.24M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Hourly</span>
@@ -733,7 +739,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">800,000,000 FAMR 🔥</div>
+<div class="nft-burn-value">800M FAMR 🔥</div>
 </div>
 </div>
 
@@ -744,12 +750,12 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="nft-price">0.065 BNB</div>
 <div class="nft-stats">
 <div class="nft-stat">
-<span class="nft-stat-label">Annual Yield</span>
-<span class="nft-stat-value">696,000,000 FAMR</span>
+<span class="nft-stat-label">Annual</span>
+<span class="nft-stat-value">696M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1,907,671 FAMR</span>
+<span class="nft-stat-value">1.91M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Hourly</span>
@@ -762,7 +768,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">600,000,000 FAMR 🔥</div>
+<div class="nft-burn-value">600M FAMR 🔥</div>
 </div>
 </div>
 
@@ -773,12 +779,12 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="nft-price">0.045 BNB</div>
 <div class="nft-stats">
 <div class="nft-stat">
-<span class="nft-stat-label">Annual Yield</span>
-<span class="nft-stat-value">613,750,000 FAMR</span>
+<span class="nft-stat-label">Annual</span>
+<span class="nft-stat-value">613.75M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1,681,507 FAMR</span>
+<span class="nft-stat-value">1.68M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Hourly</span>
@@ -791,7 +797,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">400,000,000 FAMR 🔥</div>
+<div class="nft-burn-value">400M FAMR 🔥</div>
 </div>
 </div>
 
@@ -802,12 +808,12 @@ border-bottom:1px solid var(--border);font-size:14px;
 <div class="nft-price">0.025 BNB</div>
 <div class="nft-stats">
 <div class="nft-stat">
-<span class="nft-stat-label">Annual Yield</span>
-<span class="nft-stat-value">573,428,571 FAMR</span>
+<span class="nft-stat-label">Annual</span>
+<span class="nft-stat-value">573.43M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1,571,037 FAMR</span>
+<span class="nft-stat-value">1.57M FAMR</span>
 </div>
 <div class="nft-stat">
 <span class="nft-stat-label">Hourly</span>
@@ -820,7 +826,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">200,000,000 FAMR 🔥</div>
+<div class="nft-burn-value">200M FAMR 🔥</div>
 </div>
 </div>
 </div>
@@ -878,8 +884,14 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>FAMR RWA (Real World Asset) is a structured tokenization protocol built on the BNB Smart Chain. It combines <strong>ERC1155 NFTs</strong> with deflationary tokenomics to create a sustainable yield generation ecosystem.</p>
-<p>The protocol works through a unique mining mechanism where only <strong>NFT stakers</strong> have the authority to mint or increase FAMR circulation. By staking tiered NFTs, participants earn hourly rewards based on their NFT's APY percentage, creating a controlled emission schedule over 5 years.</p>
+<p>Farm RWA tokens digitizes Farm Livestocks produce using surreal NFTs motion arts on <strong>BNB Smart Chain</strong>. An Onchain FAMR_NFT stake or burn attracts FAMR rewards.</p>
+<p>Here's how it works simply:</p>
+<ul>
+<li>Investors mint limited ERC1155 NFTs as low as <strong>0.025 BNB</strong>. These funds support protocol liquidity.</li>
+<li>These NFTs can earn FAMR into owners wallet when staked.</li>
+<li>FAMR-NFTs can also be burnt to earn $FAMR.</li>
+</ul>
+<p>In future development, protocol shall combine <strong>real farming + token utility + scarcity model.</strong></p>
 </div>
 </div>
 </div>
@@ -891,11 +903,15 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>To begin earning, follow these steps:</p>
-<p>1. <strong>Mint an NFT</strong>: Visit our dApp and select from 5 tiers (AAA to EEE), each with different APY rates (120% to 70%) and price points (0.105 to 0.025 BNB).</p>
-<p>2. <strong>Stake your NFT</strong>: Once minted, stake your NFT in the protocol to activate mining authority and begin earning hourly FAMR rewards.</p>
-<p>3. <strong>Claim rewards</strong>: Accumulated rewards can be claimed periodically based on your tier's APY rate.</p>
-<p>The higher your tier, the greater your yield. For example, AAAFAMR generates 112,141 FAMR per hour, while EEEFAMR generates 65,460 FAMR per hour.</p>
+<p><strong>Simple steps:</strong></p>
+<ul>
+<li>Connect your wallet (Trust Wallet / MetaMask on BNB Chain)</li>
+<li>Mint a FAMR NFT (limited supply)</li>
+<li>Stake your NFT on dApp</li>
+<li>Receive farming-based reward distributions</li>
+<li>Optionally burn FAMR NFT for burn rewards</li>
+</ul>
+<p>NFT holders are positioned for: <strong>Farming profit rewards, Ecosystem incentives, Long-term value growth.</strong></p>
 </div>
 </div>
 </div>
@@ -907,13 +923,8 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>Each NFT tier has an associated <strong>burn reward</strong> from a dedicated 5.2T FAMR pool. If you choose to permanently destroy your NFT, you receive an instant lump sum payment:</p>
-<p>• AAAFAMR: 1,000,000,000 FAMR<br>
-• BBBFAMR: 800,000,000 FAMR<br>
-• CCCFAMR: 600,000,000 FAMR<br>
-• DDDFAMR: 400,000,000 FAMR<br>
-• EEEFAMR: 200,000,000 FAMR</p>
-<p>This creates a strategic choice: continue staking for ongoing yields, or burn for immediate liquidity. The burn mechanism also ensures deflationary pressure on the NFT supply, potentially increasing scarcity value for remaining holders.</p>
+<p>The burn mechanism permanently removes FAMR NFTs from circulation.</p>
+<p>When NFTs are burned, <strong>Staking frequency is reduced and scarcity increases.</strong></p>
 </div>
 </div>
 </div>
@@ -925,11 +936,7 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>After the first <strong>200 NFTs are minted and circulated</strong>, the protocol will initiate a governance poll to determine the fate of <strong>840 Trillion FAMR</strong> (84% of total supply).</p>
-<p>This massive allocation will either be:</p>
-<p>• <strong>Permanently burned</strong> - removed from circulation forever, creating extreme scarcity<br>
-• <strong>5-year locked</strong> - time-locked in a smart contract with gradual release</p>
-<p>This mechanism ensures long-term sustainability, prevents inflation, and aligns with community governance decisions. The 200 NFT threshold ensures sufficient decentralization before this critical decision.</p>
+<p>Out of the 1 Quadrillion max supply; <strong>840 Trillion FAMR is permanently burned or locked.</strong> This creates strong scarcity from early stage and prevents future dilution.</p>
 </div>
 </div>
 </div>
@@ -941,9 +948,9 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>FAMR RWA operates through a partnership with <strong>Emptycoin Product dApp</strong>, which handles the technical infrastructure and smart contract deployment. The protocol utilizes <strong>ERC1155 standard</strong> for NFTs, a battle-tested standard used by major platforms.</p>
-<p>The contract address is publicly verified on BNB Smart Chain: <strong>0x9447cB61029b0a7E1CF20f38a477f8dDe1F734f7</strong>. All transactions, staking operations, and reward distributions are fully transparent and on-chain.</p>
-<p>As with any DeFi protocol, users should conduct their own research and only invest what they can afford to lose. Never share your private keys or seed phrases.</p>
+<p>The contract is deployed on <strong>BNB Smart Chain</strong> and follows <strong>BEP20 & BEP1155 standards.</strong></p>
+<p>Transparency is maintained as on-chain verification has been implemented. Burn/lock allocations are publicly trackable.</p>
+<p><strong>Third-party audit is progressively being implemented.</strong></p>
 </div>
 </div>
 </div>
@@ -955,11 +962,15 @@ border-bottom:1px solid var(--border);font-size:14px;
 </button>
 <div class="faq-answer">
 <div class="faq-answer-content">
-<p>The <strong>34.8 Trillion FAMR</strong> staking pool is distributed over exactly 5 years (1,825 days) through a tiered emission schedule:</p>
-<p>• <strong>Pool Cycle</strong>: 5 years with linear decay mechanics<br>
-• <strong>Distribution</strong>: Hourly rewards based on staked NFT tier<br>
-• <strong>Total Supply Cap</strong>: No additional minting beyond the 34.8T allocation</p>
-<p>Early participants benefit from higher emission rates, while the deflationary design ensures that as more users join, individual yields adjust to maintain sustainability. The 40T FAMR currently reserved represents the unclaimed portion of this pool.</p>
+<p>The staking pool is designed to:</p>
+<ul>
+<li>Run for 5 years</li>
+<li>Release rewards gradually (not all at once) based on community on-chain staking</li>
+<li>Prevent sudden inflation</li>
+<li>Encourage long-term holding</li>
+<li>Reward committed participants</li>
+</ul>
+<p>Rewards are distributed in phases to ensure ecosystem stability and sustainability.</p>
 </div>
 </div>
 </div>
@@ -1027,17 +1038,20 @@ const nav=document.getElementById("navLinks");
 nav.classList.toggle("active");
 }
 
-// FAQ Toggle
+// FAQ Toggle - Fixed Version
 function toggleFaq(button){
 const item=button.parentElement;
+const answer=item.querySelector('.faq-answer');
 const isActive=item.classList.contains('active');
 // Close all items
 document.querySelectorAll('.faq-item').forEach(faq=>{
 faq.classList.remove('active');
+faq.querySelector('.faq-answer').style.display='none';
 });
 // Open clicked item if it wasn't active
 if(!isActive){
 item.classList.add('active');
+answer.style.display='block';
 }
 }
 
