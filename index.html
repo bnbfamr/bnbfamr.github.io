@@ -312,11 +312,32 @@ color:var(--gold);font-weight:600;
 /* NFT CARDS - COMPACT VERSION */
 .nft-section{text-align:center;}
 .nft-carousel{
-display:flex;gap:16px;overflow-x:auto;
-scroll-behavior:smooth;scrollbar-width:none;
-padding:20px 0;margin:0 -5%;padding-left:5%;padding-right:5%;
+display:flex;
+gap:16px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:20px 0;
+margin:0 -5%;
+padding-left:5%;
+padding-right:5%;
 }
-.nft-carousel::-webkit-scrollbar{display:none;}
+
+/* Visible Horizontal Scrollbar */
+.nft-carousel::-webkit-scrollbar{
+height:8px;
+}
+.nft-carousel::-webkit-scrollbar-track{
+background:var(--surface);
+border-radius:10px;
+}
+.nft-carousel::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:10px;
+}
+.nft-carousel{
+scrollbar-width:thin;
+scrollbar-color:var(--gold) var(--surface);
+}
 .nft-card{
 flex-shrink:0;width:260px;background:var(--surface);
 border:1px solid var(--border);border-radius:16px;
@@ -685,115 +706,35 @@ border-bottom:1px solid var(--border);font-size:14px;
 <p class="section-subtitle">Each NFT tier generates distinct rarity-based APY per hour. StakePool Supply: 34.8T FAMR | BurnReward Supply: 5.2T FAMR | Pool Cycle: 5 Years</p>
 
 <div class="nft-carousel">
+<!-- TIER 1 -->
 <div class="nft-card">
-<div class="nft-tier">Tier 1 • 120% APY</div>
-<h3 class="nft-name">The Sovereign Hen</h3>
-<p class="nft-type">AAAFAMR</p>
-<div class="nft-price">0.105 BNB</div>
+<div class="nft-tier">Tier 1 • 70% APY</div>
+<h3 class="nft-name">Field Chick</h3>
+<p class="nft-type">EEEFAMR</p>
+<div class="nft-price">0.025 BNB</div>
 <div class="nft-stats">
-<div class="nft-stat">
-<span class="nft-stat-label">Annual</span>
-<span class="nft-stat-value">982.35M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">2.69M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Hourly</span>
-<span class="nft-stat-value">112,141 FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Supply</span>
-<span class="nft-stat-value">1,200 NFTs</span>
-</div>
+<div class="nft-stat"><span class="nft-stat-label">Annual</span><span class="nft-stat-value">573.43M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Daily</span><span class="nft-stat-value">1.57M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Hourly</span><span class="nft-stat-value">65,460 FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Supply</span><span class="nft-stat-value">2,800 NFTs</span></div>
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">1B FAMR 🔥</div>
+<div class="nft-burn-value">200M FAMR 🔥</div>
 </div>
 </div>
 
+<!-- TIER 2 -->
 <div class="nft-card">
-<div class="nft-tier">Tier 2 • 100% APY</div>
-<h3 class="nft-name">Imperial Broiler</h3>
-<p class="nft-type">BBBFAMR</p>
-<div class="nft-price">0.085 BNB</div>
-<div class="nft-stats">
-<div class="nft-stat">
-<span class="nft-stat-label">Annual</span>
-<span class="nft-stat-value">818.82M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">2.24M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Hourly</span>
-<span class="nft-stat-value">93,473 FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Supply</span>
-<span class="nft-stat-value">1,600 NFTs</span>
-</div>
-</div>
-<div class="nft-burn">
-<div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">800M FAMR 🔥</div>
-</div>
-</div>
-
-<div class="nft-card">
-<div class="nft-tier">Tier 3 • 85% APY</div>
-<h3 class="nft-name">Imperial Broiler</h3>
-<p class="nft-type">CCCFAMR</p>
-<div class="nft-price">0.065 BNB</div>
-<div class="nft-stats">
-<div class="nft-stat">
-<span class="nft-stat-label">Annual</span>
-<span class="nft-stat-value">696M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1.91M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Hourly</span>
-<span class="nft-stat-value">79,486 FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Supply</span>
-<span class="nft-stat-value">2,000 NFTs</span>
-</div>
-</div>
-<div class="nft-burn">
-<div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">600M FAMR 🔥</div>
-</div>
-</div>
-
-<div class="nft-card">
-<div class="nft-tier">Tier 4 • 75% APY</div>
+<div class="nft-tier">Tier 2 • 75% APY</div>
 <h3 class="nft-name">Prime Layer</h3>
 <p class="nft-type">DDDFAMR</p>
 <div class="nft-price">0.045 BNB</div>
 <div class="nft-stats">
-<div class="nft-stat">
-<span class="nft-stat-label">Annual</span>
-<span class="nft-stat-value">613.75M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1.68M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Hourly</span>
-<span class="nft-stat-value">70,063 FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Supply</span>
-<span class="nft-stat-value">2,400 NFTs</span>
-</div>
+<div class="nft-stat"><span class="nft-stat-label">Annual</span><span class="nft-stat-value">613.75M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Daily</span><span class="nft-stat-value">1.68M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Hourly</span><span class="nft-stat-value">70,063 FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Supply</span><span class="nft-stat-value">2,400 NFTs</span></div>
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
@@ -801,36 +742,61 @@ border-bottom:1px solid var(--border);font-size:14px;
 </div>
 </div>
 
+<!-- TIER 3 -->
 <div class="nft-card">
-<div class="nft-tier">Tier 5 • 70% APY</div>
-<h3 class="nft-name">Field Chick</h3>
-<p class="nft-type">EEEFAMR</p>
-<div class="nft-price">0.025 BNB</div>
+<div class="nft-tier">Tier 3 • 85% APY</div>
+<h3 class="nft-name">Imperial Broiler</h3>
+<p class="nft-type">CCCFAMR</p>
+<div class="nft-price">0.065 BNB</div>
 <div class="nft-stats">
-<div class="nft-stat">
-<span class="nft-stat-label">Annual</span>
-<span class="nft-stat-value">573.43M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Daily</span>
-<span class="nft-stat-value">1.57M FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Hourly</span>
-<span class="nft-stat-value">65,460 FAMR</span>
-</div>
-<div class="nft-stat">
-<span class="nft-stat-label">Supply</span>
-<span class="nft-stat-value">2,800 NFTs</span>
-</div>
+<div class="nft-stat"><span class="nft-stat-label">Annual</span><span class="nft-stat-value">696M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Daily</span><span class="nft-stat-value">1.91M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Hourly</span><span class="nft-stat-value">79,486 FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Supply</span><span class="nft-stat-value">2,000 NFTs</span></div>
 </div>
 <div class="nft-burn">
 <div class="nft-burn-label">Burn Reward</div>
-<div class="nft-burn-value">200M FAMR 🔥</div>
-</div>
+<div class="nft-burn-value">600M FAMR 🔥</div>
 </div>
 </div>
 
+<!-- TIER 4 -->
+<div class="nft-card">
+<div class="nft-tier">Tier 4 • 100% APY</div>
+<h3 class="nft-name">Imperial Broiler</h3>
+<p class="nft-type">BBBFAMR</p>
+<div class="nft-price">0.085 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat"><span class="nft-stat-label">Annual</span><span class="nft-stat-value">818.82M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Daily</span><span class="nft-stat-value">2.24M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Hourly</span><span class="nft-stat-value">93,473 FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Supply</span><span class="nft-stat-value">1,600 NFTs</span></div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">800M FAMR 🔥</div>
+</div>
+</div>
+
+<!-- TIER 5 -->
+<div class="nft-card">
+<div class="nft-tier">Tier 5 • 120% APY</div>
+<h3 class="nft-name">The Sovereign Hen</h3>
+<p class="nft-type">AAAFAMR</p>
+<div class="nft-price">0.105 BNB</div>
+<div class="nft-stats">
+<div class="nft-stat"><span class="nft-stat-label">Annual</span><span class="nft-stat-value">982.35M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Daily</span><span class="nft-stat-value">2.69M FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Hourly</span><span class="nft-stat-value">112,141 FAMR</span></div>
+<div class="nft-stat"><span class="nft-stat-label">Supply</span><span class="nft-stat-value">1,200 NFTs</span></div>
+</div>
+<div class="nft-burn">
+<div class="nft-burn-label">Burn Reward</div>
+<div class="nft-burn-value">1B FAMR 🔥</div>
+</div>
+</div>
+</div>
+  
 <div class="action-buttons">
 <a href="https://mint.mpty.site" target="_blank" class="btn btn-primary">Mint on dApp</a>
 <a href="#" target="_blank" class="btn btn-secondary">OpenSea Marketplace</a>
