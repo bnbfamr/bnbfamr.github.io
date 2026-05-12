@@ -71,15 +71,15 @@ The ecosystem integrates:
 | Staking Rewards (5 Years)  | 34.8T        | Controlled emissions |
 | NFT Burn Reservation       | 5.2T         | Guaranteed redemption |
 | Marketing & Ecosystem      | 15T          | Growth & development |
-| Permanent Burn / Lock      | 840T         | Supply control |
+| Future Development (locked)| 840T         | Supply control |
 
 ---
 
 ## Hard Scarcity Mechanism  
 
-- **840 Trillion FAMR** is permanently burned or time-locked  
+- **840 Trillion FAMR** is permanently currently time-locked for future use and/or to be burnt. 
 - Activation after:
-  - 200 NFT mints  
+  - 500 NFT mints  
   - Governance confirmation  
 
 This enforces long-term supply discipline.
@@ -107,17 +107,17 @@ Each NFT carries a guaranteed burn redemption value.
 
 ### Burn Allocation by Tier  
 
-| Tier     | Supply | Burn per NFT | Total Burn |
-|----------|--------|-------------|------------|
-| AAAFAMR  | 1,200  | 1,000,000,000 | 1.2T |
-| BBBFAMR  | 1,600  | 800,000,000   | 1.28T |
-| CCCFAMR  | 2,000  | 600,000,000   | 1.2T |
+| Tier     | Supply | Burn per NFT  | Total Burn |
+|----------|--------|---------------|------------|
+| AAAFAMR  | 1,200  | 1,300,000,000 | 1.56T |
+| BBBFAMR  | 1,600  | 1,000,000,000 | 1.6T |
+| CCCFAMR  | 2,000  | 700,000,000   | 1.4T |
 | DDDFAMR  | 2,400  | 400,000,000   | 0.96T |
 | EEEFAMR  | 2,800  | 200,000,000   | 0.56T |
 
 ### Total Burn Reservation  
 
-**5.2 Trillion FAMR (~13%)**
+**6.08 Trillion FAMR (~13%)**
 
 Burn events:
 - Permanently remove NFTs  
@@ -144,8 +144,8 @@ Burn Reservation: **5.2T**
 
 | Tier     | APY  | Supply |
 |----------|------|--------|
-| AAAFAMR  | 120% | 1,200 |
-| BBBFAMR  | 100% | 1,600 |
+| AAAFAMR  | 110% | 1,200 |
+| BBBFAMR  | 95%  | 1,600 |
 | CCCFAMR  | 85%  | 2,000 |
 | DDDFAMR  | 75%  | 2,400 |
 | EEEFAMR  | 70%  | 2,800 |
@@ -174,27 +174,32 @@ Total Annual Emission: **6.96T FAMR**
 ### AAAFAMR (120%)
 - Annual: 982,352,941  
 - Daily: 2,691,382  
-- Hourly: 112,141  
+- Hourly: 112,141
+- Burn: 1,300,000,000
 
 ### BBBFAMR (100%)
 - Annual: 818,823,529  
 - Daily: 2,243,353  
-- Hourly: 93,473  
+- Hourly: 93,473
+- Burn: 1,000,000,000 
 
 ### CCCFAMR (85%)
 - Annual: 696,000,000  
 - Daily: 1,907,671  
-- Hourly: 79,486  
+- Hourly: 79,486
+- Burn: 700,000,000  
 
 ### DDDFAMR (75%)
 - Annual: 613,750,000  
 - Daily: 1,681,507  
 - Hourly: 70,063  
+- Burn: 400,000,000
 
 ### EEEFAMR (70%)
 - Annual: 573,428,571  
 - Daily: 1,571,037  
 - Hourly: 65,460  
+- Burn: 200,000,000
 
 ---
 
@@ -212,7 +217,7 @@ Total Annual Emission: **6.96T FAMR**
 ## 9. Inflation vs Deflation  
 
 - 34.8T emitted over 5 years  
-- 5.2T reserved for burn redemption  
+- 6.08T reserved for burn redemption  
 - Burn reduces NFT supply  
 - Emissions remain capped  
 
