@@ -1,4 +1,4 @@
-### [Official Website](https://famrchain.github.io/) | [Official TG](https://t.me/famrchain) | [Official Twitter](https://x.com/ufaithbnb)
+### [Official Website](https://bnbfamr.github.io/) | [Official TG](https://t.me/famrchain) | [Official Twitter](https://x.com/ufaithbnb)
 
 # FAMRCHAIN — Investor Whitepaper  
 ## Real-World Asset NFT Staking Protocol
