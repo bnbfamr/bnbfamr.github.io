@@ -69,8 +69,8 @@ The ecosystem integrates:
 |----------------------------|--------------|------|
 | Liquidity                  | 100T         | Initial & strategic LP |
 | Staking Rewards (5 Years)  | 34.8T        | Controlled emissions |
-| NFT Burn Reservation       | 5.2T         | Guaranteed redemption |
-| Marketing & Ecosystem      | 15T          | Growth & development |
+| NFT Burn Reservation       | 6.08T        | Guaranteed redemption |
+| Marketing & Ecosystem      | 19.12T       | Growth & development |
 | Future Development (locked)| 840T         | Supply control |
 
 ---
