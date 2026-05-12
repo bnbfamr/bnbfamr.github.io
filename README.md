@@ -14,7 +14,7 @@ FamrChain is a structured NFT-powered staking protocol designed to integrate:
 - Fixed 5-year emission schedule  
 - Burn-integrated supply control  
 
-The protocol distributes staking rewards from a **finite allocation of 40 Trillion $FAMR**, ensuring predictable emissions, controlled inflation, and long-term sustainability.
+The protocol distributes staking rewards from a **finite allocation of 40.88 Trillion $FAMR**, ensuring predictable emissions, controlled inflation, and long-term sustainability.
 
 ---
 
